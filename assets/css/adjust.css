@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+.staff-list dl.name dt {
+	font-size: 1.6rem;
+}
+
+.page-list {
+	transform: translate(-50%, 120%);
+}
+
+.page-id-890 .svc-worries .content::after {
+	border-color: #ffffff transparent transparent transparent
+}
+.page-id-890 ul.check-list::after {
+	 content: "";
+}
+
+.page-id-890 .svc-contact .headline {
+	font-size: 3rem;
+	line-height: 1.4;
+}
+
+.ikk-manaul-pp-form {
+	 width: 100%;
+	 margin: 4rem auto -1rem auto;
+}
+.ikk-manaul-pp-form a.underline {
+	text-decoration: underline;
+}
+
+.svc-flow-v2 .ttl01 {
+	font-weight: 300;
+	font-size: 2.6rem;
+	line-height: 1.5;
+}
+
+.svc-worries .check-list {
+    padding-left: 0px;
+}
+
+.svc-worries .check-list2 {
+    padding-left: 150px;
+}
+
+.en-link {
+	position: absolute;
+	top: 1.2rem;
+	right: 3.0rem;
+	text-decoration: underline;
+	display: block;
+}
+
+.lastnum-tel {
+	all: unset;
+	font-family: Righteous;
+}
+
+.ikk_tenjikai-wrap {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+}
+.ikk_tenjikai-slider {
+  width: 100%;
+  height: 18.1rem;
+  background: url(../../images/service/exhibition_support/tenjikai.png) repeat-x;
+  -webkit-animation: bgroop01 40s linear infinite;
+  animation: ikk_tenjikai_slider 40s linear infinite;
+  background-position: 0 0;
+}
+@-webkit-keyframes ikk_tenjikai_slider {
+  from { background-position: 100vw 0; }
+  to { background-position: -350.1rem 0; }
+}
+@keyframes ikk_tenjikai_slider {
+  from { background-position: 0 0; }
+  to { background-position: -350.1rem 0; }
+}
+
+.work-list .work-exhib-name {
+	padding: 1rem 1em;
+	line-height: 1.4;
+}
+.work-exhib-name .cat_exhib {
+	text-align: center;
+}
+.exhib-infos {
+	display: flex;
+	flex-direction: row;
+}
+ .exhib-infos .exhib-visual {
+ 	width: 47.5%;
+ 	margin-right: 5%;
+ }
+ .exhib-infos .exhib-tbl {
+ 	width: 47.5%;
+ 	margin: 5rem 0;
+ 	display: table-cell;
+ }
+ .exhib-infos .exhib-tbl td {
+ 	padding: 0.5rem 0.5rem;
+ }
+ .exhib-infos .exhib-tbl td:first-child {
+ 	padding-right: 2rem;
+ }
+.exhib-visual-set {
+	padding: 3rem 0px 5rem 0px;
+}
+ 
+@media (max-width: 833px) {
+	
+	.page-list {
+    	transform: translate(0%, 0%);
+	}
+	
+	.staff-list dl.name dt {
+		font-size: 1.4rem;
+	}
+	
+	.svc-worries .check-list {
+    	padding-left: 0px;
+	}
+	
+	.en-link {
+		clear: both;
+		position: static;
+		top: 0px;
+		right: 0px;
+		margin: 1.2rem 2.8rem 0px 0px;
+		float: right;
+		display: block;
+	}
+	
+	.work-list.work-exhib-list li {
+	  width: 47.25%;
+	  margin-bottom: 5vw;
+	}
+	.work-list.work-exhib-list li:nth-child(2n + 1) {
+		margin-right: 5%;
+	}
+	.work-list.work-exhib-list .work-name {
+		padding: 1rem 1em;
+		font-size: 1rem;
+	}
+	
+	.exhib-infos {
+		flex-direction: column;
+	}
+	.exhib-infos .exhib-visual {
+	 	width: 100%;
+	 	margin-right: 0;
+	 }
+	 .exhib-infos .exhib-tbl {
+	 	width: 100%;
+	 	margin: 0 0 4rem 0;
+	 	font-size: 1.4rem;
+	 }
+
+}

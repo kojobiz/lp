@@ -1,0 +1,381 @@
+@use "../global" as *;
+
+// ======================================
+// フォーム 設定
+// ======================================
+
+//Chromeの青枠をリセット
+*:focus {
+  outline: none;
+}
+
+input {
+  &::-webkit-input-placeholder {
+    color: var(--placeholder-color, #ccc);
+  }
+  &:-ms-input-placeholder {
+    color: var(--placeholder-color, #ccc);
+  }
+  &::-moz-placeholder {
+    color: var(--placeholder-color, #ccc);
+  }
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  }
+}
+
+textarea {
+  vertical-align: bottom;
+  &::-webkit-input-placeholder {
+    color: var(--placeholder-color, #ccc);
+  }
+  &:-ms-input-placeholder {
+    color: var(--placeholder-color, #ccc);
+  }
+  &::-moz-placeholder {
+    color: var(--placeholder-color, #ccc);
+  }
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  }
+}
+
+
+// ======================================
+// ラジオボタン
+// ======================================
+.radio-wrap {
+  &.horizon {
+    margin-bottom: -2.0rem;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .radio {
+      margin-bottom: 2.0rem;
+      &:not(:last-of-type) {
+        margin-right: 2.0rem;
+      }
+    }
+  }
+  &.vertical {
+    .radio {
+      + .radio {
+        margin-top: 1.2rem;
+      }
+    }
+  }
+}
+
+.radio {
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    + .radio-label {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+      &:before {
+        content: "";
+        width: 1.8rem;
+        height: 1.8rem;
+        margin-right: .5em;
+        position: relative;
+        top: 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 100%;
+        background-color: #fff;
+        vertical-align: top;
+        text-align: center;
+        cursor: pointer;
+        transition: .2s ease-in-out;
+      }
+    }
+    &:checked {
+      + .radio-label {
+        &:before {
+          border-color: var(--primary-color, #000);
+          background-color: var(--primary-color, #000);
+          box-shadow: inset 0 0 0 4px #fff;
+        }
+      }
+    }
+    &:focus {
+      + .radio-label {
+        &:before {
+          outline: none;
+          border-color: var(--primary-color, #000);
+        }
+      }
+    }
+    &:disabled {
+      + .radio-label {
+        &:before {
+          border-color: darken(#f4f4f4, 25%);
+          background: darken(#f4f4f4, 25%);
+          box-shadow: inset 0 0 0 4px #f4f4f4;
+        }
+      }
+    }
+    + .radio-label {
+      &:empty {
+        &:before {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+
+// ======================================
+// チェックボックス
+// ======================================
+.checkbox-wrap {
+  &.horizon {
+    margin-bottom: -2.0rem;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .checkbox {
+      margin-bottom: 2.0rem;
+      &:not(:last-of-type) {
+        margin-right: 2.0rem;
+      }
+    }
+  }
+  &.vertical {
+    .checkbox {
+      + .checkbox {
+        margin-top: 1.2rem;
+      }
+    }
+  }
+}
+
+.checkbox {
+  line-height: 1;
+  input[type="checkbox"] {
+    display: none;
+    &:checked {
+      & + .mwform-checkbox-field-text {
+        &:after {
+          content: "";
+          width: .5em;
+          height: .75em;
+          margin-top: -.5em;
+          position: absolute;
+          top: 50%;
+          left: .35em;
+          display: block;
+          border-right: 3px solid var(--primary-color, #000);
+          border-bottom: 3px solid var(--primary-color, #000);
+          transform: rotate(40deg);
+        }
+      }
+    }
+  }
+}
+
+.mwform-checkbox-field-text {
+  padding-left: 2.5rem;
+  position: relative;
+  &:before {
+    content: "";
+    width: 1.1875em;
+    height: 1.1875em;
+    margin-top: -.05em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border: 1px solid #333;
+    background-color: #fff;
+  }
+}
+
+
+// // ======================================
+// // フォームスタイル
+// // ======================================
+// .form-area {
+//   margin-right: auto;
+//   margin-left: auto;
+// }
+
+// .form-group {
+//   &:not(:last-of-type) {
+//     margin-bottom: 80px;
+//   }
+// }
+
+// 横並びフォーム
+.form-horizon {
+  .form-box {
+    display: flex;
+    align-items: flex-start;
+    > dt {
+      width: 26%;
+      margin-right: 6.0rem;
+      padding-top: 1.5rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex: none;
+    }
+    > dd {
+      width: 100%;
+      position: relative;
+    }
+  }
+}
+
+// // 縦並びフォーム
+// .form-vertical {
+//   .form-box {
+//     dt {
+//       margin-bottom: 10px;
+//     }
+//   }
+// }
+
+.form-box {
+  + .form-box {
+    margin-top: 3.6rem;
+  }
+
+  > dt {
+    margin-bottom: 1rem;
+    // font-weight: 600;
+    line-height: 1;
+  }
+
+  .required, .optional {
+    width: 6.0rem;
+    margin-left: auto;
+    padding: .9em .5em;
+    display: block;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .required {
+    background-color: $red;
+    &::before {
+      content: "必須";
+    }
+  }
+
+  .optional {
+    background-color: #999;
+    &::before {
+      content: "任意";
+    }
+  }
+}
+
+.mw_wp_form {
+  .error {
+    margin-top: .6em;
+    color: $red;
+    font-size: 1.3rem;
+  }
+  .accept-box {
+    .error {
+      margin-top: 1.2em;
+    }
+  }
+}
+
+.form-child {
+  display: flex;
+  align-items: center;
+
+  + .form-child {
+    margin-top: 2.0rem;
+  }
+  dt {
+    width: 20.0rem;
+    flex: none;
+  }
+  dd {
+    width: 100%;
+  }
+}
+
+.form-column {
+  display: flex;
+  .inner {
+    width: 100%;
+    + .inner {
+      margin-left: 1em;
+    }
+  }
+}
+
+.form-control {
+  width: 100%;
+  padding: 1.4em 1.2em;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+textarea {
+  &.form-control {
+    height: 30.0rem;
+    padding: 1.2em;
+    resize: none;
+  }
+}
+
+.accept-box {
+  margin-top: 6.0rem;
+  a {
+    text-decoration: underline;
+  }
+}
+
+.form-submit {
+  --button-width: 20.0rem;
+}
+
+// .form-button-area {
+//   display: flex;
+//   justify-content: center;
+//   .btn {
+//     &:not(:last-child) {
+//       margin-right: 30px;
+//     }
+//   }
+//   .btn-return {
+//     background-color: #CCC;
+//     color: #FFF;
+//   }
+// }
+
+
+// ======================================
+// セレクトボックス
+// ======================================
+.form-select {
+  width: fit-content;
+  padding-right: 3em;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20id%3D%22select_arr%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2011.4%206.2%22%20style%3D%22enable-background%3Anew%200%200%2011.4%206.2%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%20.st0%7Bfill%3Anone%3Bstroke%3A%23BFBFBF%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%3B%7D%3C%2Fstyle%3E%3Cpath%20id%3D%22path01%22%20class%3D%22st0%22%20d%3D%22M10.7%2C0.6l-5%2C5l-5-5%22%2F%3E%3C%2Fsvg%3E");
+  background-position: right 2.0rem center;
+  background-size: 1.6rem;
+  background-repeat: no-repeat;
+
+  appearance: none;
+  &::-ms-expand {
+    display: none;
+  }
+}

@@ -1,0 +1,139 @@
+@use "../global" as *;
+
+// ======================================
+// 下部共通エリア
+// ======================================
+.common-block {
+  display: flex;
+  .content {
+    width: 100%;
+    height: 37.8rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(#000, .4);
+    }
+    + .content {
+      margin-top: 0;
+    }
+  }
+  .contact-area {
+    background-image: url(../../images/common/bg_contact.jpg);
+  }
+  .document-area {
+    background-image: url(../../images/common/bg_document.jpg);
+  }
+  .inner {
+    position: relative;
+    z-index: 2;
+  }
+  .headline-02 {
+    margin-bottom: 2.0rem;
+  }
+  .btn {
+    width: 100%;
+    max-width: 36.8rem;
+    height: 6.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    + .btn {
+      margin-top: 2.5rem;
+    }
+  }
+  .btn01 {
+    background-color: $primaryColor;
+    color: #fff;
+    font-family: $NotoSerif;
+    font-size: 1.8rem;
+    .icon {
+      margin-right: 1.0rem;
+    }
+  }
+  .btn02 {
+    background-color: #fff;
+    text-align: center;
+    dt {
+      padding-left: 3.4rem;
+      display: inline-block;
+      background: url(../../images/common/icon_free_dial.svg) no-repeat left bottom / 3.2rem 1.8rem;
+      color: #d6000f;
+      font-weight: 600;
+      font-size: 2.6rem;
+      line-height: 1;
+    }
+    .label {
+      color: #000;
+      letter-spacing: 0;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+
+// ======================================
+// ページトップ
+// ======================================
+.page-top {
+  width: 5.0rem;
+  height: 5.0rem;
+  position: fixed;
+  right: 2.2rem;
+  bottom: 2.2rem;
+  z-index: 999;
+  display: block;
+  // visibility: hidden;
+  background: url(../../images/common/page_top.svg) no-repeat center / contain;
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+  &.is-active {
+    // visibility: initial;
+    opacity: 1;
+    pointer-events: initial;
+  }
+}
+
+
+// ======================================
+// CVエリア
+// ======================================
+.cv-area01 {
+  padding: 4.0rem;
+  border: 4px solid #eee;
+  .pic {
+    img {
+      width: 100%;
+    }
+  }
+  .headline-02 {
+    font-size: 2.6rem;
+  }
+  p {
+    letter-spacing: 0;
+  }
+}
+
+@include mq(tb, min) {
+  .cv-area01 {
+    display: flex;
+    justify-content: space-between;
+    .pic {
+      width: 46.875%;
+    }
+    .txt {
+      width: 48%;
+    }
+  }
+}

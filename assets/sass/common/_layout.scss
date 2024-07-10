@@ -1,0 +1,209 @@
+@use "../global" as *;
+
+// ======================================
+// レイアウト
+// ======================================
+.breakThrough {
+  &-right {
+    margin-right: calc(50% - 50vw);
+    &.keep-child {
+      padding-right: calc(50vw - 50%);
+    }
+  }
+  &-left {
+    margin-left: calc(50% - 50vw);
+    &.keep-child {
+      padding-left: calc(50vw - 50%);
+    }
+  }
+}
+
+
+// ======================================
+// カラム
+// ======================================
+.l-column {
+  display: flex;
+  flex-wrap: wrap;
+
+  // 2カラム
+  &.col-2 {
+    margin-bottom: calc(var(--col-margin, 3%) * -1);
+    justify-content: space-between;
+    > * {
+      width: var(--col-width, 48.5%);
+      margin-bottom: var(--col-margin, 3%);
+    }
+  }
+
+  // 3カラム
+  &.col-3 {
+    margin-bottom: calc(var(--col-margin, 3.5%) * -1);
+    > * {
+      width: var(--col-width, 31%);
+      margin-right: var(--col-margin, 3.5%);
+      margin-bottom: var(--col-margin, 3.5%);
+      &:last-child, &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  // 4カラム
+  &.col-4 {
+    margin-bottom: calc(var(--col-margin, 3%) * -1);
+    > * {
+      width: var(--col-width, 22.75%);
+      margin-right: var(--col-margin, 3%);
+      margin-bottom: var(--col-margin, 3%);
+      &:last-child, &:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  // タイプ01
+  &.type01 {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    .txt {
+      width: 52%;
+      p {
+        letter-spacing: 0;
+      }
+    }
+    .pic {
+      width: 42.5%;
+      position: relative;
+    }
+    .swiper-pagination {
+      margin-top: .5em;
+      position: relative;
+      bottom: auto;
+    }
+  }
+
+  // 水平方向 配置反転
+  &.x-reverse {
+    flex-direction: row-reverse;
+  }
+
+  // 垂直方向 配置反転
+  &.y-reverse {
+    flex-direction: column-reverse;
+  }
+
+  // 水平方向 センター
+  &.x-center {
+    justify-content: center;
+  }
+
+  // 垂直方向 センター
+  &.y-center {
+    align-items: center;
+  }
+}
+
+// タブレット時
+@include mq(tb) {
+  .l-column {
+    // 1カラム
+    &.col-1-tab {
+      margin-bottom: calc(var(--col-tab-margin, 3%) * -1);
+      > * {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: var(--col-tab-margin, 3%);
+      }
+    }
+    // 2カラム
+    &.col-2-tab {
+      margin-bottom: calc(var(--col-tab-margin, 3%) * -1);
+      justify-content: space-between;
+      > * {
+        width: var(--col-tab-width, 48.5%);
+        margin-right: 0;
+        margin-bottom: var(--col-tab-margin, 3%);
+      }
+    }
+    // タイプ01
+    &.type01 {
+      flex-wrap: wrap;
+      // flex-direction: column-reverse;
+      .txt {
+        width: 100%;
+      }
+      .pic {
+        width: 100%;
+        margin-top: 2.0rem;
+      }
+      .btn {
+        margin-right: auto;
+        margin-left: auto;
+
+        --button-margin: 3.0rem;
+      }
+    }
+  }
+}
+
+// スマホ時
+@include mq(sm) {
+  .l-column {
+    // 1カラム
+    &.col-1-sp {
+      > * {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+    // 2カラム
+    &.col-2-sp {
+      margin-bottom: calc(var(--col-sp-margin, 3%) * -1);
+      justify-content: space-between;
+      > * {
+        width: var(--col-sp-width, 48.5%);
+        margin-right: 0;
+        margin-bottom: var(--col-sp-margin, 3%);
+      }
+    }
+  }
+}
+
+
+// ======================================
+// カード
+// ======================================
+.card {
+  overflow: hidden;
+  .c-image {
+    position: relative;
+    figcaption {
+      position: absolute;
+      right: 1.2em;
+      bottom: 1.0em;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+  }
+  .c-body {
+    padding: 2.0rem;
+    background-color: #fff;
+  }
+  .c-title {
+    margin-bottom: .5em;
+    font-size: 2.4rem;
+  }
+  .c-date {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.4rem;
+    + * {
+      margin-top: .5rem;
+    }
+  }
+  p {
+    text-align: justify;
+    font-size: 1.4rem;
+  }
+}

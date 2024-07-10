@@ -1,0 +1,78 @@
+@use "../global" as *;
+
+// ======================================
+// フッター
+// ======================================
+.site-footer {
+  letter-spacing: 0;
+}
+
+.footer-column {
+  padding-top: 3.6rem;
+  padding-bottom: 3.6rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-title {
+  margin-bottom: 1.2em;
+  font-size: 1.6rem;
+  a {
+    display: inline-block;
+  }
+  .label {
+    margin-top: .75em;
+  }
+}
+
+.footer-info {
+  dt {
+    margin-bottom: .2em;
+    font-weight: 700;
+  }
+  dd {
+    + dt {
+      margin-top: .5em;
+    }
+  }
+}
+
+.footer-navi {
+  display: flex;
+  dl {
+    + dl {
+      margin-left: 8.0rem;
+    }
+  }
+  dt {
+    font-family: $NotoSerif;
+    + dt {
+      margin-top: 1em;
+    }
+  }
+  dd {
+    margin-top: 1.0rem;
+    font-size: 1.4rem;
+    a {
+      color: #333;
+    }
+  }
+  li {
+    &::before {
+      content: "- ";
+    }
+    + li {
+      margin-top: .3em;
+    }
+  }
+}
+
+.copyright {
+  padding: 1em;
+  background-color: #ccc;
+  color: #fff;
+  font-size: 1.4rem;
+  p {
+    line-height: 1;
+  }
+}

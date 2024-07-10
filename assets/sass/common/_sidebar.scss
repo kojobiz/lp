@@ -1,0 +1,33 @@
+@use "../global" as *;
+
+.side-area {
+  .headline-03 {
+    font-size: 2.1rem;
+  }
+}
+
+.widget-area {
+  .widget_block {
+    + .widget_block {
+      margin-top: 6.0rem;
+    }
+  }
+}
+
+.side-innner {
+  + .side-innner {
+    margin-top: 6.0rem;
+  }
+}
+
+.wp-block-categories-list, .side-list {
+  li {
+    + li {
+      margin-top: .8em;
+    }
+  }
+  a {
+    color: $red;
+    font-family: $NotoSerif;
+  }
+}

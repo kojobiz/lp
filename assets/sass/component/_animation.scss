@@ -1,0 +1,221 @@
+@use "../global" as *;
+
+:root {
+  --delay: 0;
+  --duration: 800ms;
+  --iterations: 1;
+}
+
+
+// ======================================
+// アニメーション
+// ======================================
+// .anmContent {
+//   opacity: 0;
+//   &.fadeup {
+//     &.is-animated {
+//       animation: fadeup 1s cubic-bezier(.33, 1, .68, 1) 1 forwards;
+//     }
+//   }
+//   &.fadeupFast {
+//     &.is-animated {
+//       animation: fadeupFast 1s cubic-bezier(.33, 1, .68, 1) 1 forwards;
+//     }
+//   }
+// }
+
+// @keyframes fadeup {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(100px);
+//   }
+//   80% {
+//     opacity: 1;
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// @keyframes fadeupFast {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(30px);
+//   }
+//   80% {
+//     opacity: 1;
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+
+// ======================================
+// テキスト スライド表示
+// ======================================
+.reveal-text,
+.reveal-text::after {
+  animation-duration: var(--duration, 800ms);
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  animation-delay: var(--animation-delay, 2s);
+  animation-iteration-count: var(--iterations, 1);
+  animation-fill-mode: both;
+}
+
+.reveal-text {
+  position: relative;
+
+  // border-bottom: 1px solid #000;
+  color: var(--text-color, #000);
+  white-space: nowrap;
+
+  --animation-duration: var(--duration, 800ms);
+  --animation-delay: var(--delay, 0);
+  --animation-iterations: var(--iterations, 1);
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    pointer-events: none;
+    content: "";
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+  }
+
+  // 実行
+  &.is-animated {
+    animation-name: clip-text;
+
+    &::after {
+      animation-name: text-revealer;
+    }
+  }
+}
+
+@keyframes clip-text {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes text-revealer {
+  0%,
+  50% {
+    transform-origin: 0 50%;
+  }
+
+  60%,
+  100% {
+    transform-origin: 100% 50%;
+  }
+
+  60% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+.anime_wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.anime_wrap p {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.pattern6 {
+  &:hover {
+    &::before {
+      transform: translateX(100%);
+    }
+
+    img {
+      opacity: 1;
+    }
+
+    p {
+      opacity: 1;
+      transform: translateX(0);
+
+      &::before {
+        transform: translateX(100%);
+      }
+    }
+  }
+}
+
+.pattern6::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: #fff;
+  transition: 0.5s;
+}
+
+.pattern6.show::before {
+  transform: translateX(100%);
+}
+
+.pattern6 img {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.pattern6.show img {
+  opacity: 1;
+}
+
+.pattern6 p {
+  z-index: 1;
+  overflow: hidden;
+  color: #fff;
+  opacity: 0;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+  transform: translateX(-40px);
+}
+
+.pattern6.show p {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.pattern6 p::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: #fff;
+  transition: 0.5s;
+  transition-delay: 1s;
+}
+
+.pattern6.show p::before {
+  transform: translateX(100%);
+}

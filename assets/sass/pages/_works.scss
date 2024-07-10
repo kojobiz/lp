@@ -1,0 +1,86 @@
+@use "../global" as *;
+
+// ======================================
+// 下層 - 制作実績
+// ======================================
+.work-header {
+  .headline {
+    padding-bottom: .8rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 2px solid $red;
+  }
+  .ttl {
+    margin-right: 2.0rem;
+    font-family: $NotoSerif;
+    font-weight: 400;
+    font-size: 3.0rem;
+    line-height: 1.5;
+  }
+  .work-name {
+    width: fit-content;
+    padding: .8rem 1.3rem;
+    display: flex;
+    background-color: $red;
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    .cat {
+      &::after {
+        content: "／";
+      }
+    }
+    a {
+      color: #fff;
+    }
+  }
+  .site-url {
+    margin-top: 3.0rem;
+    display: flex;
+    font-family: $NotoSerif;
+    dt {
+      margin-right: 2.0rem;
+    }
+    a {
+      color: $red;
+    }
+  }
+  .comment {
+    margin-top: 1.0em;
+  }
+}
+
+.work-visual {
+  margin: 5.0rem auto;
+  text-align: center;
+}
+
+.work-body {
+  .inner {
+    + .inner {
+      margin-top: 5.0rem;
+    }
+  }
+}
+
+.work-capture {
+  margin-top: 5.0rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  figure {
+    + figure {
+      margin-left: 5%;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .capture_pc {
+    width: 54%;
+  }
+  .capture_sp {
+    width: 18%;
+  }
+}

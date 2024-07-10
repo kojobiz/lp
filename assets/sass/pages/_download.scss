@@ -1,0 +1,129 @@
+@use "../global" as *;
+
+// ======================================
+// 下層 - お役立ち資料
+// ======================================
+.download-list {
+  margin-bottom: -6.0% !important;
+  > * {
+    margin-bottom: 6.0% !important;
+  }
+  .pic {
+    border: 1px solid #ddd;
+  }
+  dl {
+    margin-top: 1.8rem;
+  }
+  dd {
+    letter-spacing: 0;
+  }
+  .btn {
+    max-width: none;
+    font-size: 1.8rem;
+
+    --button-margin: 3.0rem;
+  }
+}
+
+// タブレット以下
+@include mq(tb) {
+  .lh-download {
+    .icon {
+      width: 10.0rem;
+    }
+  }
+
+  .download-list {
+    margin-bottom: -5.0rem !important;
+    > * {
+      margin-bottom: 5.0rem !important;
+    }
+  }
+}
+
+
+// ======================================
+// 下層 - お役立ち資料（詳細）
+// ======================================
+.download-contents {
+  display: flex;
+  justify-content: space-between;
+  .visual-area {
+    width: 64%;
+  }
+  .pic {
+    border: 1px solid #ddd;
+  }
+  .text {
+    margin-top: 4.0rem;
+    font-size: 1.8rem;
+  }
+  .form-area {
+    width: 30%;
+  }
+}
+
+.download-form {
+  dt {
+    display: flex;
+    align-items: center;
+  }
+  .required, .optional {
+    width: 4.0rem;
+    margin-left: 1.0rem;
+    padding: .2em 0;
+    display: block;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .required {
+    background-color: $red;
+    &::before {
+      content: "必須";
+    }
+  }
+
+  .optional {
+    background-color: #999;
+    &::before {
+      content: "任意";
+    }
+  }
+
+  .mag-top {
+    margin-bottom: 1.4em;
+    color: $red;
+    font-family: $NotoSerif;
+    font-size: 1.8rem;
+    line-height: calc(26 / 18);
+  }
+  .accept-box {
+    margin-top: 4.5rem;
+  }
+  .btn-01 {
+    max-width: 100%;
+    background-image: url(../../images/common/icon_document.png);
+    background-size: 2.2rem 2.4rem;
+    font-size: 1.8rem;
+  }
+}
+
+.d-form-box {
+  + .d-form-box {
+    margin-top: 2.8rem;
+  }
+  dt {
+    margin-bottom: .75em;
+    font-weight: 700;
+  }
+}
+
+.d-form-control {
+  width: 100%;
+  padding: 1.8rem 2.0rem;
+  background-color: #f5f5f5;
+}

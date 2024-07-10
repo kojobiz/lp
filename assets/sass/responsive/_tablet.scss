@@ -1,0 +1,471 @@
+@use "../global" as *;
+
+// $baseWindow: 768;
+// @function vw($pixelsVw) {
+//   @return calc($pixelsVw / $baseWindow * 100vw);
+// }
+
+// ======================================
+// タブレット以下
+// ======================================
+@include mq(tb) {
+  html {
+    font-size: calc(1000vw / 375);
+  }
+
+  .section-block {
+    padding-top: 5.0rem;
+    padding-bottom: 5.0rem;
+  }
+
+  .page-width {
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
+  }
+
+  // ヘッダー
+  .site-header {
+    height: 6.0rem;
+    position: absolute;
+    z-index: 999;
+    &.is-fixed {
+      width: 100%;
+      position: fixed;
+      box-shadow: 0 0 1.0rem 0 rgba(0, 0, 0, .15);
+      animation: headerDown .5s forwards;
+    }
+    &.is-open {
+      position: fixed;
+    }
+  }
+
+  @keyframes headerDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .header-title {
+    margin-left: 1.4rem;
+    .logo01 {
+      width: 14.6rem;
+    }
+    .logo02 {
+      width: 6.0rem;
+      margin-left: 1.0rem;
+    }
+  }
+
+  .header-navi {
+    padding-right: 6.8rem;
+    .navi-phone {
+      margin-bottom: 0;
+      a {
+        width: 4.6rem;
+        height: 2.6rem;
+        padding-left: 0;
+        background-size: contain;
+        font-size: 1.0rem;
+        span {
+          display: none;
+        }
+      }
+      .label {
+        display: none;
+      }
+    }
+    .navi-menu {
+      display: none;
+    }
+  }
+
+  #spNavi {
+    width: 100%;
+    height: 100vh;
+    padding: 10.0rem 4.0rem 4.0rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    background-color: $primaryColor;
+    transition: transform .3s;
+    // display: none;
+    transform: translateX(100%);
+    &.is-open {
+      transform: translateX(0);
+    }
+    li {
+      &:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 2.1875em;
+      }
+    }
+    a {
+      color: #fff;
+    }
+  }
+
+  // フッター
+  .footer-column {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+
+  .footer-title {
+    img {
+      width: 21.6rem;
+    }
+  }
+
+  .footer-navi {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    dl {
+      max-width: 20.4rem;
+      margin-bottom: 3.0rem;
+      padding-right: 2.0rem;
+      + dl {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .copyright {
+    padding-bottom: 6.2rem;
+  }
+
+  // 見出し・タイトル
+  .headline {
+    &-01 {
+      margin-bottom: 4.0rem;
+      &.has-icon {
+        margin-left: 0;
+        text-align: left;
+      }
+    }
+    &-02 {
+      letter-spacing: 0;
+    }
+    &-03 {
+      font-size: 2.2rem;
+    }
+    &-04 {
+      font-size: 2.0rem;
+    }
+  }
+
+  // ボタン関連
+  .btn {
+    &-01 {
+      margin-top: var(--button-margin, 3.0rem);
+    }
+
+    &-download {
+      font-size: 1.6rem;
+    }
+  }
+
+  // ページトップ
+  .page-top {
+    right: 1.1rem;
+    bottom: 1.1rem;
+  }
+
+  // CVエリア
+  .cv-area01 {
+    padding: 2.0rem;
+    border-width: 2px;
+    .pic {
+      margin-bottom: 2.0rem;
+    }
+    .headline-02 {
+      font-size: 2.2rem;
+    }
+  }
+
+  // ヒーロービジュアル
+  #hero-visual {
+    margin-top: 6.0rem;
+  }
+
+  // サービス
+  .h-service {
+    .icon {
+      width: 14.8rem;
+      bottom: -1.2rem;
+      left: calc(100% + 2.2rem);
+    }
+  }
+
+  .service-list {
+    --col-tab-margin: 2.8rem;
+    .pic {
+      margin-bottom: 1.2rem;
+      // img {
+      //   width: 100%;
+      // }
+    }
+    dt {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0;
+      font-size: 2.2rem;
+    }
+    // dd {
+    //   text-align: left;
+    // }
+  }
+
+  .home {
+    .service-list {
+      --col-tab-margin: 2.0rem;
+      .pic {
+        margin-bottom: .5rem;
+        img {
+          transform: scale(.76);
+        }
+      }
+      dt {
+        font-size: 2.0rem;
+      }
+      dd {
+        text-align: left;
+      }
+    }
+  }
+
+  // 選ばれる理由
+  .h-strength {
+    .icon {
+      width: 17.5rem;
+      right: auto;
+      bottom: -1.0rem;
+      left: calc(100% - 2.0rem);
+    }
+  }
+
+  .strength-column {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    .txt {
+      width: 100%;
+    }
+    .pic {
+      width: 100%;
+      margin-bottom: 2.0rem;
+    }
+    .btn {
+      margin-right: auto;
+      margin-left: auto;
+
+      --button-margin: 3.0rem;
+    }
+  }
+
+  // 制作実績
+  .h-work {
+    .icon {
+      width: 18.4rem;
+      bottom: -1.0rem;
+      left: calc(100% + 1.6rem);
+    }
+  }
+
+  .work-slider {
+    margin-right: -2rem !important;
+    margin-left: -2rem !important;
+    + .btn {
+      margin-top: 4.0rem;
+    }
+
+    &.no-slide {
+      .swiper-button-next, .swiper-button-prev {
+        display: none;
+      }
+    }
+  }
+
+  .work-list {
+    flex-wrap: nowrap;
+    li {
+      width: 100%;
+    }
+    .work-name {
+      font-size: 1.5rem;
+    }
+  }
+
+  // 主な取引先
+  .loop-slider {
+    margin-top: 0;
+  }
+
+  // ブログ
+  .h-blog {
+    .icon {
+      width: 8.8rem;
+      right: auto;
+      bottom: -2.6rem;
+      left: calc(100% + 9.8rem);
+    }
+  }
+
+  .section-blog {
+    .content {
+      padding-right: 4.0rem;
+      padding-left: 4.0rem;
+    }
+  }
+
+  .blog-slider {
+    .swiper-button-next, .swiper-button-prev {
+      top: 7.9rem;
+    }
+    .swiper-button-prev {
+      left: -5.0rem;
+    }
+    .swiper-button-next {
+      right: -5.0rem;
+    }
+
+    &.no-slide {
+      .blog-card {
+        width: 100%;
+      }
+    }
+  }
+
+  .blog-card {
+    .date {
+      font-size: 1.4rem;
+    }
+    .cat, .category {
+      font-size: 1.2rem;
+    }
+    .title {
+      font-size: 1.8rem;
+    }
+  }
+
+  // 会社案内
+  .section-company {
+    background-image: url(../../images/home/bg_company_sp.jpg);
+    .banner {
+      margin-top: 3.0rem;
+    }
+  }
+
+  .company-navi {
+    margin-bottom: -5%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    li {
+      width: 47.5%;
+      margin-bottom: 5%;
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+    .btn {
+      background-position: 1.2rem center;
+      letter-spacing: 0;
+    }
+  }
+
+  // お知らせ
+  .news-column {
+    display: block;
+    .headline-01 {
+      margin-right: 0;
+      text-align: center;
+    }
+  }
+
+  .news-list {
+    li {
+      padding: 1.8rem 0;
+      display: block;
+    }
+    .date {
+      width: 100%;
+    }
+    a {
+      -webkit-line-clamp: 2;
+    }
+  }
+
+  // 下部共通エリア
+  .common-block {
+    display: block;
+    .content {
+      height: auto;
+      padding: 6.0rem 2.0rem;
+    }
+    .headline-02 {
+      font-size: 2.0rem;
+    }
+    .contact-area {
+      background-image: url(../../images/common/bg_contact_sp.jpg);
+      .btn01 {
+        .icon {
+          width: 2.6rem;
+        }
+      }
+    }
+    .document-area {
+      background-image: url(../../images/common/bg_document_sp.jpg);
+      .btn01 {
+        .icon {
+          width: 2.2rem;
+        }
+      }
+    }
+  }
+
+  // // 下層
+  // .lower {
+  //   .site-container {
+  //     margin-top: 6.0rem;
+  //   }
+  // }
+
+  // .lower-headline {
+  //   padding: 0 2.0rem;
+  //   .inner {
+  //     height: 13.8rem;
+  //     justify-content: flex-start;
+  //   }
+  //   .headline-01 {
+  //     text-align: left;
+  //   }
+  //   .main {
+  //     font-size: 3.2rem;
+  //   }
+  //   .sub {
+  //     font-size: 1.6rem;
+  //   }
+  // }
+
+  // // パンくず
+  // .breadcrumbs {
+  //   margin-top: 1rem;
+  // }
+
+  // サービス
+  .lh-service {
+    .icon {
+      width: 14.8rem;
+    }
+  }
+
+  .service-pickup {
+    padding-right: 2.0rem;
+    padding-left: 2.0rem;
+
+    --col-margin: 2.0rem;
+  }
+}

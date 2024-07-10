@@ -1,0 +1,295 @@
+@use "../global" as *;
+
+// ======================================
+// 下層 - 会社案内
+// ======================================
+
+// 代表挨拶
+.message-column {
+  .pic {
+    text-align: center;
+    img {
+      border: 1px solid #ccc;
+    }
+  }
+  .name {
+    margin-top: .5em;
+    font-size: 2.0rem;
+    span {
+      margin-left: .5em;
+      font-size: 2.8rem;
+    }
+  }
+  .txt {
+    p {
+      text-align: justify;
+    }
+  }
+}
+
+// PCのみ
+@include mq(tb, min) {
+  .message-column {
+    display: flex;
+    justify-content: space-between;
+    .pic {
+      width: 27.5%;
+    }
+    .txt {
+      width: 67.8%;
+    }
+  }
+}
+
+// タブレット以下
+@include mq(tb) {
+  .message-column {
+    .pic {
+      margin-bottom: 2.4rem;
+    }
+  }
+}
+
+
+// 100年の歩み
+.timeline {
+  position: relative;
+  &::before {
+    content: "";
+    width: 1px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: -1;
+    background-color: #ddd;
+  }
+}
+
+.timeline-box {
+  &:not(:last-child) {
+    margin-bottom: 7.0rem;
+  }
+  dl {
+    padding: 2.6rem 3.0rem 3.0rem;
+    position: relative;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+  dt {
+    margin-bottom: .3em;
+    color: $red;
+    font-family: $NotoSerif;
+    font-size: 2.1rem;
+  }
+  .ttl {
+    margin-bottom: .2em;
+    font-family: $NotoSerif;
+    font-weight: 400;
+    font-size: 2.3rem;
+  }
+  p {
+    letter-spacing: 0;
+  }
+}
+
+.timeline-now {
+  padding-top: 2.0rem;
+  padding-bottom: 2.0rem;
+  background-color: #fff;
+  text-align: center;
+  font-family: $NotoSerif;
+  dt {
+    color: $red;
+    font-size: 2.1rem;
+  }
+  dd {
+    font-weight: 400;
+    font-size: 2.8rem;
+  }
+}
+
+// PCのみ
+@include mq(tb, min) {
+  .timeline-box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    &:nth-child(odd) {
+      .pic {
+        padding-left: 5%;
+      }
+      .txt-area {
+        padding-right: 5%;
+      }
+    }
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+      .pic {
+        padding-right: 5%;
+      }
+      .txt-area {
+        padding-left: 5%;
+      }
+    }
+    > * {
+      width: 50%;
+    }
+    .txt-area {
+      position: relative;
+      &::before {
+        content: "";
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background-color: #ddd;
+      }
+    }
+  }
+
+  .timeline-now {
+    margin-top: -3.0rem;
+  }
+}
+
+// タブレット以下
+@include mq(tb) {
+  .timeline {
+    padding-top: 2.5rem;
+  }
+  .timeline-box {
+    &:not(:last-child) {
+      margin-bottom: 5.0rem;
+    }
+    dl {
+      padding: 2.0rem 2.0rem 2.0rem;
+    }
+    .ttl {
+      font-size: 2.1rem;
+    }
+    .pic {
+      margin-top: 2.5rem;
+    }
+  }
+}
+
+
+.access-box {
+  + .access-box {
+    margin-top: 4.5rem;
+  }
+  dt {
+    color: $red;
+    font-family: $NotoSerif;
+    font-size: 2.0rem;
+  }
+  dd {
+    letter-spacing: 0;
+  }
+  iframe {
+    width: 100%;
+    height: 50.0rem;
+    margin-top: 1.6rem;
+  }
+}
+
+// PCのみ
+// @include mq(tb, min) {
+// }
+
+// タブレット以下
+@include mq(tb) {
+  .access-box {
+    iframe {
+      height: 25.0rem;
+    }
+  }
+}
+
+
+// ======================================
+// 下層 - スタッフ紹介
+// ======================================
+.staff-list {
+  .pic {
+    border: 1px solid #ccc;
+  }
+  .name {
+    margin-top: .5em;
+    font-family: $NotoSerif;
+  }
+  dt {
+    color: $red;
+    font-size: 1.8rem;
+  }
+  dd {
+    font-size: 2.0rem;
+  }
+}
+
+// タブレット以下
+@include mq(tb) {
+  .staff-list {
+    dt {
+      font-size: 1.4rem;
+    }
+    dd {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+
+.staff-detail {
+  margin-bottom: 8.0rem;
+  .pic {
+    border: 1px solid #ccc;
+  }
+  .name {
+    margin-bottom: 2.4rem;
+    font-family: $NotoSerif;
+    dt {
+      color: $red;
+      font-size: 2.2rem;
+    }
+    dd {
+      font-size: 3.0rem;
+    }
+  }
+  .comment {
+    margin-top: 1.875em;
+  }
+}
+
+@include mq(tb, min) {
+  .staff-detail {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    .pic {
+      width: 31.25%;
+    }
+    .profile {
+      width: 61.8%;
+    }
+  }
+}
+
+@include mq(tb) {
+  .staff-detail {
+    margin-bottom: 5.0rem;
+    .profile {
+      margin-top: 2.0rem;
+    }
+    .name {
+      dt {
+        font-size: 1.6rem;
+      }
+      dd {
+        font-size: 2.4rem;
+      }
+    }
+  }
+}

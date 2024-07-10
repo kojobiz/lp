@@ -1,0 +1,28 @@
+@use "../global" as *;
+
+// ======================================
+// 下層 - お知らせ
+// ======================================
+.post-header {
+  margin-bottom: 3.0rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid $red;
+  .date {
+    width: 12.0rem;
+    flex: none;
+    color: $red;
+    font-weight: 700;
+  }
+  .ttl {
+    font-family: $NotoSerif;
+    font-size: 3.0rem;
+  }
+}
+
+.post-body {
+  p {
+    + p {
+      margin-top: 1.5em;
+    }
+  }
+}

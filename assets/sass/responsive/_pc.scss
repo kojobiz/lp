@@ -1,0 +1,84 @@
+@use "../global" as *;
+
+@include mq(md) {
+  html {
+    font-size: calc(1000vw / 1024);
+  }
+}
+
+// ======================================
+// PCのみ（タブレット以上）のスタイル
+// ======================================
+@include mq(tb, min) {
+  #hamburgerMenu {
+    display: none;
+  }
+
+  .btn {
+    transition: opacity .3s;
+    &:hover {
+      opacity: .6;
+    }
+  }
+
+  .banner {
+    img {
+      transition: opacity .3s;
+    }
+    &:hover {
+      img {
+        opacity: .8;
+      }
+    }
+  }
+
+  .header-navi {
+    .btn-contact {
+      transition: opacity .3s;
+      &:hover {
+        opacity: .6;
+      }
+    }
+  }
+
+  .work-item {
+    a {
+      overflow: hidden;
+      img {
+        transition: transform .3s;
+      }
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .blog-card {
+    .pic {
+      a {
+        display: block;
+        overflow: hidden;
+        img {
+          transition: transform .3s;
+        }
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
+  .company-navi {
+    .btn {
+      transition: background .3s;
+      &:hover {
+        background-color: $primaryColor;
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,364 @@
+@use "../global" as *;
+
+// ======================================
+// VW変換
+// ======================================
+// @function px($pixelsVw) {
+//   @return $pixelsVw  * .64px;
+// }
+
+// ======================================
+// ヒーロービジュアル
+// ======================================
+#hero-visual {
+  width: 100%;
+  margin-top: 9.4rem;
+  // height: 60.0rem;
+  position: relative;
+  // &::before {
+  //   content: "";
+  //   width: 100%;
+  //   height: 100%;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   z-index: 2;
+  //   background-color: rgba(#000, .4);
+  // }
+}
+
+.hero-slider {
+  height: 100%;
+  .swiper-slide, .slide-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+#hero-pagination {
+  margin-top: 1.2rem;
+  position: relative;
+  bottom: auto;
+  line-height: 1;
+}
+
+// .hero-catch {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   z-index: 2;
+//   color: #fff;
+//   font-weight: 500;
+//   font-size: 6.0rem;
+//   line-height: 1.6;
+//   transform: translate(-50%, -50%);
+// }
+
+// .hero-scroll {
+//   position: absolute;
+//   bottom: 0;
+//   left: 50%;
+//   z-index: 9;
+//   transform: translateX(-50%);
+//   .text {
+//     display: block;
+//     color: #fff;
+//     font-size: 1.1rem;
+//   }
+//   .dot {
+//     width: 1px;
+//     height: 6.0rem;
+//     margin: .2em auto 0;
+//     display: block;
+//     background-color: #fff;
+//   }
+// }
+
+
+// ======================================
+// サービス
+// ======================================
+.h-service {
+  .icon {
+    width: 22.0rem;
+    bottom: -1.5rem;
+    left: calc(100% + 5.0rem);
+  }
+}
+
+.service-list {
+  .pic {
+    margin-bottom: 2.0rem;
+    display: block;
+    text-align: center;
+  }
+  dl {
+    text-align: center;
+  }
+  dt {
+    color: $red;
+    font-family: $NotoSerif;
+    font-size: 2.2rem;
+  }
+  dd {
+    margin-top: .5em;
+    letter-spacing: 0;
+    line-height: calc(28 / 16);
+  }
+}
+
+
+// ======================================
+// 選ばれる理由
+// ======================================
+.h-strength {
+  .icon {
+    width: 24.4rem;
+    right: calc(100% + 3.8rem);
+    bottom: -1.0rem;
+  }
+}
+
+.strength-column {
+  display: flex;
+  justify-content: space-between;
+
+  .txt {
+    width: 45.5%;
+    p {
+      letter-spacing: 0;
+    }
+  }
+  .btn {
+    --button-margin: 3.6rem;
+  }
+  .pic {
+    width: 50%;
+  }
+}
+
+
+// ======================================
+// 制作実績
+// ======================================
+.h-work {
+  .icon {
+    width: 24.8rem;
+    bottom: -2.4rem;
+    left: calc(100% + 3.4rem);
+  }
+}
+
+.work-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  --vertical-percent: 100%;
+  li {
+    width: 33.3%;
+  }
+  a {
+    display: block;
+  }
+  .work-name {
+    width: 100%;
+    padding: 2.5rem 1.0em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: rgba($red, .6);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.7rem;
+    line-height: 1;
+  }
+  .cat {
+    margin-right: .5em;
+    padding-right: .5em;
+    border-right: 1px solid #fff;
+  }
+}
+
+// 主な取引先
+.loop-slider {
+  margin-top: 5.0rem;
+  overflow: visible !important;
+  .swiper-wrapper {
+    align-items: center;
+    transition-timing-function: linear;
+  }
+  .swiper-slide {
+    margin: 0 1.8rem;
+  }
+}
+
+
+// ======================================
+// ブログ
+// ======================================
+.h-blog {
+  .icon {
+    width: 13.0rem;
+    right: calc(100% + 1.5rem);
+    bottom: -3.8rem;
+  }
+}
+
+.blog-slider {
+  overflow: visible !important;
+  .swiper-button-next, .swiper-button-prev {
+    margin-top: 0;
+    top: 11.5rem;
+  }
+  .swiper-button-prev {
+    left: -2.5rem;
+  }
+  .swiper-button-next {
+    right: -2.5rem;
+  }
+
+  &.no-slide {
+    .swiper-button-next, .swiper-button-prev {
+      display: none;
+    }
+  }
+}
+
+@include mq(tb, min) {
+  .blog-slider {
+    &.no-slide {
+      .blog-list {
+        justify-content: center;
+      }
+      .blog-card {
+        width: 30%;
+        &:not(:last-child) {
+          margin-right: 5%;
+        }
+      }
+    }
+  }
+}
+
+.blog-card {
+  letter-spacing: 0;
+  .blog-info {
+    margin-top: 1.8rem;
+    display: flex;
+    align-items: center;
+  }
+  .date {
+    color: $red;
+    font-family: $NotoSerif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+  .cat, .category {
+    margin-left: .8rem;
+    padding: 0 .4em;
+    background-color: $red;
+    color: #fff;
+    font-size: 1.4rem;
+  }
+  .title {
+    margin-top: 1.0rem;
+    font-family: $NotoSerif;
+    font-weight: 600;
+    font-size: 2.0rem;
+  }
+}
+
+
+// ======================================
+// 会社案内
+// ======================================
+.section-company {
+  position: relative;
+  background: url(../../images/home/bg_company.jpg) no-repeat center/ cover;
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(#000, .5);
+  }
+  .content {
+    position: relative;
+    z-index: 2;
+  }
+  .banner {
+    margin-top: 5.5rem;
+  }
+}
+
+.company-navi {
+  max-width: 113.0rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+
+  --button-margin: 0;
+  li {
+    width: 100%;
+    &:not(:last-child) {
+      margin-right: 3.0rem;
+    }
+  }
+}
+
+
+// ======================================
+// お知らせ
+// ======================================
+.news-column {
+  display: flex;
+  .headline-01 {
+    margin-right: 8.0rem;
+    flex: none;
+  }
+  .news-area {
+    width: 100%;
+  }
+  .link-more {
+    width: fit-content;
+    margin-top: 1.6rem;
+    margin-left: auto;
+    display: block;
+  }
+}
+
+.news-list {
+  border-top: 1px solid #ccc;
+  li {
+    padding: 1.8rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    letter-spacing: 0;
+  }
+  .date {
+    width: 12.0rem;
+    flex: none;
+    color: $red;
+    font-weight: 700;
+  }
+  a {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+
+    -webkit-line-clamp: 1;
+  }
+}

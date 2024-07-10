@@ -1,0 +1,432 @@
+@use "../global" as *;
+
+// ======================================
+// 下層 - ブログ
+// ======================================
+.blog-pickup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .pic {
+    width: 50%;
+  }
+  .txt {
+    width: 45%;
+  }
+  .blog-info {
+    margin-top: 0;
+    margin-bottom: 2.0rem;
+  }
+  .title {
+    margin-bottom: .5em;
+    font-size: 2.8rem;
+  }
+  .excerpt {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+
+    -webkit-line-clamp: 3;
+  }
+}
+
+.page-column {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  .main-area {
+    width: 70%;
+  }
+  .side-area {
+    width: 25%;
+  }
+}
+
+.blog-archive {
+  .blog-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    + .blog-card {
+      margin-top: 6.0rem;
+    }
+    .pic {
+      width: 43.5%;
+    }
+    .txt {
+      width: 53%;
+    }
+    .blog-info {
+      margin-top: 0;
+      margin-bottom: 1.0rem;
+    }
+    .title {
+      margin-bottom: .5em;
+      font-size: 2.4rem;
+    }
+    .excerpt {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+
+      -webkit-line-clamp: 3;
+    }
+  }
+}
+
+.blog-ranking {
+  list-style-type: none;
+  counter-reset: ranking;
+  li {
+    position: relative;
+    + li {
+      margin-top: 3.0rem;
+    }
+
+    &::before {
+      content: counter(ranking);
+      width: 3.9rem;
+      height: 4.8rem;
+      position: absolute;
+      top: 0;
+      left: 1.3rem;
+      z-index: 9;
+      background-color: $red;
+      color: #fff;
+      counter-increment: ranking;
+      text-align: center;
+      font-family: $Playfair;
+      font-size: 3.5rem;
+      line-height: 1;
+    }
+  }
+}
+
+
+// ブログ詳細
+.blog-header {
+  margin-bottom: 4.0rem;
+  .headline {
+    padding-bottom: .8rem;
+    border-bottom: 2px solid $red;
+  }
+  .ttl {
+    margin-right: 2.0rem;
+    font-family: $NotoSerif;
+    font-weight: 400;
+    font-size: 3.0rem;
+    line-height: 1.5;
+  }
+  .work-name {
+    width: fit-content;
+    padding: .8rem 1.3rem;
+    display: flex;
+    background-color: $red;
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    .cat {
+      &::after {
+        content: "／";
+      }
+    }
+  }
+  .site-url {
+    margin-top: 3.0rem;
+    display: flex;
+    font-family: $NotoSerif;
+    dt {
+      margin-right: 2.0rem;
+    }
+    a {
+      color: $red;
+    }
+  }
+  .comment {
+    margin-top: 1.0em;
+  }
+}
+
+.blog-info {
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  .timestamp {
+    margin-right: 2.4rem;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0;
+    font-family: $NotoSerif;
+    font-weight: 700;
+    dt {
+      margin-right: .8rem;
+    }
+    dd {
+      color: $red;
+      + dt {
+        margin-left: 2.4rem;
+      }
+    }
+  }
+  .cat {
+    padding: .5rem .5rem;
+    display: inline-block;
+    background-color: $red;
+    color: #fff;
+    letter-spacing: 0;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .share-link {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    li {
+      + li {
+        margin-left: 1.4rem;
+      }
+    }
+  }
+}
+
+#copyBtn {
+  position: relative;
+  .msg {
+    position: absolute;
+    top: calc(100% + .5em);
+    left: 50%;
+    display: none;
+    white-space: nowrap;
+    font-size: 1.0rem;
+    line-height: 1.2;
+    transform: translateX(-50%);
+  }
+}
+
+.blog-eyecatch {
+  margin-bottom: 4.0rem;
+  img {
+    width: 100%;
+  }
+}
+
+.tob-list {
+  margin-top: 5.0rem;
+  padding: 3.2rem 3.5rem;
+  border: 1px solid #ccc;
+  dt {
+    margin-bottom: .5em;
+    color: $red;
+    font-family: $Playfair;
+    font-size: 2.6rem;
+  }
+  dd {
+    font-family: $NotoSerif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    a {
+      color: #333;
+    }
+  }
+  ol {
+    margin-left: 1.5em;
+  }
+  li {
+    + li {
+      margin-top: .5em;
+    }
+  }
+}
+
+#toc_container {
+  margin-top: 5.0rem;
+  margin-bottom: 0;
+  padding: 3.2rem 3.5rem;
+  border: 1px solid #ccc;
+  .toc_title {
+    margin-bottom: .5em;
+    color: $red;
+    text-align: left !important;
+    font-family: $Playfair;
+    font-size: 2.6rem;
+  }
+  .toc_list {
+    font-family: $NotoSerif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    li {
+      padding-left: 1em;
+      &::before {
+        content: none;
+      }
+      + li {
+        margin-top: .5em;
+      }
+    }
+    a {
+      color: #333;
+    }
+  }
+  .toc_number {
+    &::after {
+      content: ".";
+    }
+  }
+}
+
+.blog-body {
+  margin-top: 5.0rem;
+  p {
+    line-height: calc(26 / 16);
+  }
+}
+
+.post-contents {
+  // 見出し
+  h2 {
+    margin-bottom: 2.4rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid #d6000f;
+    color: var(--txt-color, #000);
+    font-family: $NotoSerif;
+    font-weight: 600;
+    font-size: 3.0rem;
+  }
+
+  h3 {
+    margin-bottom: 1.2em;
+    padding-left: .5em;
+    border-left: 4px solid $red;
+    color: var(--txt-color, #000);
+    font-family: $NotoSerif;
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: calc(35 / 24);
+  }
+
+  * + h2 {
+    margin-top: 8.4rem;
+  }
+
+  // テキスト
+  p {
+    margin-bottom: 2.875em;
+    + p {
+      margin-top: -.625em;
+    }
+  }
+
+  // 画像
+  figure {
+    margin-bottom: 2.875em;
+    &.aligncenter {
+      text-align: center;
+    }
+  }
+
+  ul {
+    li {
+      margin-left: 1.2em;
+      text-indent: -1.0em;
+      &:before {
+        content: "・";
+        font-feature-settings: initial;
+      }
+
+      + li {
+        margin-top: .5em;
+      }
+    }
+
+    + * {
+      margin-top: 1em;
+    }
+  }
+}
+
+.cv-area {
+  margin-top: 7.2rem;
+}
+
+.writer-info {
+  margin-top: 7.2rem;
+  padding: 3.2rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  .pic {
+    width: 14.5%;
+    .inner {
+      width: 100%;
+      padding-bottom: 100%;
+      position: relative;
+      display: block;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+  }
+  .profile {
+    width: 82%;
+    .name {
+      margin-bottom: 1.0rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      color: #333;
+      letter-spacing: 0;
+      font-family: $NotoSerif;
+      font-weight: bold;
+      font-size: 2.0rem;
+      &::before {
+        content: "WRITER";
+        margin-right: 1em;
+        padding: .15em .5em;
+        display: inline-block;
+        background-color: $red;
+        color: #fff;
+        font-family: $baseFont;
+        font-size: 1.2rem;
+      }
+    }
+    .type {
+      margin-bottom: .5em;
+      color: #999;
+      font-family: $NotoSerif;
+      font-weight: bold;
+    }
+  }
+}
+
+.related-post {
+  margin-top: 8.0rem;
+  .headline-03 {
+    margin-bottom: 5.0rem;
+  }
+  .blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .blog-card {
+    width: 47%;
+    margin-bottom: 8%;
+  }
+}
+
+// タブレット以下
+@include mq(tb) {
+  .lh-blog {
+    .icon {
+      width: 8.2rem;
+    }
+  }
+}

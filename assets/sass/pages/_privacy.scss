@@ -1,0 +1,17 @@
+@use "../global" as *;
+
+// ======================================
+// 下層 - プライバシーポリシー
+// ======================================
+.privacy-block {
+  .ttl {
+    margin-bottom: .4em;
+    font-size: 1.6rem;
+  }
+  * + .ttl {
+    margin-top: 5.0rem;
+  }
+  p {
+    line-height: calc(28 / 16);
+  }
+}

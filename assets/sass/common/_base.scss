@@ -1,0 +1,322 @@
+@use "../global" as *;
+
+// ======================================
+// サイト全体の設定
+// ======================================
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  // -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-color, #fff);
+  color: var(--base-font-color, #000);
+  word-break: break-all;
+  letter-spacing: .05em;
+  font-family: $baseFont;
+  font-weight: 400;
+  font-size: 1.6rem;
+  // font-feature-settings: "palt";
+  line-height: 1.6;
+
+  &.fixed {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+  }
+}
+
+// ======================================
+// 共通スタイル
+// ======================================
+.site-container {
+  // margin-top: 10.8rem;
+}
+
+.section-block {
+  width: 100%;
+  padding-top: 10.0rem;
+  padding-bottom: 10.0rem;
+  position: relative;
+  .content {
+    + .content {
+      margin-top: 7.0rem;
+    }
+  }
+}
+
+.page-width {
+  width: calc($contentWidth + 10.0rem);
+  max-width: 100%;
+  margin: 0 auto;
+  padding-right: 5.0rem;
+  padding-left: 5.0rem;
+}
+
+.w {
+  &-md {
+    width: 98rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &-sm {
+    width: 75rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.mg {
+  &-b {
+    margin-bottom: 1.6rem;
+    &_md {
+      margin-bottom: 2.8rem;
+    }
+    &_lg {
+      margin-bottom: 6.0rem;
+    }
+  }
+}
+
+.pd {
+  &-x {
+    &_none {
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+    }
+  }
+
+  &-y {
+    &_none {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  }
+
+  &-t {
+    &_none {
+      padding-top: 0 !important;
+    }
+    &_md {
+      padding-top: 6.0rem;
+    }
+  }
+
+  &-b {
+    &_none {
+      padding-bottom: 0 !important;
+    }
+  }
+}
+
+.round {
+  border-radius: 1.0rem;
+}
+
+
+// ======================================
+// 背景
+// ======================================
+.bg {
+  &-c01 {
+    background-color: #f9f9f9;
+  }
+}
+
+
+// ======================================
+// リンク
+// ======================================
+a {
+  color: var(--txt-color, #333);
+  // color: rgba($primaryColor, .75);
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.link {
+  &-underline {
+    text-decoration: underline;
+  }
+
+  &-block {
+    display: block;
+  }
+
+  &-image {
+    display: block;
+    img {
+      transition: opacity .3s ease-in-out;
+    }
+    &:hover {
+      img {
+        opacity: .7;
+      }
+    }
+  }
+
+  &-color {
+    color: #2175cb;
+  }
+}
+
+
+// ======================================
+// 画像
+// ======================================
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+figure {
+  margin-bottom: initial;
+}
+
+svg {
+  vertical-align: bottom;
+}
+
+.variableBox {
+  position: relative;
+  > .inner {
+    width: 100%;
+    padding-bottom: var(--vertical-percent, 62.5%);
+  }
+  .pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include coverImage;
+  }
+}
+
+.banner {
+  width: fit-content;
+  display: block;
+  &.center {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+
+// ======================================
+// テキスト
+// ======================================
+p {
+  line-height: calc(30 / 16);
+
+  &:not(:last-of-type) {
+    margin-bottom: 1.0em;
+  }
+}
+
+.txt {
+  // 水平方向の配置
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
+
+  // フォントタイプ
+  &-serif {
+    font-family: $NotoSerif;
+  }
+  &-wf01 {
+    font-family: $Playfair;
+  }
+
+  // 太さ
+  &-bold {
+    font-weight: 700;
+  }
+
+  // サイズ
+  &-xl {
+    font-size: 3.2rem;
+  }
+  &-lg {
+    font-size: 2.4rem;
+  }
+  &-md {
+    font-size: 1.8rem;
+  }
+  &-sm {
+    font-size: 1.2rem;
+  }
+
+  // カラー
+  &-red {
+    color: #b33f4c;
+  }
+  &-blue {
+    color: #1d348b;
+  }
+}
+
+
+// ======================================
+// Swiper
+// ======================================
+.swiper {
+  .swiper-button-next, .swiper-button-prev {
+    width: 5.0rem;
+    height: 5.0rem;
+    background-color: $primaryColor;
+    background-position: center;
+    background-size: 1.4rem 2.4rem;
+    background-repeat: no-repeat;
+    &::after {
+      content: none;
+    }
+  }
+  .swiper-button-prev {
+    left: 0;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2213.8%22%20height%3D%2223%22%20viewBox%3D%220%200%2013.8%2023%22%3E%20%3Cpath%20id%3D%22_211690_up_arrow_icon%22%20data-name%3D%22211690_up_arrow_icon%22%20d%3D%22M21.606%2C0%2C23%2C1.488%2C11.5%2C13.8%2C0%2C1.488%2C1.387%2C0%2C11.5%2C10.817l.673-.72Z%22%20transform%3D%22translate(13.8)%20rotate(90)%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E");
+  }
+  .swiper-button-next {
+    right: 0;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2213.8%22%20height%3D%2223%22%20viewBox%3D%220%200%2013.8%2023%22%3E%20%3Cpath%20id%3D%22_211690_up_arrow_icon%22%20data-name%3D%22211690_up_arrow_icon%22%20d%3D%22M117.606%2C173.8%2C119%2C172.312%2C107.5%2C160%2C96%2C172.312l1.387%2C1.488L107.5%2C162.983l.673.72Z%22%20transform%3D%22translate(173.8%20-96)%20rotate(90)%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E");
+  }
+}
+
+
+// ======================================
+// メディアクエリによって表示切り替え
+// ======================================
+// PCのみ（タブレット以下で非表示）
+@include mq(tb) {
+  .pcOnly {
+    display: none;
+  }
+}
+
+// タブレット以下の時表示
+@include mq(tb, min) {
+  .tabOnly {
+    display: none;
+  }
+}
+
+// スマホ以下の時表示
+@include mq(sm, min) {
+  .spOnly {
+    display: none;
+  }
+}

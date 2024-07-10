@@ -1,0 +1,33 @@
+// ======================================
+// フォント関連の設定
+// ======================================
+$baseFont: "Helvetica Neue", arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", meiryo, sans-serif !default;
+$Gothic: "Helvetica Neue", arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", meiryo, sans-serif;
+$Mincho: "游明朝", yumincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "Noto Serif JP", serif;
+$NotoSans: "Noto Sans JP", sans-serif;
+$NotoSerif: "Noto Serif JP", serif;
+$Inter: "Inter", sans-serif;
+$HarunoUmi: "Kaisei HarunoUmi", serif;
+$ReggaeOne: "Reggae One", cursive;
+$Montserrat: "Montserrat", sans-serif;
+$Marcellus: "Marcellus", serif;
+$Cormorant: "Cormorant Garamond", serif;
+$Playfair: "Playfair Display", serif;
+
+
+// ======================================
+// コンテンツサイズ
+// ======================================
+$contentWidth: var(--main-width);
+
+
+// ======================================
+// カラー
+// ======================================
+$primaryColor: var(--primary-color);
+$red: #d6000f;
+$blue: #4052a0;
+$yellow: #ffd87e;
+$green: #229254;
+$primary: #ed6c00;
+$orange: #d8521e;

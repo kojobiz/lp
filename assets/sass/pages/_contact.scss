@@ -1,0 +1,30 @@
+@use "../global" as *;
+
+// ======================================
+// 下層 - お問い合わせ
+// ======================================
+.contact-form {
+  padding: 9.2rem;
+}
+
+.contact-confirm {
+  .form-box {
+    dt {
+      margin-top: 0;
+      line-height: 1.6;
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .form-child {
+    dt {
+      display: none;
+    }
+  }
+
+  .accept-box {
+    display: none;
+  }
+}
