@@ -41,20 +41,25 @@
 
 	<link rel="shortcut icon" href="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/favicon.ico">
 
-	<meta name='robots' content='max-image-preview:large' />
+				<!-- Google アナリティクス オプトアウト スニペット (Site Kit が追加) -->
+			<script>
+window["ga-disable-G-L7WDBTSM34"] = true;
+</script>
+						<!-- (ここまで) Google アナリティクス オプトアウト スニペット (Site Kit が追加) -->
+			<meta name='robots' content='max-image-preview:large' />
 <link rel='dns-prefetch' href='//ajax.googleapis.com' />
 <link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
 <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
 <link rel='dns-prefetch' href='//www.googletagmanager.com' />
 
 <!-- SEO SIMPLE PACK 3.2.1 -->
-<title>展⽰会まるごとサポート | 株式会社一向社</title>
-<link rel="canonical" href="https://ikkosha.co.jp/service/exhibition_support/">
+<title>テスト特設サイト1 | 株式会社一向社</title>
+<link rel="canonical" href="https://ikkosha.co.jp/service/exhibition_support_lp1/">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://ikkosha.co.jp/uploads/2023/01/mv3.jpg">
-<meta property="og:title" content="展⽰会まるごとサポート | 株式会社一向社">
-<meta property="og:url" content="https://ikkosha.co.jp/service/exhibition_support/">
+<meta property="og:title" content="テスト特設サイト1 | 株式会社一向社">
+<meta property="og:url" content="https://ikkosha.co.jp/service/exhibition_support_lp1/">
 <meta property="og:site_name" content="株式会社一向社">
 <meta property="article:publisher" content="https://www.facebook.com/ikkosha">
 <meta name="twitter:card" content="summary_large_image">
@@ -88,7 +93,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <link rel='stylesheet' id='adjust-css' href='https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/assets/css/adjust.css?ver=1713516311' media='all' />
 <link rel='stylesheet' id='swiper-css' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css?ver=8.0.0' media='all' />
 <script id="wpp-json" type="application/json">
-{"sampling_active":0,"sampling_rate":100,"ajax_url":"https:\/\/ikkosha.co.jp\/wp-json\/wordpress-popular-posts\/v1\/popular-posts","api_url":"https:\/\/ikkosha.co.jp\/wp-json\/wordpress-popular-posts","ID":119,"token":"8302cdb95d","lang":0,"debug":0}
+{"sampling_active":0,"sampling_rate":100,"ajax_url":"https:\/\/ikkosha.co.jp\/wp-json\/wordpress-popular-posts\/v1\/popular-posts","api_url":"https:\/\/ikkosha.co.jp\/wp-json\/wordpress-popular-posts","ID":1923,"token":"6bf43d2946","lang":0,"debug":0}
 </script>
 <script src="https://ikkosha.co.jp/cms/wp-content/plugins/wordpress-popular-posts/assets/js/wpp.min.js?ver=6.4.2" id="wpp-js-js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?ver=3.5.1" id="jquery-js"></script>
@@ -108,7 +113,7 @@ gtag("config", "G-L7WDBTSM34");
 
 <!-- Site Kit によって追加された終了 Google タグ（gtag.js）スニペット -->
 <script id="wpstg-global-js-extra">
-var wpstg = {"nonce":"7159e854ce"};
+var wpstg = {"nonce":"29d25f7486"};
 </script>
 <script src="https://ikkosha.co.jp/cms/wp-content/plugins/wp-staging/assets/js/dist/wpstg-blank-loader.js?ver=6.5.5" id="wpstg-global-js"></script>
 <meta name="generator" content="Site Kit by Google 1.130.0" />            <style id="wpp-loading-animation-styles">@-webkit-keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}@keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}.wpp-widget-placeholder,.wpp-widget-block-placeholder,.wpp-shortcode-placeholder{margin:0 auto;width:60px;height:3px;background:#dd3737;background:linear-gradient(90deg,#dd3737 0%,#571313 10%,#dd3737 100%);background-size:200% auto;border-radius:3px;-webkit-animation:bgslide 1s infinite linear;animation:bgslide 1s infinite linear}</style>
@@ -128,156 +133,144 @@ var wpstg = {"nonce":"7159e854ce"};
 </script>
 
 <!-- (ここまで) Google タグ マネージャー スニペット (Site Kit が追加) -->
+
+
+
+
+<!-- lp css -->
+<style>
+.lp-text-nowrap {
+	text-wrap: nowrap;
+	font-size: 1.4rem;
+}
+/* モーダルのスタイル */
+.variableBox:hover {
+	cursor: pointer;
+}
+.modal {
+    display: none; /* デフォルトでは表示しない */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw!important;
+    height: 100vh!important;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 80%;
+	max-height: 60%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -80%);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* モーダル表示時のスクロール防止用スタイル */
+.no-scroll {
+    overflow: hidden;
+    height: 100%;
+}
+
+</style>
+
 </head>
 
 
-<body class="page-template-default page page-id-119 page-child parent-pageid-35 lower">
+<body class="page-template page-template-page-exhibition_support_lp1 page-template-page-exhibition_support_lp1-php page page-id-1923 page-child parent-pageid-35 logged-in lower">
 
-			<!-- Google タグ マネージャー (noscript) スニペット (Site Kit が追加) -->
-		<noscript>
-			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54WHSSL" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-		</noscript>
-		<!-- (ここまで) Google タグ マネージャー (noscript) スニペット (Site Kit が追加) -->
+<!-- Google タグ マネージャー (noscript) スニペット (Site Kit が追加) -->
+<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54WHSSL" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- (ここまで) Google タグ マネージャー (noscript) スニペット (Site Kit が追加) -->
 		
-	<header id="header" class="site-header wh">
-		<div class="header-inner">
-			<h1 class="header-title">
-				<a href="https://ikkosha.co.jp/">
-					<figure class="logo">
-						<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/common/logo.svg" width="216" height="46" alt="株式会社一向社" class="logo01">
-						<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/common/logo_100th.svg" width="90" height="62" alt="100th ANNIVERSARY" class="logo02">
-					</figure>
-				</a>
-			</h1>
+<header id="header" class="site-header wh">
+	<div class="header-inner">
+		<h1 class="header-title">
+			<a href="#">
+				<figure class="logo">
+					<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/common/logo.svg" width="216" height="46" alt="株式会社一向社" class="logo01">
+					<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/common/logo_100th.svg" width="90" height="62" alt="100th ANNIVERSARY" class="logo02">
+				</figure>
+			</a>
+		</h1>
 
-			<nav class="header-navi">
-				<div class="navi-phone">
-					<a href="tel:0120150585" class="txt-serif"><span>0120-150-<span class="lastnum-tel">585</span></span></a>
-					<span class="label">受付時間 / 平日 9:00～18:00</span>
-				</div>
-				<ul class="navi-menu txt-serif">
-					<li class="has-child">
-						<a href="https://ikkosha.co.jp/service">サービス</a>
-						<div class="header-sub-menu">
-							<div class="inner">
-								<div class="sub-menu-title">
-									<h2 class="headline-01">
-										<span class="main">SERVICE</span>
-										<span class="sub">サービス</span>
-									</h2>
-								</div>
-								<ul class="sub-menu-list">
-									<li><a href="https://ikkosha.co.jp/service/exhibition_support">展⽰会まるごとサポート</a></li>
-									<li><a href="https://ikkosha.co.jp/service/web_design">ホームページ制作</a></li>
-									<li><a href="https://ikkosha.co.jp/service/graphic_design">グラフィックデザイン</a></li>
-									<!-- <li><a href="https://ikkosha.co.jp/service">Web広告</a></li>
-									<li><a href="https://ikkosha.co.jp/service">SNSマーケティング</a></li>
-									<li><a href="https://ikkosha.co.jp/service">SEO/MEO対策</a></li>
-									<li><a href="https://ikkosha.co.jp/service">マーケティングオートメーション</a></li>
-									<li><a href="https://ikkosha.co.jp/service">Googleアナリティクス解析</a></li> -->
-									<li><a href="https://ikkosha.co.jp/service/dm_design">DM（ダイレクトメール）</a></li>
-									<li><a href="https://ikkosha.co.jp/service/manual">取扱説明書／マニュアル</a></li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li><a href="https://ikkosha.co.jp/strength">選ばれる理由</a></li>
-					<li><a href="https://ikkosha.co.jp/works">制作実績</a></li>
-					<li class="has-child">
-						<a href="https://ikkosha.co.jp/company">会社案内</a>
-						<div class="header-sub-menu">
-							<div class="inner">
-								<div class="sub-menu-title">
-									<h2 class="headline-01">
-										<span class="main">COMPANY</span>
-										<span class="sub">会社案内</span>
-									</h2>
-								</div>
-								<ul class="sub-menu-list">
-									<li><a href="https://ikkosha.co.jp/company?id=message">代表挨拶</a></li>
-									<li><a href="https://ikkosha.co.jp/company?id=outline">会社概要</a></li>
-									<li><a href="https://ikkosha.co.jp/company?id=history">100年の歩み</a></li>
-									<li><a href="https://ikkosha.co.jp/company?id=access">アクセスマップ</a></li>
-									<li><a href="https://ikkosha.co.jp/staff">スタッフ紹介</a></li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li><a href="https://ikkosha.co.jp/blog">ブログ</a></li>
-					<!-- <li><a href="https://ikkosha.co.jp/download">お役立ち資料</a></li> -->
-					<li class="btn-contact" data-color="white">
-						<a href="https://ikkosha.co.jp/contact">
-							<figure class="icon">
-								<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/common/icon_mail.png" width="31" height="24" alt="MAIL">
-								<figcaption>お問い合わせ</figcaption>
-							</figure>
-						</a>
-					</li>
-				</ul>
-			</nav>
+		<nav class="header-navi">
+			<div class="navi-phone">
+				<a href="tel:0120150585" class="txt-serif"><span>0120-150-<span class="lastnum-tel">585</span></span></a>
+				<span class="label">受付時間 / 平日 9:00～18:00</span>
+			</div>
+			<ul class="navi-menu txt-serif">
+				<!-- <li><a href="https://ikkosha.co.jp/strength">実績紹介</a></li> -->
+				<li><a href="#" class="lp-text-nowrap">実績紹介</a></li>
+				<li><a href="#" class="lp-text-nowrap">サービス詳細</a></li>
+				<li><a href="#" class="lp-text-nowrap">他社サービスとの比較</a></li>
+				<li><a href="#" class="lp-text-nowrap">よくあるご質問</a></li>
+				<li class="btn-contact" data-color="white">
+					<a href="#contact">
+						<figure class="icon">
+							<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/common/icon_mail.png" width="31" height="24" alt="MAIL">
+							<figcaption>お問い合わせ</figcaption>
+						</figure>
+					</a>
+				</li>
+			</ul>
+		</nav>
 
-			<div id="hamburgerMenu" class="hamburger-menu">
-				<div>
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
+		<div id="hamburgerMenu" class="hamburger-menu">
+			<div>
+				<span></span>
+				<span></span>
+				<span></span>
 			</div>
 		</div>
-	</header>
-
-	<div id="spNavi" class="tabOnly">
-		<ul class="navi-menu txt-serif">
-			<li><a href="https://ikkosha.co.jp/">ホーム</a></li>
-			<li>
-				<a href="https://ikkosha.co.jp/service">サービス</a>
-				<div class="sub-menu-tggle"></div>
-				<ul class="sub-menu-list">
-					<li><a href="https://ikkosha.co.jp/service/exhibition_support">展⽰会まるごとサポート</a></li>
-					<li><a href="https://ikkosha.co.jp/service/web_design">ホームページ制作</a></li>
-					<li><a href="https://ikkosha.co.jp/service/graphic_design">グラフィックデザイン</a></li>
-					<!-- <li><a href="https://ikkosha.co.jp/service">Web広告</a></li>
-					<li><a href="https://ikkosha.co.jp/service">SNSマーケティング</a></li>
-					<li><a href="https://ikkosha.co.jp/service">SEO/MEO対策</a></li>
-					<li><a href="https://ikkosha.co.jp/service">マーケティングオートメーション</a></li>
-					<li><a href="https://ikkosha.co.jp/service">Googleアナリティクス解析</a></li> -->
-					<li><a href="https://ikkosha.co.jp/service/dm_design">DM（ダイレクトメール）</a></li>
-					<li><a href="https://ikkosha.co.jp/service/manual">取扱説明書／マニュアル</a></li>
-				</ul>
-			</li>
-			<li><a href="https://ikkosha.co.jp/strength">選ばれる理由</a></li>
-			<li><a href="https://ikkosha.co.jp/works">制作実績</a></li>
-			<li>
-				<a href="https://ikkosha.co.jp/company">会社案内</a>
-				<div class="sub-menu-tggle"></div>
-				<ul class="sub-menu-list">
-					<li><a href="https://ikkosha.co.jp/company?id=message">代表挨拶</a></li>
-					<li><a href="https://ikkosha.co.jp/company?id=outline">会社概要</a></li>
-					<li><a href="https://ikkosha.co.jp/company?id=history">100年の歩み</a></li>
-					<li><a href="https://ikkosha.co.jp/company?id=access">アクセスマップ</a></li>
-					<li><a href="https://ikkosha.co.jp/staff">スタッフ紹介</a></li>
-				</ul>
-			</li>
-			<li><a href="https://ikkosha.co.jp/blog">ブログ</a></li>
-			<li><a href="https://ikkosha.co.jp/news">お知らせ</a></li>
-			<!-- <li><a href="https://ikkosha.co.jp/download">お役立ち資料</a></li> -->
-			<li><a href="https://ikkosha.co.jp/privacy-policy">プライバシーポリシー</a></li>
-			<li class="navi-contact">
-				<div class="navi-phone">
-					<a href="tel:0120150585" class="txt-serif"><span>0120-150-<span class="lastnum-tel">585</span></span></a>
-					<span class="label">受付時間 / 平日 9:00～18:00</span>
-				</div>
-				<a href="https://ikkosha.co.jp/contact" class="btn">お問い合わせ</a>
-			</li>
-		</ul>
 	</div>
+</header>
+
+<div id="spNavi" class="tabOnly">
+	<ul class="navi-menu txt-serif">
+		<li><a href="#" class="lp-text-nowrap">実績紹介</a></li>
+		<li><a href="#" class="lp-text-nowrap">サービス詳細</a></li>
+		<li><a href="#" class="lp-text-nowrap">他社サービスとの比較</a></li>
+		<li><a href="#" class="lp-text-nowrap">よくあるご質問</a></li>
+		<li><a href="https://ikkosha.co.jp/privacy-policy" class="lp-text-nowrap" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a></li>
+
+		<li class="navi-contact">
+			<div class="navi-phone">
+				<a href="tel:0120150585" class="txt-serif"><span>0120-150-<span class="lastnum-tel">585</span></span></a>
+				<span class="label">受付時間 / 平日 9:00～18:00</span>
+			</div>
+			<a href="./index.html#contact" class="btn">お問い合わせ</a>
+		</li>
+	</ul>
+</div>
 
 	
-	<main class="site-container">
+<main class="site-container">
 
 	<div class="service-headline">
 		<div class="inner">
-			<a class="en-link" href="/service/en-exhibition_support/">ENGLISH</a>
 			<picture class="mv">
 				<source srcset="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/service/exhibition_support/mv_sp.jpg" media="(max-width: 833px)"/>
 				<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/service/exhibition_support/mv_pc.jpg" width="1600" height="650">
@@ -291,26 +284,26 @@ var wpstg = {"nonce":"7159e854ce"};
 				</div>
 			</a> -->
 			<!-- tenjikai slider -->
-			<div class="ikk_tenjikai-wrap">
+			<!-- <div class="ikk_tenjikai-wrap">
 				<a href="#last-achvm-intro"><div class="ikk_tenjikai-slider"></div></a>
-			</div>
+			</div> -->
 			<ul class="page-list">
-				
-									<li>
-						<a href="#contact">
-							<dl>
-								<dt>お見積り・出展について</dt>
-								<dd>「無料相談する」</dd>
-							</dl>
-						</a>
-					</li>
-							</ul>
+				<li>
+					<a href="#contact">
+						<dl>
+							<dt>お見積り・出展について</dt>
+							<dd>「無料相談する」</dd>
+						</dl>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 
 	<div class="breadcrumbs page-width" typeof="BreadcrumbList" vocab="https://schema.org/">
 		<!-- Breadcrumb NavXT 7.3.0 -->
-<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to 株式会社一向社." href="https://ikkosha.co.jp" class="home" ><span property="name">TOP</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="サービスへ移動する" href="https://ikkosha.co.jp/service/" class="post post-page" ><span property="name">サービス</span></a><meta property="position" content="2"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name" class="post post-page current-item">展⽰会まるごとサポート</span><meta property="url" content="https://ikkosha.co.jp/service/exhibition_support/"><meta property="position" content="3"></span>	</div>
+		<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to 株式会社一向社." href="https://ikkosha.co.jp" class="home" ><span property="name">TOP</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="サービスへ移動する" href="https://ikkosha.co.jp/service/" class="post post-page" ><span property="name">サービス</span></a><meta property="position" content="2"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name" class="post post-page current-item">テスト特設サイト1</span><meta property="url" content="https://ikkosha.co.jp/service/exhibition_support_lp1/"><meta property="position" content="3"></span>
+	</div>
 
 	<article class="section-block svc-worries">
 		<section class="content page-width">
@@ -323,7 +316,7 @@ var wpstg = {"nonce":"7159e854ce"};
 				<li>出展後の顧客リストが<strong>そのまま眠っている</strong></li>
 				
 			</ul>
-		<!--	<figure class="pic pic01">
+		<!--<figure class="pic pic01">
 				<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/service/exhibition_support/img01.jpg" width="440" height="596" alt="">
 			</figure>-->
 		</section>
@@ -343,6 +336,230 @@ var wpstg = {"nonce":"7159e854ce"};
 				<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/service/exhibition_support/flow.jpg" width="877" height="584" alt="">
 			</figure>
 		</section>
+
+		<!-- 実績紹介 -->
+		<article class="section-block svc-sec03">
+			<section class="content page-width" id="last-achvm-intro">
+				<h3 class="headline-03 svc-ttl03">最新の実績紹介</h3>
+					<div class="svc-work-slider">
+						<ul class="l-column col-3 col-1-tab work-list work-exhib-list">
+							<!-- デフォルト挙動 -->
+							<!-- <li class="work-item">
+								<a href="https://ikkosha.co.jp/works/1714/" target="_blank" class="variableBox">
+								   <figure class="inner">
+									   <img width="640" height="480" src="https://ikkosha.co.jp/uploads/IMG_0755-1024x768.jpg" class="pic wp-post-image" alt="" decoding="async" />																		<figcaption class="work-name work-exhib-name">
+										   <span class="cat_exhib">総務サービスEXPO 総務・人事・経理Week<br>3小間2面開放(9mx2.7m)</span>									
+									   </figcaption>
+								   </figure>
+							   </a>
+						   </li> -->
+							<!-- モーダル基本挙動 -->
+							<!-- <li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="449" src="https://ikkosha.co.jp/uploads/img_exhibition01-1024x719.jpeg" class="pic wp-post-image" alt="" decoding="async">
+										<figcaption class="work-name">
+											<span class="cat">展示会・イベント</span><span class="name">展示会</span>
+										</figcaption>
+									</figure>
+								</div>
+							</li> -->
+							<li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="640" src="https://ikkosha.co.jp/uploads/BWO01-1024x1024.jpg" class="pic wp-post-image" alt="" decoding="async">
+										<figcaption class="work-name work-exhib-name">
+											<span class="cat_exhib">BWJ大阪<br>2小間3面開放(6mx3m)</span>									
+										</figcaption>
+									</figure>
+								</div>
+							</li>
+							<li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="480" src="https://ikkosha.co.jp/uploads/IMG_0755-1024x768.jpg" class="pic wp-post-image" alt="" decoding="async">								
+										<figcaption class="work-name work-exhib-name">
+											<span class="cat_exhib">総務サービスEXPO 総務・人事・経理Week<br>3小間2面開放(9mx2.7m)	</span>						
+										</figcaption>
+									</figure>
+								</div>
+							</li>
+							<li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="640" src="https://ikkosha.co.jp/uploads/EP00-1024x1024.jpg" class="pic wp-post-image" alt="" decoding="async" />																		
+										<figcaption class="work-name work-exhib-name">
+											<span class="cat_exhib">インターペット<br>1小間2面開放(3mx3m)</span>	
+										</figcaption>
+									</figure>
+								</div>
+							</li>
+							<li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="640" src="https://ikkosha.co.jp/uploads/FM-00-1024x1024.jpg" class="pic wp-post-image" alt="" decoding="async" />																					
+										<figcaption class="work-name work-exhib-name">
+											<span class="cat_exhib">フェムテック東京<br>2小間2面開放(6mx2.7m)</span>						
+										</figcaption>
+									</figure>
+								</div>
+							</li>
+							<li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="480" src="https://ikkosha.co.jp/uploads/IMG_0633-1024x768.jpg" class="pic wp-post-image" alt="" decoding="async" />																				
+										<figcaption class="work-name work-exhib-name">
+											<span class="cat_exhib">DX EXPO 2023夏<br>2小間2面開放(3mx6m)</span>						
+										</figcaption>
+									</figure>
+								</div>
+							</li>
+							<li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="480" src="https://ikkosha.co.jp/uploads/IMG_0288-2-1024x768.jpeg" class="pic wp-post-image" alt="" decoding="async" />																					
+										<figcaption class="work-name work-exhib-name">
+											<span class="cat_exhib">AI world大阪<br>2小間3面開放(4mx4.5m)</span>						
+										</figcaption>
+									</figure>
+								</div>
+							</li>
+							<li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="449" src="https://ikkosha.co.jp/uploads/img_exhibition01-1024x719.jpeg" class="pic wp-post-image" alt="" decoding="async" />																				
+										<figcaption class="work-name work-exhib-name">
+											<span class="cat">展示会・イベント</span><span class="name">展示会</span>						
+										</figcaption>
+									</figure>
+								</div>
+							</li>	
+							<li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="449" src="https://ikkosha.co.jp/uploads/img_exhibition02-1024x719.jpeg" class="pic wp-post-image" alt="" decoding="async" />																				
+										<figcaption class="work-name work-exhib-name">
+											<span class="cat">展示会・イベント</span><span class="name">展示会</span>						
+										</figcaption>
+									</figure>
+								</div>
+							</li>
+							<li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="449" src="https://ikkosha.co.jp/uploads/img_exhibition03-1024x719.jpeg" class="pic wp-post-image" alt="" decoding="async" />																				
+										<figcaption class="work-name work-exhib-name">
+											<span class="cat">展示会・イベント</span><span class="name">展示会</span>						
+										</figcaption>
+									</figure>
+								</div>
+							</li>
+							<li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="450" height="450" src="https://ikkosha.co.jp/uploads/haihai-eye.jpg" class="pic wp-post-image" alt="" decoding="async" />																				
+										<figcaption class="work-name work-exhib-name">
+											<span class="cat">展示会・イベント</span><span class="name">イベント</span>						
+										</figcaption>
+									</figure>
+								</div>
+							</li>
+							<li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="640" src="https://ikkosha.co.jp/uploads/live1-1.png" class="pic wp-post-image" alt="" decoding="async" />																				
+										<figcaption class="work-name work-exhib-name">
+											<span class="cat">展示会・イベント</span><span class="name">イベント</span>						
+										</figcaption>
+									</figure>
+								</div>
+							</li>	
+
+							<!-- モーダルテスト -->
+							 <li class="work-item">
+								<div class="variableBox">
+									<figure class="inner">
+										<img width="640" height="449" src="https://ikkosha.co.jp/uploads/img_exhibition01-1024x719.jpeg" class="pic wp-post-image" alt="" decoding="async">
+										<figcaption class="work-name">
+											<span class="cat">展示会・イベント</span><span class="name">展示会</span>
+										</figcaption>
+									</figure>
+								</div>
+							</li>
+							<!-- モーダル構造 -->
+							<div id="modal" class="modal">
+								<div class="modal-content">
+									<span class="close-button">&times;</span>
+									<div class="exhib-infos">
+										<figure class="work-visual exhib-visual">
+											<img src="https://ikkosha.co.jp/uploads/FM.jpg" alt="">
+										</figure>
+										<table class="exhib-tbl">
+											<tbody>
+												<tr>
+													<td>クライアント名:</td>
+													<td>株式会社日本美容整骨学院</td>
+												</tr>
+												<tr>
+													<td>展示会名:</td>
+													<td>フェムテック東京</td>
+												</tr>
+												<tr>
+													<td>開催場所:</td>
+													<td>東京ビッグサイト 東展示棟</td>
+												</tr>
+												<tr>
+													<td>小間数:</td>
+													<td>2</td>
+												</tr>
+												<tr>
+													<td>開放面:</td>
+													<td>2</td>
+												</tr>
+												<tr>
+													<td>サイズ:</td>
+													<td>6m X 2.7m</td>
+												</tr>
+												<tr>
+													<td>面積:</td>
+													<td>16.2m<sup>2</sup></td>
+												</tr>
+											</tbody>
+										</table>                
+									</div>
+								</div>
+							</div>
+							<!-- ここまでテスト -->
+
+
+						</ul>
+					</div>
+				</section><!-- 実績紹介ここまで -->
+
+			<!-- cta -->
+			<article class="section-block common-block " data-color="white">
+				<section class="content contact-area">
+					<div class="inner">
+						<h2 class="headline-02 txt-center">ご相談・ご質問等ございましたら、お気軽にお問い合わせください</h2>
+						<div class="btn-column">
+							<a href="#contact" class="btn btn01">
+								<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/common/icon_mail02.png" width="25" height="20" alt="MAIL" class="icon">
+								メールでのお問い合わせ
+							</a>
+							<a href="tel:0120150585" class="btn btn02">
+								<dl>
+									<dt class="txt-serif"><span>0120-150-<span class="lastnum-tel">585</span></span></dt>
+									<dd class="label">受付時間 / 平日 9:00～18:00</dd>
+								</dl>
+							</a>
+						</div>
+					</div>
+				</section>
+			</article>
+
+
+
+
 		<section class="content page-width">
 			<h3 class="headline-03 svc-ttl03">サービス詳細と導入の流れ</h3>
 			<div class="svc-flow">
@@ -488,6 +705,7 @@ var wpstg = {"nonce":"7159e854ce"};
 		</section>
 	</article>
 
+    <!-- cta -->
 	<article class="section-block common-block pd-y_none" data-color="white">
 		<section class="content contact-area">
 			<div class="inner">
@@ -603,125 +821,9 @@ var wpstg = {"nonce":"7159e854ce"};
 			</div>
 		</section>
 	</article>
-
-	<article class="section-block common-block pd-y_none" data-color="white">
-		<section class="content contact-area">
-			<div class="inner">
-				<h2 class="headline-02 txt-center">ご相談・ご質問等ございましたら、お気軽にお問い合わせください</h2>
-				<div class="btn-column">
-					<a href="#contact" class="btn btn01">
-						<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/common/icon_mail02.png" width="25" height="20" alt="MAIL" class="icon">
-						メールでのお問い合わせ
-					</a>
-					<a href="tel:0120150585" class="btn btn02">
-						<dl>
-							<dt class="txt-serif"><span>0120-150-<span class="lastnum-tel">585</span></span></dt>
-							<dd class="label">受付時間 / 平日 9:00～18:00</dd>
-						</dl>
-					</a>
-				</div>
-			</div>
-		</section>
-	</article>
-
-	<article class="section-block svc-sec03">
-				<section class="content page-width" id="last-achvm-intro">
-			<h3 class="headline-03 svc-ttl03">最新の実績紹介</h3>
-						<div class="svc-work-slider">
-				<ul class="l-column col-3 col-1-tab work-list work-exhib-list">
-											<li class="work-item">
-							<a href="https://ikkosha.co.jp/works/1715/" target="_blank" class="variableBox">
-								<figure class="inner">
-																			<img width="640" height="640" src="https://ikkosha.co.jp/uploads/BWO01-1024x1024.jpg" class="pic wp-post-image" alt="" decoding="async" fetchpriority="high" />																		<figcaption class="work-name work-exhib-name">
-										<span class="cat_exhib">BWJ大阪<br>2小間3面開放(6mx3m)</span>									</figcaption>
-								</figure>
-							</a>
-						</li>
-											<li class="work-item">
-							<a href="https://ikkosha.co.jp/works/1714/" target="_blank" class="variableBox">
-								<figure class="inner">
-																			<img width="640" height="480" src="https://ikkosha.co.jp/uploads/IMG_0755-1024x768.jpg" class="pic wp-post-image" alt="" decoding="async" />																		<figcaption class="work-name work-exhib-name">
-										<span class="cat_exhib">総務サービスEXPO 総務・人事・経理Week<br>3小間2面開放(9mx2.7m)</span>									</figcaption>
-								</figure>
-							</a>
-						</li>
-											<li class="work-item">
-							<a href="https://ikkosha.co.jp/works/1719/" target="_blank" class="variableBox">
-								<figure class="inner">
-																			<img width="640" height="640" src="https://ikkosha.co.jp/uploads/EP00-1024x1024.jpg" class="pic wp-post-image" alt="" decoding="async" />																		<figcaption class="work-name work-exhib-name">
-										<span class="cat_exhib">インターペット<br>1小間2面開放(3mx3m)</span>									</figcaption>
-								</figure>
-							</a>
-						</li>
-											<li class="work-item">
-							<a href="https://ikkosha.co.jp/works/1716/" target="_blank" class="variableBox">
-								<figure class="inner">
-																			<img width="640" height="640" src="https://ikkosha.co.jp/uploads/FM-00-1024x1024.jpg" class="pic wp-post-image" alt="" decoding="async" />																		<figcaption class="work-name work-exhib-name">
-										<span class="cat_exhib">フェムテック東京<br>2小間2面開放(6mx2.7m)</span>									</figcaption>
-								</figure>
-							</a>
-						</li>
-											<li class="work-item">
-							<a href="https://ikkosha.co.jp/works/1706/" target="_blank" class="variableBox">
-								<figure class="inner">
-																			<img width="640" height="480" src="https://ikkosha.co.jp/uploads/IMG_0633-1024x768.jpg" class="pic wp-post-image" alt="" decoding="async" />																		<figcaption class="work-name work-exhib-name">
-										<span class="cat_exhib">DX EXPO 2023夏<br>2小間2面開放(3mx6m)</span>									</figcaption>
-								</figure>
-							</a>
-						</li>
-											<li class="work-item">
-							<a href="https://ikkosha.co.jp/works/1522/" target="_blank" class="variableBox">
-								<figure class="inner">
-																			<img width="640" height="480" src="https://ikkosha.co.jp/uploads/IMG_0288-2-1024x768.jpeg" class="pic wp-post-image" alt="" decoding="async" />																		<figcaption class="work-name work-exhib-name">
-										<span class="cat_exhib">AI world大阪<br>2小間3面開放(4mx4.5m)</span>									</figcaption>
-								</figure>
-							</a>
-						</li>
-											<li class="work-item">
-							<a href="https://ikkosha.co.jp/works/1645/" target="_blank" class="variableBox">
-								<figure class="inner">
-																			<img width="640" height="449" src="https://ikkosha.co.jp/uploads/img_exhibition01-1024x719.jpeg" class="pic wp-post-image" alt="" decoding="async" />																		<figcaption class="work-name">
-										<span class="cat">展示会・イベント</span><span class="name">展示会</span>									</figcaption>
-								</figure>
-							</a>
-						</li>
-											<li class="work-item">
-							<a href="https://ikkosha.co.jp/works/1646/" target="_blank" class="variableBox">
-								<figure class="inner">
-																			<img width="640" height="449" src="https://ikkosha.co.jp/uploads/img_exhibition02-1024x719.jpeg" class="pic wp-post-image" alt="" decoding="async" />																		<figcaption class="work-name">
-										<span class="cat">展示会・イベント</span><span class="name">展示会</span>									</figcaption>
-								</figure>
-							</a>
-						</li>
-											<li class="work-item">
-							<a href="https://ikkosha.co.jp/works/1647/" target="_blank" class="variableBox">
-								<figure class="inner">
-																			<img width="640" height="449" src="https://ikkosha.co.jp/uploads/img_exhibition03-1024x719.jpeg" class="pic wp-post-image" alt="" decoding="async" />																		<figcaption class="work-name">
-										<span class="cat">展示会・イベント</span><span class="name">展示会</span>									</figcaption>
-								</figure>
-							</a>
-						</li>
-											<li class="work-item">
-							<a href="https://ikkosha.co.jp/works/186/" target="_blank" class="variableBox">
-								<figure class="inner">
-																			<img width="450" height="450" src="https://ikkosha.co.jp/uploads/haihai-eye.jpg" class="pic wp-post-image" alt="" decoding="async" />																		<figcaption class="work-name">
-										<span class="cat">展示会・イベント</span><span class="name">イベント</span>									</figcaption>
-								</figure>
-							</a>
-						</li>
-											<li class="work-item">
-							<a href="https://ikkosha.co.jp/works/699/" target="_blank" class="variableBox">
-								<figure class="inner">
-																			<img width="640" height="640" src="https://ikkosha.co.jp/uploads/live1-1.png" class="pic wp-post-image" alt="" decoding="async" />																		<figcaption class="work-name">
-										<span class="cat">展示会・イベント</span><span class="name">イベント</span>									</figcaption>
-								</figure>
-							</a>
-						</li>
-									</ul>
-			</div>
-								</section>
+	
 						
-		<section class="content page-width">
+		<section class="content page-width pd-y_none">
 			<h2 class="headline-03 svc-ttl03">よくあるご質問</h2>
 			<dl class="faq-list">
 				<dt>何から始めたら良いかわからないのですが…</dt>
@@ -746,53 +848,53 @@ var wpstg = {"nonce":"7159e854ce"};
 			<article id="contact" class="section-block svc-contact pd-t_none bg-c01">
 			<h2 class="headline">無料お見積り・出展の<br class="spOnly">ご相談はこちらから</h2>
 			<section class="content page-width">
-				<div id="mw_wp_form_mw-wp-form-252" class="mw_wp_form mw_wp_form_input  ">
+				<div id="mw_wp_form_mw-wp-form-1280" class="mw_wp_form mw_wp_form_input  ">
 					<form method="post" action="" enctype="multipart/form-data"><div class="form-area form-horizon contact-form">
 <dl class="form-box">
- 	<dt>会社名<span class="required"></span></dt>
+ 	<dt>Company name<span class="required"></span></dt>
  	<dd>
-<input type="text" name="company" class="form-control" size="60" value="" placeholder="例）株式会社一向社" />
+<input type="text" name="company" class="form-control" size="60" value="" placeholder="E.g. Ikkosha Co., Ltd." />
 </dd>
 </dl>
 <dl class="form-box">
- 	<dt>お名前<span class="required"></span></dt>
+ 	<dt>Name<span class="required"></span></dt>
  	<dd>
-<input type="text" name="onamae" class="form-control" size="60" value="" placeholder="例）鈴木　太郎" />
+<input type="text" name="onamae" class="form-control" size="60" value="" placeholder="E.g. Taro Suzuki" />
 </dd>
 </dl>
 <dl class="form-box">
- 	<dt>メールアドレス<span class="required"></span></dt>
+ 	<dt>E-amil<span class="required"></span></dt>
  	<dd>
-<input type="email" name="email" class="form-control" size="60" value="" placeholder="例）info@ikkosha.co.jp" data-conv-half-alphanumeric="true"/>
+<input type="email" name="email" class="form-control" size="60" value="" placeholder="E.g. info@ikkosha.co.jp" data-conv-half-alphanumeric="true"/>
 </dd>
 </dl>
 <dl class="form-box">
- 	<dt>お問い合わせ内容<span class="required"></span></dt>
+ 	<dt>Enquiry details<span class="required"></span></dt>
  	<dd>
-<textarea name="naiyou" class="form-control" cols="50" rows="5" placeholder="ご予算、展示会名、小間数、小間位置情報、課題感など"></textarea>
+<textarea name="naiyou" class="form-control" cols="50" rows="5" placeholder="Budget, exhibition name, number of booths, booth location information, sense of challenges, etc."></textarea>
 </dd>
 </dl>
 <div class="accept-box txt-center">
 <div class="checkbox">
 	<span class="mwform-checkbox-field horizontal-item">
 		<label >
-			<input type="checkbox" name="doui[data][]" value="プライバシーポリシーに同意する" class="checkbox" />
-			<span class="mwform-checkbox-field-text">プライバシーポリシーに同意する</span>
+			<input type="checkbox" name="doui[data][]" value="I agree to the privacy policy" class="checkbox" />
+			<span class="mwform-checkbox-field-text">I agree to the privacy policy</span>
 		</label>
 	</span>
 
 <input type="hidden" name="doui[separator]" value="," />
 
-<input type="hidden" name="__children[doui][]" value="{&quot;\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc\u306b\u540c\u610f\u3059\u308b&quot;:&quot;\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc\u306b\u540c\u610f\u3059\u308b&quot;}" />
+<input type="hidden" name="__children[doui][]" value="{&quot;I agree to the privacy policy&quot;:&quot;I agree to the privacy policy&quot;}" />
 </div>
 </div>
 
-<input type="submit" name="submitConfirm" value="入力内容を確認する" class="btn btn-01 btn-arw btn-center"/>
+<input type="submit" name="submitConfirm" value="Confirm" class="btn btn-01 btn-arw btn-center"/>
 
 
 &nbsp;
 
-</div><input type="hidden" name="mw-wp-form-form-id" value="252" /><input type="hidden" name="mw_wp_form_token" value="64cfef64b15e0400e7724d514cf016ef9fe9c5d4466aa1f67df1f838da3b8b9f" /></form>
+</div><input type="hidden" name="mw-wp-form-form-id" value="1280" /><input type="hidden" name="mw_wp_form_token" value="03b1f3f07ddfdf233d5011cd4a25e9d8779e1a1bf97829ab85bcc55c24626e61" /></form>
 				<!-- end .mw_wp_form --></div>			</section>
 		</article>
 		
@@ -826,40 +928,11 @@ var wpstg = {"nonce":"7159e854ce"};
 		</section>
 	</article> -->
 
-	<article class="section-block common-block pd-y_none" data-color="white">
-		<section class="content contact-area">
-			<div class="inner">
-				<h2 class="headline-02 txt-center">ご相談・ご質問等ございましたら、お気軽にお問い合わせください</h2>
-				<div class="btn-column">
-					<a href="https://ikkosha.co.jp/contact" class="btn btn01">
-						<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/common/icon_mail02.png" width="25" height="20" alt="MAIL" class="icon">
-						メールでのお問い合わせ
-					</a>
-					<a href="tel:0120150585" class="btn btn02">
-						<dl>
-							<dt class="txt-serif"><span>0120-150-<span class="lastnum-tel">585</span></span></dt>
-							<dd class="label">受付時間 / 平日 9:00～18:00</dd>
-						</dl>
-					</a>
-				</div>
-			</div>
-		</section>
-	</article>
-
-	<a href="#" id="pageTop" class="page-top"></a>
-
-	<footer class="site-footer">
+	<footer class="site-footer pd-y_none">
 		<section class="content">
 			<div class="footer-column page-width">
 				<div class="area01">
-					<h1 class="footer-title">
-						<a href="https://ikkosha.co.jp/">
-							<figure class="logo">
-								<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/common/logo.svg" width="216" height="46" alt="株式会社一向社">
-								<figcaption class="label">株式会社一向社</figcaption>
-							</figure>
-						</a>
-					</h1>
+					<h1 style="font-size: 2rem;">株式会社一向社</h1>
 					<dl class="footer-info">
 						<dt>本社</dt>
 						<dd>
@@ -872,21 +945,28 @@ var wpstg = {"nonce":"7159e854ce"};
 							TEL.<a href="tel:0353243115">03-5324-3115</a>
 						</dd>
 					</dl>
+					<br>
+					<div class="footer-title">
+						<a href="#">
+							<figure class="logo">
+								<img src="https://ikkosha.co.jp/cms/wp-content/themes/ikkosha_theme/images/common/logo.svg" width="216" height="46" alt="株式会社一向社">
+								<!-- <figcaption class="label">株式会社一向社</figcaption> -->
+							</figure>
+						</a>
+					</div>
 				</div>
+				
+
 				<div class="area02">
 					<nav class="footer-navi">
-						<dl>
+						<p><a href="https://ikkosha.co.jp/privacy-policy/" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a></p>
+						<!-- <dl>
 							<dt><a href="https://ikkosha.co.jp/service">サービス</a></dt>
 							<dd>
 								<ul>
 									<li><a href="https://ikkosha.co.jp/service/exhibition_support">展⽰会まるごとサポート</a></li>
 									<li><a href="https://ikkosha.co.jp/service/web_design">ホームページ制作</a></li>
 									<li><a href="https://ikkosha.co.jp/service/graphic_design">グラフィックデザイン</a></li>
-									<!-- <li><a href="https://ikkosha.co.jp/service">Web広告</a></li>
-									<li><a href="https://ikkosha.co.jp/service">SNSマーケティング</a></li>
-									<li><a href="https://ikkosha.co.jp/service">SEO/MEO対策</a></li>
-									<li><a href="https://ikkosha.co.jp/service">マーケティングオートメーション</a></li>
-									<li><a href="https://ikkosha.co.jp/service">Googleアナリティクス解析</a></li> -->
 									<li><a href="https://ikkosha.co.jp/service/dm_design">DM（ダイレクトメール）</a></li>
 									<li><a href="https://ikkosha.co.jp/service/manual">取扱説明書／マニュアル</a></li>
 								</ul>
@@ -910,7 +990,7 @@ var wpstg = {"nonce":"7159e854ce"};
 							<dt><a href="https://ikkosha.co.jp/blog">ブログ</a></dt>
 							<dt><a href="https://ikkosha.co.jp/news">お知らせ</a></dt>
 							<dt><a href="https://ikkosha.co.jp/privacy-policy">プライバシーポリシー</a></dt>
-						</dl>
+						</dl> -->
 					</nav>
 				</div>
 			</div>
@@ -986,4 +1066,36 @@ $(function(){
 	$('.accept-box .mwform-checkbox-field-text').html('<a href="https://ikkosha.co.jp/privacy-policy/" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
 
 });
+</script>
+<script>
+	// モーダルを開く関数
+function openModal() {
+    document.getElementById('modal').style.display = 'block';
+	document.body.classList.add('no-scroll');
+}
+
+// モーダルを閉じる関数
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+	document.body.classList.remove('no-scroll');
+}
+
+// モーダルを閉じるためのクリックイベント
+document.querySelector('.close-button').addEventListener('click', closeModal);
+
+// モーダル外をクリックしたときに閉じる
+window.addEventListener('click', function(event) {
+    if (event.target == document.getElementById('modal')) {
+        closeModal();
+    }
+});
+
+// variableBoxをクリックしたときにモーダルを開く
+document.querySelectorAll('.variableBox').forEach(function(item) {
+    item.addEventListener('click', function(event) {
+        event.preventDefault();
+        openModal();
+    });
+});
+
 </script>
