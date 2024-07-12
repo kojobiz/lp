@@ -43,39 +43,7 @@
 				<div class="area02">
 					<nav class="footer-navi">
                         <p><a href="https://ikkosha.co.jp/privacy-policy/" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a></p>
-						<!-- <dl>
-							<dt><a href="<?php echo esc_url( home_url( '/service' ) ); ?>">サービス</a></dt>
-							<dd>
-								<ul>
-									<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support">展⽰会まるごとサポート</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/web_design">ホームページ制作</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/graphic_design">グラフィックデザイン</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/dm_design">DM（ダイレクトメール）</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/manual">取扱説明書／マニュアル</a></li>
-								</ul>
-							</dd>
-						</dl>
-						<dl>
-							<dt><a href="<?php echo esc_url( home_url( '/strength' ) ); ?>">選ばれる理由</a></dt>
-							<dt><a href="<?php echo esc_url( home_url( '/works' ) ); ?>">制作実績</a></dt>
-							<dt><a href="<?php echo esc_url( home_url( '/company' ) ); ?>">会社案内</a></dt>
-							<dd>
-								<ul>
-									<li><a href="<?php echo esc_url( home_url( '/company' ) ); ?>?id=message">代表挨拶</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/company' ) ); ?>?id=outline">会社概要</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/company' ) ); ?>?id=history">100年の歩み</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/company' ) ); ?>?id=access">アクセスマップ</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/staff' ) ); ?>">スタッフ紹介</a></li>
-								</ul>
-							</dd>
-						</dl>
-						<dl>
-							<dt><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">ブログ</a></dt>
-							<dt><a href="<?php echo esc_url( home_url( '/news' ) ); ?>">お知らせ</a></dt>
-							<dt><a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>">プライバシーポリシー</a></dt>
-						</dl> -->
 					</nav>
-
 				</div>
 			</div>
 			<div class="copyright txt-center">
