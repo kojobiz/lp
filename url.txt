@@ -1,0 +1,20 @@
+展示会まるごとサポート（一向社サイト展示会ページ）
+https://ikkosha.co.jp/service/exhibition_support/
+
+Github Pages　(wpdemo_iksite) サイト
+https://kojobiz.github.io/wpdemo_iksite
+
+Github code (wpdemo_iksite)　コード
+https://github.com/kojobiz/wpdemo_iksite
+
+Figjam
+https://www.figma.com/board/PQyDcJFg7ZwEBzOR6DOz5W/%E5%B0%8F%E5%9F%8E_%E4%B8%80%E5%90%91%E7%A4%BELP_0710-0715?node-id=0-1&t=aXvucjxGHgrTfLxI-0
+
+元コードFTPでphpやhtml実験など含む
+(z_ik)
+https://github.com/kojobiz/z_ik
+
+本番公開デプロイパーマリンク
+https://ikkosha.co.jp/service/exhibition_support_lp1/
+https://ikkosha.co.jp/service/exhibition_support_lp2/
+https://ikkosha.co.jp/service/exhibition_support_lp3/
