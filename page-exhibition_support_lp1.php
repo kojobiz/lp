@@ -20,22 +20,7 @@ get_header('lp');
 				<source srcset="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_sp.jpg" media="(max-width: 833px)"/>
 				<img src="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_pc.jpg" width="1600" height="650">
 			</picture>
-			
-			<div class="ikk_tenjikai-wrap">
-				<a href="#last-achvm-intro"><div class="ikk_tenjikai-slider"></div></a>
-			</div>
 			<ul class="page-list">
-				<!-- <?php if(get_field('download-form')): ?>
-					<li>
-						<a href="#download">
-							<dl>
-								<dt>詳しいサービス紹介・事例も確認できる</dt>
-								<dd>「資料ダウンロード」</dd>
-							</dl>
-						</a>
-					</li>
-				<?php endif; ?> -->
-
 				<?php if(get_field('consultation-form')): ?>
 					<li>
 						<a href="#contact">
@@ -50,12 +35,6 @@ get_header('lp');
 		</div>
 	</div>
 
-	<!-- <div class="breadcrumbs page-width" typeof="BreadcrumbList" vocab="https://schema.org/">
-		<?php if(function_exists('bcn_display')) {
-			bcn_display();
-		}?>
-	</div> -->
-
 	<article class="section-block svc-worries">
 		<section class="content page-width">
 			<h2 class="ttl" style="text-align: center;">展示会出展に関する、<br>こんな「お悩み」ありませんか？</h2>
@@ -67,9 +46,6 @@ get_header('lp');
 				<li>出展後の顧客リストが<strong>そのまま眠っている</strong></li>
 				
 			</ul>
-		<!--	<figure class="pic pic01">
-				<img src="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/img01.jpg" width="440" height="596" alt="">
-			</figure>-->
 		</section>
 		<section class="resolution-block">
 			<div class="page-width txt-center">
@@ -524,7 +500,7 @@ get_header('lp');
 	
 	<!-- footer -->
 	<?php
-	get_footer();
+	get_footer('lp');
 	?>
 
 <script>
