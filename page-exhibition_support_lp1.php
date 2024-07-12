@@ -146,7 +146,7 @@ get_header('lp');
 			<?php //endif; ?>
 			<?php wp_reset_postdata(); ?>
 			<!-- cta -->
-			<article class="section-block common-block pd-y_none" data-color="white">
+			<article class="section-block common-block" data-color="white">
 				<section class="content contact-area">
 					<div class="inner">
 						<h2 class="headline-02 txt-center">ご相談・ご質問等ございましたら、お気軽にお問い合わせください</h2>
@@ -311,7 +311,7 @@ get_header('lp');
 			</section>
 		</article>
 		<!-- cta -->
-		<article class="section-block common-block" data-color="white">
+		<article class="section-block common-block pd-y_none" data-color="white">
 			<section class="content contact-area">
 				<div class="inner">
 					<h2 class="headline-02 txt-center">ご相談・ご質問等ございましたら、お気軽にお問い合わせください</h2>
