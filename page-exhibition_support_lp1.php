@@ -464,15 +464,38 @@ get_header('lp');
 		</article>
 	<?php endif; ?>
 	<!-- 問い合わせフォーム -->
-	<?php if(get_field('consultation-form')): ?>
-		<div class="form-area download-form">
-			<?php echo do_shortcode('[mwform_formkey key="65"]'); ?>
-		</div>
-	<?php endif; ?>
-
-
-	
-	
+	<?php if(get_field('download-form')): ?>
+		<article id="download" class="section-block pd-t_md">
+			<section class="content page-width">
+				<?php 
+				$post_objects = get_field('download-form');
+				$postID = $post_objects->ID;
+				?>
+				<div class="download-contents svc-download">
+					<div class="visual-area">
+						<?php
+						$downloadImg = get_field('download_img', $postID);
+						if( !empty( $downloadImg ) ): 
+						?>
+						<figure class="pic">
+							<img src="<?php echo esc_url($downloadImg['url']); ?>" alt="<?php echo esc_attr($downloadImg['alt']); ?>" />
+						</figure>
+						<?php endif; ?>
+						<h3 class="headline-02 h-pdf"><?php echo get_the_title($postID); ?></h3>
+						<?php if(get_field('download_comment', $postID)): ?>
+							<div class="comment">
+								<p><?php the_field('download_comment', $postID); ?></p>
+							</div>
+						<?php endif; ?>
+					</div>
+					<div class="form-area download-form">
+						<p class="download-msg">フォームに必要事項をご記入いただくと、無料で資料ダウンロードが可能です。</p>
+						<?php echo do_shortcode('[mwform_formkey key="65"]'); ?>
+					</div>
+				</div>
+			</section>
+		</article>
+	<?php endif; ?>	
 	<!-- footer -->
 	<?php
 	get_footer('lp');
