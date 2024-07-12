@@ -464,7 +464,15 @@ get_header('lp');
 		</article>
 	<?php endif; ?>
 	<!-- 問い合わせフォーム -->
-	<?php if(get_field('download-form')): ?>
+	<?php if(get_field('consultation-form')): ?>
+		<div class="form-area download-form">
+			<?php echo do_shortcode('[mwform_formkey key="65"]'); ?>
+		</div>
+	<?php endif; ?>
+
+
+	<!-- テストで削除したフォーム -->
+	<!-- <?php if(get_field('download-form')): ?>
 		<article id="download" class="section-block pd-t_md">
 			<section class="content page-width">
 				<?php 
@@ -495,7 +503,8 @@ get_header('lp');
 				</div>
 			</section>
 		</article>
-	<?php endif; ?>
+	<?php endif; ?> -->
+	<!-- ここまでテストで削除したフォーム -->
 	
 	
 	<!-- footer -->
