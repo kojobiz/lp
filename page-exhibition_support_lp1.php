@@ -13,6 +13,65 @@
  */
 get_header('lp');
 ?>
+<style>
+.lp-btn-radius-shadow {
+	border-radius: 99px;
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);
+}
+.lp-text-nowrap {
+	text-wrap: nowrap;
+	font-size: 1.4rem;
+}
+/* モーダルのスタイル */
+.variableBox:hover {
+	cursor: pointer;
+}
+.modal {
+    display: none; /* デフォルトでは表示しない */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw!important;
+    height: 100vh!important;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 80%;
+	max-height: 60%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -80%);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* モーダル表示時のスクロール防止用スタイル */
+.no-scroll {
+    overflow: hidden;
+    height: 100%;
+}
+
+</style>
 
 	<div class="service-headline">
 		<div class="inner">
@@ -95,6 +154,147 @@ get_header('lp');
 			$args['paged'] = $paged;
 			$the_query = new WP_Query($args);
 			?>
+			
+			<section class="content page-width" id="last-achvm-intro">
+				<h3 class="headline-03 svc-ttl03">実績紹介</h3>
+				<?php if ( $the_query->have_posts() ) :	?>
+				<div class="svc-work-slider">
+					<ul class="l-column col-3 col-1-tab work-list work-exhib-list">
+
+						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+							<li class="work-item">
+								<div href="<?php the_permalink(); ?>" target="_blank" class="variableBox">
+									<figure class="inner">
+										<?php if(has_post_thumbnail()): ?>
+											<?php the_post_thumbnail( 'large', array('class' => 'pic') ); ?>
+										<?php else : ?>
+											<img src="<?php echo get_template_directory_uri() ?>/images/common/placehold744x744.png" width="372" height="372" class="pic">
+										<?php endif; ?>
+										<figcaption class="work-name<?php if(get_field('exhib-name',$post->ID)){?> work-exhib-name<?php }?>">
+											<?php
+											if(get_field('exhib-name',$post->ID)){
+												$strInfo = get_field('exhib-name',$post->ID).'<br>';
+												$strInfo = $strInfo . get_field('exhib-boots',$post->ID) . '小間';
+												$strInfo = $strInfo . get_field('exhib-surface',$post->ID) . '面開放(';
+												$strInfo = $strInfo . get_field('exhib-width',$post->ID) . 'mx';
+												$strInfo = $strInfo . get_field('exhib-height',$post->ID) . 'm)';
+												echo '<span class="cat_exhib">'.$strInfo.'</span>';
+											} else {										    
+												$termsParent = get_the_terms($post->ID,'work_type');
+												foreach ( $termsParent as $term ){
+													if($term->parent == 0) {
+														echo '<span class="cat">'.$term->name.'</span>';
+													}
+												}
+												foreach ( $termsParent as $term ){
+													if($term->parent != 0) {
+														echo '<span class="name">'.$term->name.'</span>';
+													}
+												}
+											}
+											?>
+										</figcaption>
+									</figure>
+								</div>
+							</li>
+
+							
+							<!-- モーダル構造 -->
+							<div id="modal" class="modal">
+								<div class="modal-content">
+									<span class="close-button">&times;</span>
+									<div class="exhib-infos">
+										<!-- <figure class="work-visual exhib-visual">
+											<img src="https://ikkosha.co.jp/uploads/FM.jpg" alt="">
+										</figure> -->
+										<figure class="inner">
+										<?php if(has_post_thumbnail()): ?>
+											<?php the_post_thumbnail( 'large', array('class' => 'pic') ); ?>
+										<?php else : ?>
+											<img src="<?php echo get_template_directory_uri() ?>/images/common/placehold744x744.png" width="372" height="372" class="pic">
+										<?php endif; ?>
+										<figcaption class="work-name<?php if(get_field('exhib-name',$post->ID)){?> work-exhib-name<?php }?>">
+											<?php
+											if(get_field('exhib-name',$post->ID)){
+												$strInfo = get_field('exhib-name',$post->ID).'<br>';
+												$strInfo = $strInfo . get_field('exhib-boots',$post->ID) . '小間';
+												$strInfo = $strInfo . get_field('exhib-surface',$post->ID) . '面開放(';
+												$strInfo = $strInfo . get_field('exhib-width',$post->ID) . 'mx';
+												$strInfo = $strInfo . get_field('exhib-height',$post->ID) . 'm)';
+												echo '<span class="cat_exhib">'.$strInfo.'</span>';
+											} else {										    
+												$termsParent = get_the_terms($post->ID,'work_type');
+												foreach ( $termsParent as $term ){
+													if($term->parent == 0) {
+														echo '<span class="cat">'.$term->name.'</span>';
+													}
+												}
+												foreach ( $termsParent as $term ){
+													if($term->parent != 0) {
+														echo '<span class="name">'.$term->name.'</span>';
+													}
+												}
+											}
+											?>
+										</figcaption>
+									</figure> 
+									</div>
+								</div>
+							</div>
+							<!-- ここまでテスト -->
+
+
+
+
+						<?php endwhile; ?>
+					</ul>
+				</div>
+				<?php endif; ?>
+			</section>
+			<?php //endif; ?>
+			<?php wp_reset_postdata(); ?>
+
+
+
+
+
+
+
+
+
+
+		<!-- 実績紹介 -->
+		<article class="section-block svc-sec03">
+			<?php		
+			$numItems = 12;
+			if ( wp_is_mobile() ) { $numItems = 8; }
+			// check for more page link 
+			$paged = (int) get_query_var('paged');
+			$args = array(
+				'posts_per_page' => $numItems + 1,
+				'paged' => $paged,
+				'orderby' => 'post_date',
+				'order' => 'DESC',
+				'post_type' => 'works',
+				'post_status' => 'publish',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'work_type',
+						'field' => 'slug',
+						'terms' => 'exhibition'
+					)
+				)
+			);
+			$the_query = new WP_Query($args);		
+			$totalItems = $the_query->found_posts;
+			wp_reset_postdata();
+			// loop posts
+			$paged = (int) get_query_var('paged');
+			$args['posts_per_page'] = $numItems;
+			$args['paged'] = $paged;
+			$the_query = new WP_Query($args);
+			?>
+			
 			<section class="content page-width" id="last-achvm-intro">
 				<h3 class="headline-03 svc-ttl03">実績紹介</h3>
 				<?php if ( $the_query->have_posts() ) :	?>
@@ -140,9 +340,9 @@ get_header('lp');
 					</ul>
 				</div>
 				<?php endif; ?>
-				<?php if ( $totalItems > $numItems ) : ?>
+				<!-- <?php if ( $totalItems > $numItems ) : ?>
 				<a href="<?php echo esc_url( home_url( '/work_type' ) ); ?>/exhibition/" target="_blank" class="btn btn-01 btn-arw btn-center">その他の制作実績を⾒る</a>
-				<?php endif; ?>
+				<?php endif; ?> -->
 			</section>
 			<?php //endif; ?>
 			<?php wp_reset_postdata(); ?>
@@ -524,5 +724,37 @@ $(function(){
 	//規約チェックボックスの文言変更
 	$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
 
+});
+
+
+
+// モーダルを開く関数
+function openModal() {
+    document.getElementById('modal').style.display = 'block';
+	document.body.classList.add('no-scroll');
+}
+
+// モーダルを閉じる関数
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+	document.body.classList.remove('no-scroll');
+}
+
+// モーダルを閉じるためのクリックイベント
+document.querySelector('.close-button').addEventListener('click', closeModal);
+
+// モーダル外をクリックしたときに閉じる
+window.addEventListener('click', function(event) {
+    if (event.target == document.getElementById('modal')) {
+        closeModal();
+    }
+});
+
+// variableBoxをクリックしたときにモーダルを開く
+document.querySelectorAll('.variableBox').forEach(function(item) {
+    item.addEventListener('click', function(event) {
+        event.preventDefault();
+        openModal();
+    });
 });
 </script>
