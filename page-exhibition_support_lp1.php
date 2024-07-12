@@ -450,7 +450,7 @@ get_header('lp');
 		<?php //endif; ?>
 		<?php wp_reset_postdata(); ?>
 		
-		<section class="content page-width">
+		<section class="content page-width pd-y_none" id="service-faq">
 			<h2 class="headline-03 svc-ttl03">よくあるご質問</h2>
 			<dl class="faq-list">
 				<dt>何から始めたら良いかわからないのですが…</dt>
@@ -471,6 +471,16 @@ get_header('lp');
 		</section>
 	</article>
 
+	<!-- 帯：無料相談こちら -->
+	<?php if(get_field('consultation-form')): ?>
+		<article id="contact" class="section-block svc-contact pd-t_none bg-c01">
+			<h2 class="headline">無料お見積り・出展の<br class="spOnly">ご相談はこちらから</h2>
+			<section class="content page-width">
+				<?php echo do_shortcode(get_field('consultation-form')); ?>
+			</section>
+		</article>
+	<?php endif; ?>
+	<!-- 問い合わせフォーム -->
 	<?php if(get_field('download-form')): ?>
 		<article id="download" class="section-block pd-t_md">
 			<section class="content page-width">
@@ -504,14 +514,7 @@ get_header('lp');
 		</article>
 	<?php endif; ?>
 	
-	<?php if(get_field('consultation-form')): ?>
-		<article id="contact" class="section-block svc-contact pd-t_none bg-c01">
-			<h2 class="headline">無料お見積り・出展の<br class="spOnly">ご相談はこちらから</h2>
-			<section class="content page-width">
-				<?php echo do_shortcode(get_field('consultation-form')); ?>
-			</section>
-		</article>
-	<?php endif; ?>
+	
 	
 <?php
 get_footer();
