@@ -70,7 +70,7 @@
 	<header id="header" class="site-header wh">
 		<div class="header-inner">
 			<h1 class="header-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1">
 					<figure class="logo">
 						<img src="<?php echo get_template_directory_uri() ?>/images/common/logo.svg" width="216" height="46" alt="株式会社一向社" class="logo01">
 						<img src="<?php echo get_template_directory_uri() ?>/images/common/logo_100th.svg" width="90" height="62" alt="100th ANNIVERSARY" class="logo02">
@@ -84,48 +84,6 @@
 					<span class="label">受付時間 / 平日 9:00～18:00</span>
 				</div>
 				<ul class="navi-menu txt-serif">
-					<!-- <li class="has-child">
-						<a href="<?php echo esc_url( home_url( '/service' ) ); ?>">サービス</a>
-						<div class="header-sub-menu">
-							<div class="inner">
-								<div class="sub-menu-title">
-									<h2 class="headline-01">
-										<span class="main">service</span>
-										<span class="sub">サービス</span>
-									</h2>
-								</div>
-								<ul class="sub-menu-list">
-									<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support">展⽰会まるごとサポート</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/web_design">ホームページ制作</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/graphic_design">グラフィックデザイン</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/dm_design">DM（ダイレクトメール）</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/manual">取扱説明書／マニュアル</a></li>
-								</ul>
-							</div>
-						</div>
-					</li> -->
-					<!-- <li><a href="<?php echo esc_url( home_url( '/strength' ) ); ?>">選ば</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/works' ) ); ?>">制作</a></li>
-					<li class="has-child">
-						<a href="<?php echo esc_url( home_url( '/company' ) ); ?>">会社</a>
-						<div class="header-sub-menu">
-							<div class="inner">
-								<div class="sub-menu-title">
-									<h2 class="headline-01">
-										<span class="main">COM</span>
-										<span class="sub">会社</span>
-									</h2>
-								</div>
-								<ul class="sub-menu-list">
-									<li><a href="<?php echo esc_url( home_url( '/company' ) ); ?>?id=message">代表挨拶</a></li>
-									<li><a href="<?php echo esc_url( home_url( '/company' ) ); ?>?id=outline">会社概要</a></li>
-								</ul>
-							</div>
-						</div>
-					</li> -->
-					<!-- <li><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">ブログ</a></li> -->
-					
-					
 					<!-- navi -->
 					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#last-achvm-intro">実績紹介</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-flow">サービス詳細</a></li>
