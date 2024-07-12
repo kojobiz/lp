@@ -11,7 +11,6 @@
  *
  * @package ikkosha_theme
  */
-
 get_header('lp');
 ?>
 
@@ -21,15 +20,7 @@ get_header('lp');
 				<source srcset="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_sp.jpg" media="(max-width: 833px)"/>
 				<img src="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_pc.jpg" width="1600" height="650">
 			</picture>
-			<!-- <a href="" class="link-01">
-				<div>
-					<span>展示会の<br>スケジュール<br>はこちら</span>
-					<svg xmlns="http://www.w3.org/2000/svg" width="30.075" height="9.809" viewBox="0 0 30.075 9.809">
-						<path d="M1143,4572h27l-11-8" transform="translate(-1143 -4563.191)" fill="none" stroke="#fff" stroke-width="2"/>
-					</svg>
-				</div>
-			</a> -->
-			<!-- tenjikai slider -->
+			
 			<div class="ikk_tenjikai-wrap">
 				<a href="#last-achvm-intro"><div class="ikk_tenjikai-slider"></div></a>
 			</div>

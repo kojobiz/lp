@@ -84,7 +84,7 @@
 					<span class="label">受付時間 / 平日 9:00～18:00</span>
 				</div>
 				<ul class="navi-menu txt-serif">
-					<li class="has-child">
+					<!-- <li class="has-child">
 						<a href="<?php echo esc_url( home_url( '/service' ) ); ?>">サービス</a>
 						<div class="header-sub-menu">
 							<div class="inner">
@@ -103,8 +103,8 @@
 								</ul>
 							</div>
 						</div>
-					</li>
-					<li><a href="<?php echo esc_url( home_url( '/strength' ) ); ?>">選ば</a></li>
+					</li> -->
+					<!-- <li><a href="<?php echo esc_url( home_url( '/strength' ) ); ?>">選ば</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/works' ) ); ?>">制作</a></li>
 					<li class="has-child">
 						<a href="<?php echo esc_url( home_url( '/company' ) ); ?>">会社</a>
@@ -122,10 +122,17 @@
 								</ul>
 							</div>
 						</div>
-					</li>
-					<li><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">ブログ</a></li>
+					</li> -->
+					<!-- <li><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">ブログ</a></li> -->
+					
+					
+					<!-- navi -->
+					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#last-achvm-intro">実績紹介</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-flow">サービス詳細</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-comparison">他社サービスとの比較</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-faq">よくあるご質問</a></li>
 					<li class="btn-contact" data-color="white">
-						<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+						<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-faq">
 							<figure class="icon">
 								<img src="<?php echo get_template_directory_uri() ?>/images/common/icon_mail.png" width="31" height="24" alt="MAIL">
 								<figcaption>お問い合わせ</figcaption>
@@ -134,7 +141,7 @@
 					</li>
 				</ul>
 			</nav>
-
+  			<!-- sp menu -->
 			<div id="hamburgerMenu" class="hamburger-menu">
 				<div>
 					<span></span>
@@ -147,29 +154,24 @@
 
 	<div id="spNavi" class="tabOnly">
 		<ul class="navi-menu txt-serif">
-			<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">ホーム</a></li>
 			<li>
-				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>">サービス</a>
-				<div class="sub-menu-tggle"></div>
-				<ul class="sub-menu-list">
-					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support">展⽰会まるごとサポート</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/web_design">ホームページ制作</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/manual">取扱説明書／マニュアル</a></li>
-				</ul>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">ホーム</a>
 			</li>
-			<li><a href="<?php echo esc_url( home_url( '/strength' ) ); ?>">選ばれる理由</a></li>
-			<li><a href="<?php echo esc_url( home_url( '/works' ) ); ?>">制作実績</a></li>
 			<li>
-				<a href="<?php echo esc_url( home_url( '/company' ) ); ?>">会社案内</a>
-				<div class="sub-menu-tggle"></div>
-				<ul class="sub-menu-list">
-					<li><a href="<?php echo esc_url( home_url( '/company' ) ); ?>?id=message">代表挨拶</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/staff' ) ); ?>">スタッフ紹介</a></li>
-				</ul>
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#last-achvm-intro">実績紹介</a>
 			</li>
-			<li><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">ブログ</a></li>
-			<li><a href="<?php echo esc_url( home_url( '/news' ) ); ?>">お知らせ</a></li>
-			<li><a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>">プライバシーポリシー</a></li>
+			<li>
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-flow">サービス詳細</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-comparison">他社サービスとの比較</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-faq">よくあるご質問</a>
+			</li>
+			<li>
+				<a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>">プライバシーポリシー</a>
+			</li>
 			<li class="navi-contact">
 				<div class="navi-phone">
 					<a href="tel:0120150585" class="txt-serif"><span>0120-150-<span class="lastnum-tel">585</span></span></a>
