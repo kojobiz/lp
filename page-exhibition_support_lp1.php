@@ -16,6 +16,7 @@ get_header('lp');
 
 	<div class="service-headline">
 		<div class="inner">
+		<!-- <a class="en-link" href="/service/en-exhibition_support/">ENGLISH</a> -->
 			<picture class="mv">
 				<source srcset="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_sp.jpg" media="(max-width: 833px)"/>
 				<img src="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_pc.jpg" width="1600" height="650">
@@ -464,7 +465,7 @@ get_header('lp');
 		</article>
 	<?php endif; ?>
 	<!-- 問い合わせフォーム -->
-	<?php if(get_field('download-form')): ?>
+	<!-- <?php if(get_field('download-form')): ?>
 		<article id="download" class="section-block pd-t_md">
 			<section class="content page-width">
 				<?php 
@@ -495,7 +496,7 @@ get_header('lp');
 				</div>
 			</section>
 		</article>
-	<?php endif; ?>	
+	<?php endif; ?>	 -->
 	<!-- footer -->
 	<?php
 	get_footer('lp');
