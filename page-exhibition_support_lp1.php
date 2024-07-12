@@ -208,6 +208,15 @@ get_header('lp');
 											<img src="https://ikkosha.co.jp/uploads/FM.jpg" alt="">
 										</figure> -->
 										<figure class="inner">
+											
+
+
+
+
+
+
+
+
 										<?php if(has_post_thumbnail()): ?>
 											<?php the_post_thumbnail( 'large', array('class' => 'pic') ); ?>
 										<?php else : ?>
