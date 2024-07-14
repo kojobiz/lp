@@ -165,6 +165,7 @@ get_header('lp');
                 <div href="<?php the_permalink(); ?>" target="_blank" class="variableBox" 
                      data-exhib-name="<?php echo get_field('exhib-name',$post->ID); ?>"
                      data-exhib-boots="<?php echo get_field('exhib-boots',$post->ID); ?>">
+                     data-exhib-surface="<?php echo get_field('exhib-surface',$post->ID); ?>">
                     <figure class="inner">
                         <?php if(has_post_thumbnail()): ?>
                             <?php the_post_thumbnail( 'large', array('class' => 'pic') ); ?>
@@ -209,6 +210,7 @@ get_header('lp');
         <span class="close-button">&times;</span>
         <div class="exhib-infos">
             <figure class="inner">
+				<img id="modal-img" src="" width="372" height="372" class="pic">
                 <p id="modal-exhib-name"></p>
                 <p id="modal-exhib-surface"></p>
                 <p id="modal-exhib-boots"></p>
@@ -653,13 +655,15 @@ window.addEventListener('click', function(event) {
 document.querySelectorAll('.variableBox').forEach(function(item) {
     item.addEventListener('click', function(event) {
         event.preventDefault();
+		var imgSrc = item.querySelector('.pic').src;
         var exhibName = item.getAttribute('data-exhib-name');
         var exhibBoots = item.getAttribute('data-exhib-boots');
         var exhibSurface = item.getAttribute('data-exhib-surface');
-        
-        document.getElementById('modal-exhib-name').textContent = exhibName;
-        document.getElementById('modal-exhib-surface').textContent = exhibSurface;
-        document.getElementById('modal-exhib-boots').textContent = exhibBoots;
+
+        document.getElementById('modal-img').src = imgSrc;
+        document.getElementById('modal-exhib-name').textContent = '展示会名' + exhibName;
+        document.getElementById('modal-exhib-surface').textContent = '広さ' + exhibSurface;
+        document.getElementById('modal-exhib-boots').textContent = '小間' + exhibBoots;
         
         openModal();
     });
