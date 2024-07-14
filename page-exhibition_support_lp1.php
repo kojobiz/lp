@@ -220,7 +220,7 @@ get_header('lp');
 
 
 			<!-- テスト２ここまで -->
-			<section class="content page-width" id="last-achvm-intro">
+			<!-- <section class="content page-width" id="last-achvm-intro">
 				<h3 class="headline-03 svc-ttl03">実績紹介</h3>
 				<?php if ( $the_query->have_posts() ) :	?>
 				<div class="svc-work-slider">
@@ -272,9 +272,9 @@ get_header('lp');
 						<?php endwhile; ?>
 					</ul>
 				</div>
-				<?php endif; ?>
+				<?php endif; ?> -->
 				<!-- モーダル構造 -->
-				<div id="modal" class="modal">
+				<!-- <div id="modal" class="modal">
 					<div class="modal-content">
 						<span class="close-button">&times;</span>
 						<div class="exhib-infos">
@@ -282,9 +282,9 @@ get_header('lp');
 							<p>モーダルテスト</p>
 							<?php if ( $the_query->have_posts() ) :	?>
 			<div class="svc-work-slider">
-				<ul class="l-column col-3 col-1-tab work-list work-exhib-list">
+				<ul class="l-column col-3 col-1-tab work-list work-exhib-list"> -->
 					<!-- <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?> -->
-						<li class="work-item">
+						<!-- <li class="work-item">
 								<figure class="inner">
 									<?php if(has_post_thumbnail()): ?>
 										<?php the_post_thumbnail( 'large', array('class' => 'pic') ); ?>
@@ -317,20 +317,20 @@ get_header('lp');
 									</figcaption>
 								</figure>
 							</a>
-						</li>
+						</li> -->
 					<!-- <?php endwhile; ?> -->
-				</ul>
+				<!-- </ul>
 			</div>
 			<?php endif; ?>
 							<p>モーダルテストここまで</p>
 							</figure> 
 						</div>
 					</div>
-				</div>
+				</div> -->
 				
 				<!-- ここまでテスト -->
 
-			</section>
+			<!-- </section> -->
 			<?php //endif; ?>
 			<?php wp_reset_postdata(); ?>
 
