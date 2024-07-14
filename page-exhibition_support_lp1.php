@@ -209,7 +209,8 @@ get_header('lp');
         <span class="close-button">&times;</span>
         <div class="exhib-infos">
             <figure class="inner">
-                <p id="modal-exhib-name">モーダルテスト</p>
+                <p id="modal-exhib-name"></p>
+                <p id="modal-exhib-surface"></p>
                 <p id="modal-exhib-boots"></p>
             </figure> 
         </div>
@@ -220,117 +221,8 @@ get_header('lp');
 
 
 			<!-- テスト２ここまで -->
-			<!-- <section class="content page-width" id="last-achvm-intro">
-				<h3 class="headline-03 svc-ttl03">実績紹介</h3>
-				<?php if ( $the_query->have_posts() ) :	?>
-				<div class="svc-work-slider">
-					<ul class="l-column col-3 col-1-tab work-list work-exhib-list">
 
-						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-							<li class="work-item">
-								<div href="<?php the_permalink(); ?>" target="_blank" class="variableBox">
-									<figure class="inner">
-										<?php if(has_post_thumbnail()): ?>
-											<?php the_post_thumbnail( 'large', array('class' => 'pic') ); ?>
-										<?php else : ?>
-											<img src="<?php echo get_template_directory_uri() ?>/images/common/placehold744x744.png" width="372" height="372" class="pic">
-										<?php endif; ?>
-										<figcaption class="work-name<?php if(get_field('exhib-name',$post->ID)){?> work-exhib-name<?php }?>">
-											<?php
-											if(get_field('exhib-name',$post->ID)){
-												$strInfo = get_field('exhib-name',$post->ID).'<br>';
-												$strInfo = $strInfo . get_field('exhib-boots',$post->ID) . '小間';
-												$strInfo = $strInfo . get_field('exhib-surface',$post->ID) . '面開放(';
-												$strInfo = $strInfo . get_field('exhib-width',$post->ID) . 'mx';
-												$strInfo = $strInfo . get_field('exhib-height',$post->ID) . 'm)';
-												echo '<span class="cat_exhib">'.$strInfo.'</span>';
-											} else {										    
-												$termsParent = get_the_terms($post->ID,'work_type');
-												foreach ( $termsParent as $term ){
-													if($term->parent == 0) {
-														echo '<span class="cat">'.$term->name.'</span>';
-													}
-												}
-												foreach ( $termsParent as $term ){
-													if($term->parent != 0) {
-														echo '<span class="name">'.$term->name.'</span>';
-													}
-												}
-											}
-											?>
-										</figcaption>
-									</figure>
-								</div>
-							</li>
-
-							
-							
-
-
-
-
-						<?php endwhile; ?>
-					</ul>
-				</div>
-				<?php endif; ?> -->
-				<!-- モーダル構造 -->
-				<!-- <div id="modal" class="modal">
-					<div class="modal-content">
-						<span class="close-button">&times;</span>
-						<div class="exhib-infos">
-							<figure class="inner">
-							<p>モーダルテスト</p>
-							<?php if ( $the_query->have_posts() ) :	?>
-			<div class="svc-work-slider">
-				<ul class="l-column col-3 col-1-tab work-list work-exhib-list"> -->
-					<!-- <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?> -->
-						<!-- <li class="work-item">
-								<figure class="inner">
-									<?php if(has_post_thumbnail()): ?>
-										<?php the_post_thumbnail( 'large', array('class' => 'pic') ); ?>
-									<?php else : ?>
-										<img src="<?php echo get_template_directory_uri() ?>/images/common/placehold744x744.png" width="372" height="372" class="pic">
-									<?php endif; ?>
-									<figcaption class="work-name<?php if(get_field('exhib-name',$post->ID)){?> work-exhib-name<?php }?>">
-										<?php
-										if(get_field('exhib-name',$post->ID)){
-										    $strInfo = get_field('exhib-name',$post->ID).'<br>';
-										    $strInfo = $strInfo . get_field('exhib-boots',$post->ID) . '小間';
-										    $strInfo = $strInfo . get_field('exhib-surface',$post->ID) . '面開放(';
-										    $strInfo = $strInfo . get_field('exhib-width',$post->ID) . 'mx';
-										    $strInfo = $strInfo . get_field('exhib-height',$post->ID) . 'm)';
-										    echo '<span class="cat_exhib">'.$strInfo.'</span>';
-										} else {										    
-    										$termsParent = get_the_terms($post->ID,'work_type');
-    										foreach ( $termsParent as $term ){
-    											if($term->parent == 0) {
-    												echo '<span class="cat">'.$term->name.'</span>';
-    											}
-    										}
-    										foreach ( $termsParent as $term ){
-    											if($term->parent != 0) {
-    												echo '<span class="name">'.$term->name.'</span>';
-    											}
-    										}
-										}
-										?>
-									</figcaption>
-								</figure>
-							</a>
-						</li> -->
-					<!-- <?php endwhile; ?> -->
-				<!-- </ul>
-			</div>
-			<?php endif; ?>
-							<p>モーダルテストここまで</p>
-							</figure> 
-						</div>
-					</div>
-				</div> -->
-				
-				<!-- ここまでテスト -->
-
-			<!-- </section> -->
+						
 			<?php //endif; ?>
 			<?php wp_reset_postdata(); ?>
 
@@ -763,8 +655,10 @@ document.querySelectorAll('.variableBox').forEach(function(item) {
         event.preventDefault();
         var exhibName = item.getAttribute('data-exhib-name');
         var exhibBoots = item.getAttribute('data-exhib-boots');
+        var exhibSurface = item.getAttribute('data-exhib-surface');
         
         document.getElementById('modal-exhib-name').textContent = exhibName;
+        document.getElementById('modal-exhib-surface').textContent = exhibSurface;
         document.getElementById('modal-exhib-boots').textContent = exhibBoots;
         
         openModal();
