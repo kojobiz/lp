@@ -206,7 +206,7 @@ get_header('lp');
 </section>
 
 <div id="modal" class="modal">
-    <div class="modal-content">
+    <div class="modal-content" style="width: 90%;">
         <span class="close-button">&times;</span>
         <div class="exhib-infos">
             <figure class="inner">
