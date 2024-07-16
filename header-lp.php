@@ -42,6 +42,9 @@
 	[data-color="white"] {
 		--txt-color: #fff;
 	}
+	.lp-logosize {
+		max-width: 80%;
+	}
 	</style>
 
 	<!-- Google Fonts -->
@@ -71,9 +74,9 @@
 		<div class="header-inner">
 			<h1 class="header-title">
 				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1">
-					<figure class="logo">
-						<img src="<?php echo get_template_directory_uri() ?>/images/common/logo.svg" width="216" height="46" alt="株式会社一向社" class="logo01">
-						<img src="<?php echo get_template_directory_uri() ?>/images/common/logo_100th.svg" width="90" height="62" alt="100th ANNIVERSARY" class="logo02">
+					<figure class="logo lp-logosize">
+						<img src="<?php echo get_template_directory_uri() ?>/images/common/logo.svg" width="216" height="46" alt="株式会社一向社" class="logo01 lp-logosize">
+						<img src="<?php echo get_template_directory_uri() ?>/images/common/logo_100th.svg" width="80" height="auto" alt="100th ANNIVERSARY" class="logo02 lp-logosize">
 					</figure>
 				</a>
 			</h1>
