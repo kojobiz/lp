@@ -14,10 +14,11 @@ https://www.figma.com/board/PQyDcJFg7ZwEBzOR6DOz5W/%E5%B0%8F%E5%9F%8E_%E4%B8%80%
 (z_ik)
 https://github.com/kojobiz/z_ik
 
-本番公開デプロイパーマリンク
-https://ikkosha.co.jp/service/exhibition_support_lp1/  (page-exhibition_support_lp1)
-https://ikkosha.co.jp/service/exhibition_support_lp2/  (page-exhibition_support_lp2)
-https://ikkosha.co.jp/service/exhibition_support_lp3/  (page-exhibition_support_lp3)
+本番公開デプロイパーマリンク(ファイル構造)
+
+https://ikkosha.co.jp/service/exhibition_support/lp1/  (page-exhibition_support_lp1.php)
+https://ikkosha.co.jp/service/exhibition_support/lp2/  (page-exhibition_support_lp2.php)
+https://ikkosha.co.jp/service/exhibition_support/lp3/  (page-exhibition_support_lp3.php)
 
 
 
