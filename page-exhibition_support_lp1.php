@@ -22,12 +22,11 @@ get_header('lp');
 	text-wrap: nowrap;
 	font-size: 1.4rem;
 }
-/* モーダルのスタイル */
 .variableBox:hover {
 	cursor: pointer;
 }
 .modal {
-    display: none; /* デフォルトでは表示しない */
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -39,12 +38,18 @@ get_header('lp');
     background-color: rgba(0,0,0,0.4);
 }
 .lp-modal-inner {
-	display: flex;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	gap: 50px;
 }
 .lp-modal-inner-text p {
 	font-size: clamp(16px, 2vw, 10px);
+}
+.lp-exhib-infos {
+	width: 100%!important;
+}
+.lp-exhib-infos-inner {
+	width: 100%!important;
 }
 .modal-content {
     background-color: #fefefe;
@@ -81,7 +86,7 @@ get_header('lp');
 }
 @media screen and (max-width: 833px) {
 	.lp-modal-inner {
-		flex-direction: column;
+		grid-template-columns: 1fr;
 	}
 }
 
@@ -227,27 +232,13 @@ get_header('lp');
 <div id="modal" class="modal">
     <div class="modal-content" style="width: 90%;">
         <span class="close-button">&times;</span>
-        <div class="exhib-infos">
-            <figure class="inner">
+		<br>
+        <div class="exhib-infos lp-exhib-infos">
+            <figure class="inner lp-exhib-infos-inner">
 				<!-- test -->
 				<div class="work-header lp-work-header">
 					<div class="headline">
 						<h2 class="ttl" id="modal-exhib-client-title"></h2>
-						<div class="work-name">
-							<?php
-							$termsParent = get_the_terms($post->ID,'work_type');
-							foreach ( $termsParent as $term ){
-								if($term->parent == 0) {
-									echo '<span class="cat"><a href="'.get_term_link($term->slug, 'work_type').'">'.$term->name.'</a></span>';
-								}
-							}
-							foreach ( $termsParent as $term ){
-								if($term->parent != 0) {
-									echo '<span class="name"><a href="'.get_term_link($term->slug, 'work_type').'">'.$term->name.'</a></span>';
-								}
-							}
-							?>
-						</div>
 					</div>
 				</div>
 				<!-- ここまでtest -->
@@ -730,9 +721,12 @@ document.querySelectorAll('.variableBox').forEach(function(item) {
         var exhibAddr = item.getAttribute('data-exhib-addr');
         var exhibBoots = item.getAttribute('data-exhib-boots');
         var exhibSurface = item.getAttribute('data-exhib-surface');
-        var exhibWidth = item.getAttribute('data-exhib-width');
-        var exhibHeight = item.getAttribute('data-exhib-height');
-		var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight) : null;
+        var exhibWidth = parseFloat(item.getAttribute('data-exhib-width'));
+        var exhibHeight = parseFloat(item.getAttribute('data-exhib-height'));
+        // var exhibWidth = item.getAttribute('data-exhib-width');
+        // var exhibHeight = item.getAttribute('data-exhib-height');
+		var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight).toFixed(1) : null;
+		// var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight) : null;
 
         document.getElementById('modal-img').src = imgSrc;
 
