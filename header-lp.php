@@ -43,13 +43,13 @@
 		--txt-color: #fff;
 	}
 	.lp-logosize {
-		max-width: 80%;
+		max-width: 70%;
 	}
 	.lp-navi-menu-ul li {
-		text-wrap: nowrap;
+		text-wrap: nowrap!important;
 	}
 	.lp-navi-menu-ul li:not(:last-child) {
-		margin-right: 15px;
+		margin-right: 15px!important;
 	}
 	</style>
 
@@ -82,7 +82,7 @@
 				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1">
 					<figure class="logo lp-logosize">
 						<img src="<?php echo get_template_directory_uri() ?>/images/common/logo.svg" width="216" height="46" alt="株式会社一向社" class="logo01 lp-logosize">
-						<img src="<?php echo get_template_directory_uri() ?>/images/common/logo_100th.svg" width="80" height="auto" alt="100th ANNIVERSARY" class="logo02 lp-logosize">
+						<img src="<?php echo get_template_directory_uri() ?>/images/common/logo_100th.svg" width="70" height="auto" alt="100th ANNIVERSARY" class="logo02 lp-logosize">
 					</figure>
 				</a>
 			</h1>
