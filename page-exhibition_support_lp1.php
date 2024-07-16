@@ -595,7 +595,7 @@ get_header('lp');
 	$(document).ready(function() {
     function updateHeaderHeight() {
         var headerHeight = $(".header-inner").outerHeight();
-        $(".l-section").css("padding-top", headerHeight + "px");
+        $(".section").css("padding-top", headerHeight + "px");
     }
 
     function scrollToHash() {
