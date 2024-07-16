@@ -87,6 +87,10 @@ get_header('lp');
 @media screen and (max-width: 833px) {
 	.lp-modal-inner {
 		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+	}
+	.lp-modal-inner img {
+		max-width: 60%;	
 	}
 }
 
