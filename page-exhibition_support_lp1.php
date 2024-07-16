@@ -591,24 +591,41 @@ get_header('lp');
 	?>
 
 <script>
-	// headerの高さを取得してリンク先のセクションにオフセットをかける
-	// function updateHeaderHeight() {
-	// 	var headerHeight = $(".site-header").outerHeight();
-	// }
-	// function scrollToSection(event) {
-	// 	event.preventDefault();
-	// 	var targetId = $(this).attr("href");
-	// 	var targetOffset = $(targetId).offset().top;
-	// 	var headerHeight = $(".site-header").outerHeight();
-	// 	$('html, body').animate({
-	// 		scrollTop: targetOffset - headerHeight
-	// 	}, 500);
-	// }
-	// $(document).ready(function() {
-	// 	updateHeaderHeight();
-	// 	$(window).resize(updateHeaderHeight);
-	// 	$('a[href^="#"]').on('click', scrollToSection);
-	// });
+	// 遷移リロードしてからheaderの高さを取得しheaderHeight分オフセットをかける
+	$(document).ready(function() {
+    function updateHeaderHeight() {
+        var headerHeight = $(".header-inner").outerHeight();
+        $(".l-section").css("padding-top", headerHeight + "px");
+    }
+
+    function scrollToHash() {
+        var hash = window.location.hash;
+        if (hash) {
+            setTimeout(function() { // ページが完全にロードされた後に少し遅れて実行
+                var targetOffset = $(hash).offset().top;
+                var headerHeight = $(".header-inner").outerHeight();
+                $('html, body').animate({
+                    scrollTop: targetOffset - headerHeight
+                }, 500);
+            }, 800);
+        }
+    }
+
+    updateHeaderHeight();
+    scrollToHash(); // ハッシュに基づいてスクロール
+
+    $(window).resize(updateHeaderHeight);
+
+    $('.header-inner a[href^="#"]').on('click', function(event) {
+        event.preventDefault();
+        var targetId = $(this).attr("href");
+        var targetOffset = $(targetId).offset().top;
+        var headerHeight = $(".header-inner").outerHeight();
+        $('html, body').animate({
+            scrollTop: targetOffset - headerHeight
+        }, 500);
+    });
+});
 
 	// サムネイルのスライダー
 	window.onload = function() {
