@@ -106,7 +106,8 @@ get_header('lp');
 			<ul class="page-list">
 				<?php if(get_field('consultation-form')): ?>
 					<li>
-						<a href="#contact" style="border-radius: 99px; box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);">
+						<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#contact" style="border-radius: 99px; box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);">
+						<!-- <a href="#contact" style="border-radius: 99px; box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);"> -->
 							<dl>
 								<dt>お見積り・出展について</dt>
 								<dd>「無料相談する」</dd>
@@ -591,25 +592,23 @@ get_header('lp');
 
 <script>
 	// headerの高さを取得してリンク先のセクションにオフセットをかける
-	function updateHeaderHeight() {
-		var headerHeight = $(".header").outerHeight();
-		// $(".l-main").css("padding-top", headerHeight + "px");
-	}
-	function scrollToSection(event) {
-		event.preventDefault();
-		var targetId = $(this).attr("href");
-		var targetOffset = $(targetId).offset().top;
-		var headerHeight = $(".header").outerHeight();
-		$('html, body').animate({
-			scrollTop: targetOffset - headerHeight
-		}, 500);
-	}
-	$(document).ready(function() {
-		updateHeaderHeight();
-		$(window).resize(updateHeaderHeight);
-		$('a[href^="#"]').on('click', scrollToSection);
-		// $('.l-header a[href^="#"]').on('click', scrollToSection);
-	});
+	// function updateHeaderHeight() {
+	// 	var headerHeight = $(".site-header").outerHeight();
+	// }
+	// function scrollToSection(event) {
+	// 	event.preventDefault();
+	// 	var targetId = $(this).attr("href");
+	// 	var targetOffset = $(targetId).offset().top;
+	// 	var headerHeight = $(".site-header").outerHeight();
+	// 	$('html, body').animate({
+	// 		scrollTop: targetOffset - headerHeight
+	// 	}, 500);
+	// }
+	// $(document).ready(function() {
+	// 	updateHeaderHeight();
+	// 	$(window).resize(updateHeaderHeight);
+	// 	$('a[href^="#"]').on('click', scrollToSection);
+	// });
 
 	// サムネイルのスライダー
 	window.onload = function() {
@@ -691,33 +690,7 @@ get_header('lp');
 		}
 	});
 
-
-	// variableBoxをクリックしたときにモーダルを開き、データを設定するtest2
-	// document.querySelectorAll('.variableBox').forEach(function(item) {
-	//     item.addEventListener('click', function(event) {
-	//         event.preventDefault();
-	// 		var imgSrc = item.querySelector('.pic').src;
-	// 		var exhibClient = item.getAttribute('data-exhib-client');
-	//         var exhibName = item.getAttribute('data-exhib-name');
-	//         var exhibAddr = item.getAttribute('data-exhib-addr');
-	//         var exhibBoots = item.getAttribute('data-exhib-boots');
-	//         var exhibSurface = item.getAttribute('data-exhib-surface');
-	//         var exhibWidth = item.getAttribute('data-exhib-width');
-	//         var exhibHeight = item.getAttribute('data-exhib-height');
-	// 		var exhibArea = (exhibWidth * exhibHeight);
-
-	//         document.getElementById('modal-img').src = imgSrc;
-	// 		document.getElementById('modal-exhib-client').textContent = 'クライアント名' + exhibClient;
-	//         document.getElementById('modal-exhib-name').textContent = '展示会名' + exhibName;
-	//         document.getElementById('modal-exhib-addr').textContent = '開催場所' + exhibAddr;
-	// 		document.getElementById('modal-exhib-boots').textContent = '小間数' + exhibBoots;
-	//         document.getElementById('modal-exhib-surface').textContent = '開放面' + exhibSurface;
-	//         document.getElementById('modal-exhib-size').textContent = 'サイズ' + exhibWidth + 'm X' + exhibHeight + ' m';
-	//         document.getElementById('modal-exhib-area').textContent = '面積' + exhibArea + '㎡';
-		
-	//         openModal();
-	//     });
-	// });
+	// モーダル出現,データ取得,null非表示,小数点第1位表示の処理
 	document.querySelectorAll('.variableBox').forEach(function(item) {
 		item.addEventListener('click', function(event) {
 			event.preventDefault();
@@ -745,7 +718,7 @@ get_header('lp');
 			var modalExhibSurface = document.getElementById('modal-exhib-surface');
 			var modalExhibSize = document.getElementById('modal-exhib-size');
 			var modalExhibArea = document.getElementById('modal-exhib-area');
-
+			
 			if (exhibClientTitle) {
 				modalExhibClientTitle.textContent = exhibClientTitle + '様';
 				modalExhibClientTitle.style.display = 'block';

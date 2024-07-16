@@ -99,7 +99,7 @@
 					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#service-comparison">他社サービスとの比較</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#service-faq">よくあるご質問</a></li>
 					<li class="btn-contact" data-color="white">
-						<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#service-faq">
+						<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#contact">
 							<figure class="icon">
 								<img src="<?php echo get_template_directory_uri() ?>/images/common/icon_mail.png" width="31" height="24" alt="MAIL">
 								<figcaption>お問い合わせ</figcaption>
@@ -144,7 +144,7 @@
 					<a href="tel:0120150585" class="txt-serif"><span>0120-150-<span class="lastnum-tel">585</span></span></a>
 					<span class="label">受付時間 / 平日 9:00～18:00</span>
 				</div>
-				<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn">お問い合わせ</a>
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#contact" class="btn">お問い合わせ</a>
 			</li>
 		</ul>
 	</div>
