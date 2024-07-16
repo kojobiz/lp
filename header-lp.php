@@ -45,6 +45,12 @@
 	.lp-logosize {
 		max-width: 80%;
 	}
+	.lp-navi-menu-ul li {
+		text-wrap: nowrap;
+	}
+	.lp-navi-menu-ul li:not(:last-child) {
+		margin-right: 15px;
+	}
 	</style>
 
 	<!-- Google Fonts -->
@@ -86,7 +92,7 @@
 					<a href="tel:0120150585" class="txt-serif"><span>0120-150-<span class="lastnum-tel">585</span></span></a>
 					<span class="label">受付時間 / 平日 9:00～18:00</span>
 				</div>
-				<ul class="navi-menu txt-serif">
+				<ul class="navi-menu txt-serif lp-navi-menu-ul">
 					<!-- navi -->
 					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#last-achvm-intro">実績紹介</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#service-flow">サービス詳細</a></li>
