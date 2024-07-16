@@ -43,7 +43,7 @@
 		--txt-color: #fff;
 	}
 	.lp-logosize {
-		max-width: 70%;
+		max-width: 75%;
 	}
 	.lp-navi-menu-ul li {
 		text-wrap: nowrap!important;
