@@ -239,16 +239,13 @@ get_header('lp');
 		<br>
         <div class="exhib-infos lp-exhib-infos">
             <figure class="inner lp-exhib-infos-inner">
-				<!-- test -->
 				<div class="work-header lp-work-header">
 					<div class="headline">
 						<h2 class="ttl" id="modal-exhib-client-title"></h2>
 					</div>
 				</div>
-				<!-- ここまでtest -->
 				<div class="lp-modal-inner">
 					<img id="modal-img" src="" width="600" height="auto" class="pic">
-					<!-- <img id="modal-img" src="" width="600" height="auto" class="pic"> -->
 					<div class="lp-modal-inner-text">
 						<p id="modal-exhib-client"></p>
 						<p id="modal-exhib-name"></p>
@@ -263,25 +260,9 @@ get_header('lp');
         </div>
     </div>
 </div>
-
-
-
-
-			<!-- テスト２ここまで -->
-
-						
-			<?php //endif; ?>
-			<?php wp_reset_postdata(); ?>
-
-			
-
-
-
-
-
-
-
-
+<!-- テスト２ここまで -->
+<?php //endif; ?>
+<?php wp_reset_postdata(); ?>
 
 
 			<!-- cta -->
@@ -609,198 +590,219 @@ get_header('lp');
 	?>
 
 <script>
-window.onload = function() {
-	//ラッパー要素
-	var sliderWrap = document.querySelectorAll('.slider-wrap');
-	//サムネイルのスライダー
-	var sliderThumb = document.querySelectorAll('.slider-thumb');
-	//メインのスライダー
-	var sliderMain = document.querySelectorAll('.slider-main');
-	
-	for (let i = 0; i < sliderWrap.length; i++) {
-		//.slider-wrap、.slider-thumb、.slider-mainに01から始まる連番を振る
-		var num = ('00' + (i+1)).slice(-2);
-		sliderWrap[i].className += (num);
-		sliderThumb[i].className += (num);
-		sliderMain[i].className += (num);
-		//サムネイル用のスライダー呼び出し&オプション指定
-		var swiperThumb = new Swiper('.slider-thumb' + (num), {
-			slidesPerView: 4,
-			freeMode: true,
-			watchSlidesVisibility: true,
-			watchSlidesProgress: true,
-			spaceBetween: 4,
-		});
-		//メインのスライダー呼び出し&オプション指定
-		var swiperMain = new Swiper ('.slider-main' + (num), {
-			thumbs: {
-				swiper: swiperThumb,
-			},
-			slidesPerView: 1,
-		});
+	// headerの高さを取得してリンク先のセクションにオフセットをかける
+	function updateHeaderHeight() {
+		var headerHeight = $(".header").outerHeight();
+		// $(".l-main").css("padding-top", headerHeight + "px");
 	}
-}
+	function scrollToSection(event) {
+		event.preventDefault();
+		var targetId = $(this).attr("href");
+		var targetOffset = $(targetId).offset().top;
+		var headerHeight = $(".header").outerHeight();
+		$('html, body').animate({
+			scrollTop: targetOffset - headerHeight
+		}, 500);
+	}
+	$(document).ready(function() {
+		updateHeaderHeight();
+		$(window).resize(updateHeaderHeight);
+		$('a[href^="#"]').on('click', scrollToSection);
+		// $('.l-header a[href^="#"]').on('click', scrollToSection);
+	});
 
-// MW WP FORMのスクロール位置調整
-$(function(){
+	// サムネイルのスライダー
+	window.onload = function() {
+		//ラッパー要素
+		var sliderWrap = document.querySelectorAll('.slider-wrap');
+		//サムネイルのスライダー
+		var sliderThumb = document.querySelectorAll('.slider-thumb');
+		//メインのスライダー
+		var sliderMain = document.querySelectorAll('.slider-main');
+		
+		for (let i = 0; i < sliderWrap.length; i++) {
+			//.slider-wrap、.slider-thumb、.slider-mainに01から始まる連番を振る
+			var num = ('00' + (i+1)).slice(-2);
+			sliderWrap[i].className += (num);
+			sliderThumb[i].className += (num);
+			sliderMain[i].className += (num);
+			//サムネイル用のスライダー呼び出し&オプション指定
+			var swiperThumb = new Swiper('.slider-thumb' + (num), {
+				slidesPerView: 4,
+				freeMode: true,
+				watchSlidesVisibility: true,
+				watchSlidesProgress: true,
+				spaceBetween: 4,
+			});
+			//メインのスライダー呼び出し&オプション指定
+			var swiperMain = new Swiper ('.slider-main' + (num), {
+				thumbs: {
+					swiper: swiperThumb,
+				},
+				slidesPerView: 1,
+			});
+		}
+	}
 
-	let target01 = $(".mw_wp_form").eq(0);	// 資料請求フォーム
-	let target02 = $(".mw_wp_form").eq(1);	// お問い合わせフォーム
+	// MW WP FORMのスクロール位置調整
+	$(function(){
 
-	if (target01.hasClass('mw_wp_form_confirm') || target01.hasClass('mw_wp_form_complete')) {
-		var posy = $(target01).offset().top - 80;
-		posy = posy + parseInt(mwform_scroll.offset);
-		$('body').scrollTop(posy);
-		$(window).scrollTop(posy);
-	} else if (target02.hasClass('mw_wp_form_confirm') || target02.hasClass('mw_wp_form_complete')) {
-		var posy = $(target02).offset().top - 80;
-		posy = posy + parseInt(mwform_scroll.offset);
-		$('body').scrollTop(posy);
-		$(window).scrollTop(posy);
-	} 
+		let target01 = $(".mw_wp_form").eq(0);	// 資料請求フォーム
+		let target02 = $(".mw_wp_form").eq(1);	// お問い合わせフォーム
 
-	//規約チェックボックスの文言変更
-	$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
+		if (target01.hasClass('mw_wp_form_confirm') || target01.hasClass('mw_wp_form_complete')) {
+			var posy = $(target01).offset().top - 80;
+			posy = posy + parseInt(mwform_scroll.offset);
+			$('body').scrollTop(posy);
+			$(window).scrollTop(posy);
+		} else if (target02.hasClass('mw_wp_form_confirm') || target02.hasClass('mw_wp_form_complete')) {
+			var posy = $(target02).offset().top - 80;
+			posy = posy + parseInt(mwform_scroll.offset);
+			$('body').scrollTop(posy);
+			$(window).scrollTop(posy);
+		} 
 
-});
+		//規約チェックボックスの文言変更
+		$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
 
-
-
-// モーダルを開く関数
-function openModal() {
-    document.getElementById('modal').style.display = 'block';
-	document.body.classList.add('no-scroll');
-}
-
-// モーダルを閉じる関数
-function closeModal() {
-    document.getElementById('modal').style.display = 'none';
-	document.body.classList.remove('no-scroll');
-}
-
-// モーダルを閉じるためのクリックイベント
-document.querySelector('.close-button').addEventListener('click', closeModal);
-
-// モーダル外をクリックしたときに閉じる
-window.addEventListener('click', function(event) {
-    if (event.target == document.getElementById('modal')) {
-        closeModal();
-    }
-});
+	});
 
 
-// variableBoxをクリックしたときにモーダルを開き、データを設定するtest2
-// document.querySelectorAll('.variableBox').forEach(function(item) {
-//     item.addEventListener('click', function(event) {
-//         event.preventDefault();
-// 		var imgSrc = item.querySelector('.pic').src;
-// 		var exhibClient = item.getAttribute('data-exhib-client');
-//         var exhibName = item.getAttribute('data-exhib-name');
-//         var exhibAddr = item.getAttribute('data-exhib-addr');
-//         var exhibBoots = item.getAttribute('data-exhib-boots');
-//         var exhibSurface = item.getAttribute('data-exhib-surface');
-//         var exhibWidth = item.getAttribute('data-exhib-width');
-//         var exhibHeight = item.getAttribute('data-exhib-height');
-// 		var exhibArea = (exhibWidth * exhibHeight);
 
-//         document.getElementById('modal-img').src = imgSrc;
-// 		document.getElementById('modal-exhib-client').textContent = 'クライアント名' + exhibClient;
-//         document.getElementById('modal-exhib-name').textContent = '展示会名' + exhibName;
-//         document.getElementById('modal-exhib-addr').textContent = '開催場所' + exhibAddr;
-// 		document.getElementById('modal-exhib-boots').textContent = '小間数' + exhibBoots;
-//         document.getElementById('modal-exhib-surface').textContent = '開放面' + exhibSurface;
-//         document.getElementById('modal-exhib-size').textContent = 'サイズ' + exhibWidth + 'm X' + exhibHeight + ' m';
-//         document.getElementById('modal-exhib-area').textContent = '面積' + exhibArea + '㎡';
-       
-//         openModal();
-//     });
-// });
-document.querySelectorAll('.variableBox').forEach(function(item) {
-    item.addEventListener('click', function(event) {
-        event.preventDefault();
-		var imgSrc = item.querySelector('.pic').src;
-		var exhibClientTitle = item.getAttribute('data-exhib-client-title');
-		var exhibClient = item.getAttribute('data-exhib-client');
-        var exhibName = item.getAttribute('data-exhib-name');
-        var exhibAddr = item.getAttribute('data-exhib-addr');
-        var exhibBoots = item.getAttribute('data-exhib-boots');
-        var exhibSurface = item.getAttribute('data-exhib-surface');
-        var exhibWidth = parseFloat(item.getAttribute('data-exhib-width'));
-        var exhibHeight = parseFloat(item.getAttribute('data-exhib-height'));
-        // var exhibWidth = item.getAttribute('data-exhib-width');
-        // var exhibHeight = item.getAttribute('data-exhib-height');
-		var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight).toFixed(1) : null;
-		// var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight) : null;
+	// モーダルを開く関数
+	function openModal() {
+		document.getElementById('modal').style.display = 'block';
+		document.body.classList.add('no-scroll');
+	}
 
-        document.getElementById('modal-img').src = imgSrc;
+	// モーダルを閉じる関数
+	function closeModal() {
+		document.getElementById('modal').style.display = 'none';
+		document.body.classList.remove('no-scroll');
+	}
 
-        var modalExhibClientTitle = document.getElementById('modal-exhib-client-title');
-        var modalExhibClient = document.getElementById('modal-exhib-client');
-        var modalExhibName = document.getElementById('modal-exhib-name');
-        var modalExhibAddr = document.getElementById('modal-exhib-addr');
-        var modalExhibBoots = document.getElementById('modal-exhib-boots');
-        var modalExhibSurface = document.getElementById('modal-exhib-surface');
-        var modalExhibSize = document.getElementById('modal-exhib-size');
-        var modalExhibArea = document.getElementById('modal-exhib-area');
+	// モーダルを閉じるためのクリックイベント
+	document.querySelector('.close-button').addEventListener('click', closeModal);
 
-        if (exhibClientTitle) {
-            modalExhibClientTitle.textContent = exhibClientTitle + '様';
-            modalExhibClientTitle.style.display = 'block';
-        } else {
-            modalExhibClientTitle.style.display = 'none';
-        }
+	// モーダル外をクリックしたときに閉じる
+	window.addEventListener('click', function(event) {
+		if (event.target == document.getElementById('modal')) {
+			closeModal();
+		}
+	});
 
-        if (exhibClient) {
-            modalExhibClient.textContent = 'クライアント名: ' + exhibClient;
-            modalExhibClient.style.display = 'block';
-        } else {
-            modalExhibClient.style.display = 'none';
-        }
 
-        if (exhibName) {
-            modalExhibName.textContent = '展示会名: ' + exhibName;
-            modalExhibName.style.display = 'block';
-        } else {
-            modalExhibName.style.display = 'none';
-        }
+	// variableBoxをクリックしたときにモーダルを開き、データを設定するtest2
+	// document.querySelectorAll('.variableBox').forEach(function(item) {
+	//     item.addEventListener('click', function(event) {
+	//         event.preventDefault();
+	// 		var imgSrc = item.querySelector('.pic').src;
+	// 		var exhibClient = item.getAttribute('data-exhib-client');
+	//         var exhibName = item.getAttribute('data-exhib-name');
+	//         var exhibAddr = item.getAttribute('data-exhib-addr');
+	//         var exhibBoots = item.getAttribute('data-exhib-boots');
+	//         var exhibSurface = item.getAttribute('data-exhib-surface');
+	//         var exhibWidth = item.getAttribute('data-exhib-width');
+	//         var exhibHeight = item.getAttribute('data-exhib-height');
+	// 		var exhibArea = (exhibWidth * exhibHeight);
 
-        if (exhibAddr) {
-            modalExhibAddr.textContent = '開催場所: ' + exhibAddr;
-            modalExhibAddr.style.display = 'block';
-        } else {
-            modalExhibAddr.style.display = 'none';
-        }
+	//         document.getElementById('modal-img').src = imgSrc;
+	// 		document.getElementById('modal-exhib-client').textContent = 'クライアント名' + exhibClient;
+	//         document.getElementById('modal-exhib-name').textContent = '展示会名' + exhibName;
+	//         document.getElementById('modal-exhib-addr').textContent = '開催場所' + exhibAddr;
+	// 		document.getElementById('modal-exhib-boots').textContent = '小間数' + exhibBoots;
+	//         document.getElementById('modal-exhib-surface').textContent = '開放面' + exhibSurface;
+	//         document.getElementById('modal-exhib-size').textContent = 'サイズ' + exhibWidth + 'm X' + exhibHeight + ' m';
+	//         document.getElementById('modal-exhib-area').textContent = '面積' + exhibArea + '㎡';
+		
+	//         openModal();
+	//     });
+	// });
+	document.querySelectorAll('.variableBox').forEach(function(item) {
+		item.addEventListener('click', function(event) {
+			event.preventDefault();
+			var imgSrc = item.querySelector('.pic').src;
+			var exhibClientTitle = item.getAttribute('data-exhib-client-title');
+			var exhibClient = item.getAttribute('data-exhib-client');
+			var exhibName = item.getAttribute('data-exhib-name');
+			var exhibAddr = item.getAttribute('data-exhib-addr');
+			var exhibBoots = item.getAttribute('data-exhib-boots');
+			var exhibSurface = item.getAttribute('data-exhib-surface');
+			var exhibWidth = parseFloat(item.getAttribute('data-exhib-width'));
+			var exhibHeight = parseFloat(item.getAttribute('data-exhib-height'));
+			// var exhibWidth = item.getAttribute('data-exhib-width');
+			// var exhibHeight = item.getAttribute('data-exhib-height');
+			var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight).toFixed(1) : null;
+			// var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight) : null;
 
-        if (exhibBoots) {
-            modalExhibBoots.textContent = '小間数: ' + exhibBoots;
-            modalExhibBoots.style.display = 'block';
-        } else {
-            modalExhibBoots.style.display = 'none';
-        }
+			document.getElementById('modal-img').src = imgSrc;
 
-        if (exhibSurface) {
-            modalExhibSurface.textContent = '開放面: ' + exhibSurface;
-            modalExhibSurface.style.display = 'block';
-        } else {
-            modalExhibSurface.style.display = 'none';
-        }
+			var modalExhibClientTitle = document.getElementById('modal-exhib-client-title');
+			var modalExhibClient = document.getElementById('modal-exhib-client');
+			var modalExhibName = document.getElementById('modal-exhib-name');
+			var modalExhibAddr = document.getElementById('modal-exhib-addr');
+			var modalExhibBoots = document.getElementById('modal-exhib-boots');
+			var modalExhibSurface = document.getElementById('modal-exhib-surface');
+			var modalExhibSize = document.getElementById('modal-exhib-size');
+			var modalExhibArea = document.getElementById('modal-exhib-area');
 
-        if (exhibWidth && exhibHeight) {
-            modalExhibSize.textContent = 'サイズ: ' + exhibWidth + 'm X ' + exhibHeight + 'm';
-            modalExhibSize.style.display = 'block';
-        } else {
-            modalExhibSize.style.display = 'none';
-        }
+			if (exhibClientTitle) {
+				modalExhibClientTitle.textContent = exhibClientTitle + '様';
+				modalExhibClientTitle.style.display = 'block';
+			} else {
+				modalExhibClientTitle.style.display = 'none';
+			}
 
-        if (exhibArea) {
-            modalExhibArea.textContent = '面積: ' + exhibArea + '㎡';
-            modalExhibArea.style.display = 'block';
-        } else {
-            modalExhibArea.style.display = 'none';
-        }
+			if (exhibClient) {
+				modalExhibClient.textContent = 'クライアント名: ' + exhibClient;
+				modalExhibClient.style.display = 'block';
+			} else {
+				modalExhibClient.style.display = 'none';
+			}
 
-        openModal();
-    });
-});
+			if (exhibName) {
+				modalExhibName.textContent = '展示会名: ' + exhibName;
+				modalExhibName.style.display = 'block';
+			} else {
+				modalExhibName.style.display = 'none';
+			}
 
+			if (exhibAddr) {
+				modalExhibAddr.textContent = '開催場所: ' + exhibAddr;
+				modalExhibAddr.style.display = 'block';
+			} else {
+				modalExhibAddr.style.display = 'none';
+			}
+
+			if (exhibBoots) {
+				modalExhibBoots.textContent = '小間数: ' + exhibBoots;
+				modalExhibBoots.style.display = 'block';
+			} else {
+				modalExhibBoots.style.display = 'none';
+			}
+
+			if (exhibSurface) {
+				modalExhibSurface.textContent = '開放面: ' + exhibSurface;
+				modalExhibSurface.style.display = 'block';
+			} else {
+				modalExhibSurface.style.display = 'none';
+			}
+
+			if (exhibWidth && exhibHeight) {
+				modalExhibSize.textContent = 'サイズ: ' + exhibWidth + 'm X ' + exhibHeight + 'm';
+				modalExhibSize.style.display = 'block';
+			} else {
+				modalExhibSize.style.display = 'none';
+			}
+
+			if (exhibArea) {
+				modalExhibArea.textContent = '面積: ' + exhibArea + '㎡';
+				modalExhibArea.style.display = 'block';
+			} else {
+				modalExhibArea.style.display = 'none';
+			}
+
+			openModal();
+		});
+	});
 </script>
