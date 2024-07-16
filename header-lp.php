@@ -70,7 +70,7 @@
 	<header id="header" class="site-header wh">
 		<div class="header-inner">
 			<h1 class="header-title">
-				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1">
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1">
 					<figure class="logo">
 						<img src="<?php echo get_template_directory_uri() ?>/images/common/logo.svg" width="216" height="46" alt="株式会社一向社" class="logo01">
 						<img src="<?php echo get_template_directory_uri() ?>/images/common/logo_100th.svg" width="90" height="62" alt="100th ANNIVERSARY" class="logo02">
@@ -85,12 +85,12 @@
 				</div>
 				<ul class="navi-menu txt-serif">
 					<!-- navi -->
-					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#last-achvm-intro">実績紹介</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-flow">サービス詳細</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-comparison">他社サービスとの比較</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-faq">よくあるご質問</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#last-achvm-intro">実績紹介</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#service-flow">サービス詳細</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#service-comparison">他社サービスとの比較</a></li>
+					<li><a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#service-faq">よくあるご質問</a></li>
 					<li class="btn-contact" data-color="white">
-						<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-faq">
+						<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#service-faq">
 							<figure class="icon">
 								<img src="<?php echo get_template_directory_uri() ?>/images/common/icon_mail.png" width="31" height="24" alt="MAIL">
 								<figcaption>お問い合わせ</figcaption>
@@ -116,16 +116,16 @@
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">ホーム</a>
 			</li>
 			<li>
-				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#last-achvm-intro">実績紹介</a>
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#last-achvm-intro">実績紹介</a>
 			</li>
 			<li>
-				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-flow">サービス詳細</a>
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#service-flow">サービス詳細</a>
 			</li>
 			<li>
-				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-comparison">他社サービスとの比較</a>
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#service-comparison">他社サービスとの比較</a>
 			</li>
 			<li>
-				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1#service-faq">よくあるご質問</a>
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#service-faq">よくあるご質問</a>
 			</li>
 			<li>
 				<a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>">プライバシーポリシー</a>

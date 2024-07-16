@@ -20,5 +20,7 @@ https://ikkosha.co.jp/service/exhibition_support/lp1/  (page-exhibition_support_
 https://ikkosha.co.jp/service/exhibition_support/lp2/  (page-exhibition_support_lp2.php)
 https://ikkosha.co.jp/service/exhibition_support/lp3/  (page-exhibition_support_lp3.php)
 
-
+lp用
+footer-lp.php
+header-lp.php
 

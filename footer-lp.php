@@ -33,7 +33,7 @@
 					</dl>
                     <br>
 					<div class="footer-title">
-                        <a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support_lp1">
+                        <a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1">
                             <figure class="logo">
                                 <img src="<?php echo get_template_directory_uri() ?>/images/common/logo.svg" width="216" height="46" alt="株式会社一向社">
                             </figure>
