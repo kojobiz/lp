@@ -119,7 +119,6 @@ transform: translateY(0);
 				<?php if(get_field('consultation-form')): ?>
 					<li>
 						<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#contact" style="border-radius: 99px; box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);">
-						<!-- <a href="#contact" style="border-radius: 99px; box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);"> -->
 							<dl>
 								<dt>お見積り・出展について</dt>
 								<dd>「無料相談する」</dd>
@@ -154,7 +153,6 @@ transform: translateY(0);
 		<section class="content page-width">
 			<h2 class="headline-02 txt-center svc-ttl01 text80" data-color="red">展示会出展で<br class="spOnly">最も大切なことは<br>１社にすべて任せることです。</h2>
 			<p class="txt-lead txt-center text80">展示会の出展はさまざまなことが同時に一⻫に動くので、抜け漏れや妥協が起きやすくなります。<br>そのため、ご依頼する支援会社はできるだけ少なくすることが失敗を防ぐ最良の方法と言えます。<br>また、ご担当者さまも展示会専任でないことが多いため、ご負担を軽減することで従来の仕事に注力いただけます。</p>
-			<!--<h3 class="headline-02 txt-center svc-ttl02" data-color="red">一向社は、展示会に特化したトータルソリューションにより<br>集客・展示会運営・来場者フォロー・商談機会創出までの<br>効果的な戦略を構築します。</h3>-->
 			<figure class="pic txt-center text80">
 				<img src="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/flow.jpg" width="877" height="584" alt="">
 			</figure>
