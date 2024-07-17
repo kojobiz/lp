@@ -84,6 +84,18 @@ get_header('lp');
     overflow: hidden;
     height: 100%;
 }
+.text80 {
+overflow: hidden;
+opacity: 0;
+visibility: hidden;
+transition: all 2s;
+transform: translateY(100px);
+}
+.is-active {
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
+}
 @media screen and (max-width: 833px) {
 	.lp-modal-inner {
 		grid-template-columns: 1fr;
@@ -103,7 +115,7 @@ get_header('lp');
 				<source srcset="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_sp.jpg" media="(max-width: 833px)"/>
 				<img src="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_pc.jpg" width="1600" height="650">
 			</picture>
-			<ul class="page-list">
+			<ul class="page-list text80">
 				<?php if(get_field('consultation-form')): ?>
 					<li>
 						<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#contact" style="border-radius: 99px; box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);">
@@ -121,8 +133,8 @@ get_header('lp');
 
 	<article class="section-block svc-worries">
 		<section class="content page-width">
-			<h2 class="ttl" style="text-align: center;">展示会出展に関する、<br>こんな「お悩み」ありませんか？</h2>
-			<ul class="check-list check-list2">
+			<h2 class="ttl text80" style="text-align: center;">展示会出展に関する、<br>こんな「お悩み」ありませんか？</h2>
+			<ul class="check-list check-list2 text80">
 				<li>初めての出展で<strong>何から手をつけて良いかわからない</strong></li>
 				<li>展示会でやりたいことがあるが<strong>新しいアイデアが欲しい</strong></li>
 				<li>当日運営の人手が足りない、<strong>担当者が少なくてやることが多すぎる</strong></li>
@@ -133,17 +145,17 @@ get_header('lp');
 		</section>
 		<section class="resolution-block">
 			<div class="page-width txt-center">
-				<h3 class="ttl">一向社の「展示会まるごとサポート」なら<br>展示会のお困りごとのすべてを解決します！</h3>
+				<h3 class="ttl text80">一向社の「展示会まるごとサポート」なら<br>展示会のお困りごとのすべてを解決します！</h3>
 			</div>
 		</section>
 	</article>
 
 	<article class="section-block svc-sec01">
 		<section class="content page-width">
-			<h2 class="headline-02 txt-center svc-ttl01" data-color="red">展示会出展で<br class="spOnly">最も大切なことは<br>１社にすべて任せることです。</h2>
-			<p class="txt-lead txt-center">展示会の出展はさまざまなことが同時に一⻫に動くので、抜け漏れや妥協が起きやすくなります。<br>そのため、ご依頼する支援会社はできるだけ少なくすることが失敗を防ぐ最良の方法と言えます。<br>また、ご担当者さまも展示会専任でないことが多いため、ご負担を軽減することで従来の仕事に注力いただけます。</p>
+			<h2 class="headline-02 txt-center svc-ttl01 text80" data-color="red">展示会出展で<br class="spOnly">最も大切なことは<br>１社にすべて任せることです。</h2>
+			<p class="txt-lead txt-center text80">展示会の出展はさまざまなことが同時に一⻫に動くので、抜け漏れや妥協が起きやすくなります。<br>そのため、ご依頼する支援会社はできるだけ少なくすることが失敗を防ぐ最良の方法と言えます。<br>また、ご担当者さまも展示会専任でないことが多いため、ご負担を軽減することで従来の仕事に注力いただけます。</p>
 			<!--<h3 class="headline-02 txt-center svc-ttl02" data-color="red">一向社は、展示会に特化したトータルソリューションにより<br>集客・展示会運営・来場者フォロー・商談機会創出までの<br>効果的な戦略を構築します。</h3>-->
-			<figure class="pic txt-center">
+			<figure class="pic txt-center text80">
 				<img src="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/flow.jpg" width="877" height="584" alt="">
 			</figure>
 		</section>
@@ -180,12 +192,12 @@ get_header('lp');
 			?>
 			<!-- テスト２ -->
 			<section class="content page-width" id="last-achvm-intro">
-    <h3 class="headline-03 svc-ttl03">実績紹介</h3>
+    <h3 class="headline-03 svc-ttl03 text80">実績紹介</h3>
     <?php if ( $the_query->have_posts() ) : ?>
     <div class="svc-work-slider">
         <ul class="l-column col-3 col-1-tab work-list work-exhib-list">
             <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-            <li class="work-item">
+            <li class="work-item text80">
                 <div href="<?php the_permalink(); ?>" target="_blank" class="variableBox" 
                      data-exhib-client-title="<?php echo get_field('exhib-client',$post->ID); ?>"
                      data-exhib-client="<?php echo get_field('exhib-client',$post->ID); ?>"
@@ -270,13 +282,13 @@ get_header('lp');
 			<article class="section-block common-block" data-color="white">
 				<section class="content contact-area">
 					<div class="inner">
-						<h2 class="headline-02 txt-center">ご相談・ご質問等ございましたら、お気軽にお問い合わせください</h2>
+						<h2 class="headline-02 txt-center text80">ご相談・ご質問等ございましたら、お気軽にお問い合わせください</h2>
 						<div class="btn-column">
-							<a href="#contact" class="btn btn01">
+							<a href="#contact" class="btn btn01 text80">
 								<img src="<?php echo get_template_directory_uri() ?>/images/common/icon_mail02.png" width="25" height="20" alt="MAIL" class="icon">
 								メールでのお問い合わせ
 							</a>
-							<a href="tel:0120150585" class="btn btn02">
+							<a href="tel:0120150585" class="btn btn02 text80">
 								<dl>
 									<dt class="txt-serif"><span>0120-150-<span class="lastnum-tel">585</span></span></dt>
 									<dd class="label">受付時間 / 平日 9:00～18:00</dd>
@@ -288,9 +300,9 @@ get_header('lp');
 			</article>
 			<!-- サービス詳細と導入の流れ -->
 			<section class="content page-width">
-				<h3 class="headline-03 svc-ttl03" id="service-flow">サービス詳細と導入の流れ</h3>
+				<h3 class="headline-03 svc-ttl03 text80" id="service-flow">サービス詳細と導入の流れ</h3>
 				<div class="svc-flow">
-					<dl class="flow-box">
+					<dl class="flow-box text80">
 						<dt><span>STEP 1</span>綿密な打ち合わせ</dt>
 						<dd class="flow-detail">
 							<div class="col-2">
@@ -353,7 +365,7 @@ get_header('lp');
 							</div>
 						</dd>
 					</dl>
-					<dl class="flow-box">
+					<dl class="flow-box text80">
 						<dt><span>STEP 2</span>事前準備</dt>
 						<dd class="flow-detail">
 							<dl>
@@ -377,7 +389,7 @@ get_header('lp');
 							</dl>
 						</dd>
 					</dl>
-					<dl class="flow-box">
+					<dl class="flow-box text80">
 						<dt><span>STEP 3</span>出展期間中</dt>
 						<dd class="flow-detail">
 							<dl>
@@ -403,7 +415,7 @@ get_header('lp');
 							</dl>
 						</dd>
 					</dl>
-					<dl class="flow-box">
+					<dl class="flow-box text80">
 						<dt><span>STEP 4</span>会期終了後</dt>
 						<dd class="flow-detail">
 							<dl>
@@ -555,20 +567,20 @@ get_header('lp');
 		<!-- ? -->
 			
 		<section class="content page-width pd-y_none" id="service-faq">
-			<h2 class="headline-03 svc-ttl03">よくあるご質問</h2>
-			<dl class="faq-list">
+			<h2 class="headline-03 svc-ttl03 text80">よくあるご質問</h2>
+			<dl class="faq-list text80">
 				<dt>何から始めたら良いかわからないのですが…</dt>
 				<dd>展示会で何をするべきかから出展内容や集客計画をお客さまとともに整理していきますので、お気軽にご相談ください。</dd>
 			</dl>
-			<dl class="faq-list">
+			<dl class="faq-list text80">
 				<dt>ブースはシステム、木工どちらも対応可能ですか？</dt>
 				<dd>はい、両方対応可能です。展示会施策の全体予算や目的から選定し、ご提案いたします。</dd>
 			</dl>
-			<dl class="faq-list">
+			<dl class="faq-list text80">
 				<dt>準備期間はどれくらい必要ですか？</dt>
 				<dd>事前集客を行う場合は3〜6か月前頃から準備するのが理想ですが、内容によっては短期間でも可能です。</dd>
 			</dl>
-			<dl class="faq-list">
+			<dl class="faq-list text80">
 				<dt>費用はどのくらいかかりますか？</dt>
 				<dd>お客さまのご要望に沿ったご提案をしますので、最適なプランに合わせて柔軟にお見積りいたします。<br>まずはお気軽にお問い合わせください。</dd>
 			</dl>
@@ -578,7 +590,7 @@ get_header('lp');
 	<!-- 帯：無料相談こちら -->
 	<?php if(get_field('consultation-form')): ?>
 		<article id="contact" class="section-block svc-contact pd-t_none bg-c01">
-			<h2 class="headline">無料お見積り・出展の<br class="spOnly">ご相談はこちらから</h2>
+			<h2 class="headline text80">無料お見積り・出展の<br class="spOnly">ご相談はこちらから</h2>
 			<!-- コンタクトフォーム　/ 展示会用key252 -->
 			<section class="content page-width">
 				<?php echo do_shortcode('[mwform_formkey key="252"]'); ?>
@@ -593,39 +605,69 @@ get_header('lp');
 <script>
 	// 遷移リロードしてからheaderの高さを取得しheaderHeight分オフセットをかける
 	$(document).ready(function() {
-    function updateHeaderHeight() {
-        var headerHeight = $(".header-inner").outerHeight();
-        $(".section").css("padding-top", headerHeight + "px");
-    }
+		function updateHeaderHeight() {
+			var headerHeight = $(".header-inner").outerHeight();
+			$(".section").css("padding-top", headerHeight + "px");
+		}
 
-    function scrollToHash() {
-        var hash = window.location.hash;
-        if (hash) {
-            setTimeout(function() { // ページが完全にロードされた後に少し遅れて実行
-                var targetOffset = $(hash).offset().top;
-                var headerHeight = $(".header-inner").outerHeight();
-                $('html, body').animate({
-                    scrollTop: targetOffset - headerHeight
-                }, 500);
-            }, 400);
-        }
-    }
+		function scrollToHash() {
+			var hash = window.location.hash;
+			if (hash) {
+				setTimeout(function() { // ページが完全にロードされた後に少し遅れて実行
+					var targetOffset = $(hash).offset().top;
+					var headerHeight = $(".header-inner").outerHeight();
+					$('html, body').animate({
+						scrollTop: targetOffset - headerHeight
+					}, 500);
+				}, 400);
+			}
+		}
 
-    updateHeaderHeight();
-    scrollToHash(); // ハッシュに基づいてスクロール
+		updateHeaderHeight();
+		scrollToHash(); // ハッシュに基づいてスクロール
 
-    $(window).resize(updateHeaderHeight);
+		$(window).resize(updateHeaderHeight);
 
-    $('.header-inner a[href^="#"]').on('click', function(event) {
-        event.preventDefault();
-        var targetId = $(this).attr("href");
-        var targetOffset = $(targetId).offset().top;
-        var headerHeight = $(".header-inner").outerHeight();
-        $('html, body').animate({
-            scrollTop: targetOffset - headerHeight
-        }, 500);
-    });
-});
+		$('.header-inner a[href^="#"]').on('click', function(event) {
+			event.preventDefault();
+			var targetId = $(this).attr("href");
+			var targetOffset = $(targetId).offset().top;
+			var headerHeight = $(".header-inner").outerHeight();
+			$('html, body').animate({
+				scrollTop: targetOffset - headerHeight
+			}, 500);
+		});
+	});
+
+	// 表示速度の調整
+	$(function() {
+    	$(window).scroll(function() {
+			const scroll = $(window).scrollTop();
+			const windowHeight = $(window).height();
+			$(".box, .text, .text80").each(function() {
+				const boxTop = $(this).offset().top;
+				if (scroll + windowHeight > boxTop + 50) {
+					$(this).addClass("is-active");
+				} else {
+					// $(this).removeClass("is-active");
+				}
+			});
+    	});
+	});
+
+	setTimeout(function() {
+		$(".text81").each(function() {
+			$(this).addClass("is-active");
+		});
+	}, 800);
+	setTimeout(function() {
+		$(".text82").each(function() {
+			$(this).addClass("is-active");
+		});
+	}, 1300);
+
+
+
 
 	// サムネイルのスライダー
 	window.onload = function() {
@@ -795,4 +837,6 @@ get_header('lp');
 			openModal();
 		});
 	});
+
+	
 </script>
