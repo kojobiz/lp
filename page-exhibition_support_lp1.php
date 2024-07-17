@@ -607,7 +607,7 @@ get_header('lp');
                 $('html, body').animate({
                     scrollTop: targetOffset - headerHeight
                 }, 500);
-            }, 800);
+            }, 600);
         }
     }
 
