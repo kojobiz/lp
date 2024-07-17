@@ -122,7 +122,7 @@
 	<div id="spNavi" class="tabOnly">
 		<ul class="navi-menu txt-serif">
 			<li>
-				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1">
+				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1">ホーム</a>
 			</li>
 			<li>
 				<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#last-achvm-intro">実績紹介</a>
