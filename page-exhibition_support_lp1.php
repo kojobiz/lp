@@ -91,10 +91,21 @@ visibility: hidden;
 transition: all 2s;
 transform: translateY(100px);
 }
+.text82 {
+overflow: hidden;
+opacity: 0;
+visibility: hidden;
+transition: all 2s;
+}
 .is-active {
 opacity: 1;
 visibility: visible;
 transform: translateY(0);
+}
+.is-active82 {
+opacity: 1;
+visibility: visible;
+
 }
 @media screen and (max-width: 833px) {
 	.lp-modal-inner {
@@ -115,7 +126,7 @@ transform: translateY(0);
 				<source srcset="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_sp.jpg" media="(max-width: 833px)"/>
 				<img src="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_pc.jpg" width="1600" height="650">
 			</picture>
-			<ul class="page-list text80">
+			<ul class="page-list text82">
 				<?php if(get_field('consultation-form')): ?>
 					<li>
 						<a href="<?php echo esc_url( home_url( '/service' ) ); ?>/exhibition_support/lp1#contact" style="border-radius: 99px; box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);">
@@ -129,6 +140,7 @@ transform: translateY(0);
 			</ul>
 		</div>
 	</div>
+	
 
 	<article class="section-block svc-worries">
 		<section class="content page-width">
@@ -642,7 +654,7 @@ transform: translateY(0);
     	$(window).scroll(function() {
 			const scroll = $(window).scrollTop();
 			const windowHeight = $(window).height();
-			$(".box, .text, .text80").each(function() {
+			$(".text80").each(function() {
 				const boxTop = $(this).offset().top;
 				if (scroll + windowHeight > boxTop + 50) {
 					$(this).addClass("is-active");
@@ -657,12 +669,12 @@ transform: translateY(0);
 		$(".text81").each(function() {
 			$(this).addClass("is-active");
 		});
-	}, 800);
+	}, 500);
 	setTimeout(function() {
 		$(".text82").each(function() {
-			$(this).addClass("is-active");
+			$(this).addClass("is-active82");
 		});
-	}, 1300);
+	}, 500);
 
 
 
