@@ -31,6 +31,7 @@
 	[data-color="white"] {
 		--txt-color: #fff;
 	}
+	
 	</style>
 
 	<!-- Google Fonts -->
@@ -175,6 +176,9 @@ var wpstg = {"nonce":"29d25f7486"};
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -80%);
+}
+body:has(dialog[open]) {
+	overflow: hidden;
 }
 
 .close-button {
@@ -490,7 +494,7 @@ var wpstg = {"nonce":"29d25f7486"};
 								</div>
 							</li>
 							<!-- モーダル構造 -->
-							<div id="modal" class="modal">
+							<dialog id="modal" class="modal">
 								<div class="modal-content">
 									<span class="close-button">&times;</span>
 									<div class="exhib-infos">
@@ -531,7 +535,7 @@ var wpstg = {"nonce":"29d25f7486"};
 										</table>                
 									</div>
 								</div>
-							</div>
+							</dialog>
 							<!-- ここまでテスト -->
 
 
