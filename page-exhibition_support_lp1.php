@@ -31,7 +31,7 @@ get_header('lp');
     z-index: 1000;
     left: 0;
     top: 0;
-    width: 100vw!important;
+    width: 100%!important;
     height: 100vh!important;
     overflow: auto;
     background-color: rgb(0,0,0);
@@ -56,7 +56,7 @@ get_header('lp');
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    max-width: 80%;
+    max-width: 92%;
 	height: 80%;
 	position: absolute;
 	top: 50%;
@@ -267,8 +267,40 @@ visibility: visible;
 						<h2 class="ttl" id="modal-exhib-client-title"></h2>
 					</div>
 				</div>
-				<div class="lp-modal-inner">
-					<img id="modal-img" src="" width="600" height="auto" class="pic">
+				<div class="exhib-infos">
+					<img id="modal-img" src="" width="600" height="auto" class="pic exhib-visual">
+					<table class="exhibi-tbl">
+						<tbody>
+							<tr>
+								<td>クライアント名：</td>
+								<td id="modal-exhib-client"></td>
+							</tr>
+							<tr>
+								<td>展示会名：</td>
+								<td id="modal-exhib-name"></td>
+							</tr>
+							<tr>
+								<td>開催場所：</td>
+								<td id="modal-exhib-addr"></td>
+							</tr>
+							<tr>
+								<td>小間数：</td>
+								<td id="modal-exhib-boots"></td>
+							</tr>
+							<tr>
+								<td>開放面：</td>
+								<td id="modal-exhib-surface"></td>
+							</tr>
+							<tr>
+								<td>サイズ：</td>
+								<td id="modal-exhib-size"></td>
+							</tr>
+							<tr>
+								<td>面積：</td>
+								<td id="modal-exhib-area"></td>
+							</tr>
+						</tbody>
+					</table>
 					<div class="lp-modal-inner-text">
 						<p id="modal-exhib-client"></p>
 						<p id="modal-exhib-name"></p>
@@ -796,50 +828,43 @@ visibility: visible;
 			}
 
 			if (exhibClient) {
-				modalExhibClient.textContent = 'クライアント名: ' + exhibClient;
-				modalExhibClient.style.display = 'block';
+				modalExhibClient.textContent = exhibClient;
 			} else {
 				modalExhibClient.style.display = 'none';
 			}
 
 			if (exhibName) {
-				modalExhibName.textContent = '展示会名: ' + exhibName;
-				modalExhibName.style.display = 'block';
+				modalExhibName.textContent = exhibName;
 			} else {
 				modalExhibName.style.display = 'none';
 			}
 
 			if (exhibAddr) {
-				modalExhibAddr.textContent = '開催場所: ' + exhibAddr;
-				modalExhibAddr.style.display = 'block';
+				modalExhibAddr.textContent = exhibAddr;
 			} else {
 				modalExhibAddr.style.display = 'none';
 			}
 
 			if (exhibBoots) {
-				modalExhibBoots.textContent = '小間数: ' + exhibBoots;
-				modalExhibBoots.style.display = 'block';
+				modalExhibBoots.textContent = exhibBoots;
 			} else {
 				modalExhibBoots.style.display = 'none';
 			}
 
 			if (exhibSurface) {
-				modalExhibSurface.textContent = '開放面: ' + exhibSurface;
-				modalExhibSurface.style.display = 'block';
+				modalExhibSurface.textContent = exhibSurface;
 			} else {
 				modalExhibSurface.style.display = 'none';
 			}
 
 			if (exhibWidth && exhibHeight) {
-				modalExhibSize.textContent = 'サイズ: ' + exhibWidth + 'm X ' + exhibHeight + 'm';
-				modalExhibSize.style.display = 'block';
+				modalExhibSize.textContent = exhibWidth + 'm X ' + exhibHeight + 'm';
 			} else {
 				modalExhibSize.style.display = 'none';
 			}
 
 			if (exhibArea) {
-				modalExhibArea.textContent = '面積: ' + exhibArea + '㎡';
-				modalExhibArea.style.display = 'block';
+				modalExhibArea.textContent = exhibArea + '㎡';
 			} else {
 				modalExhibArea.style.display = 'none';
 			}
