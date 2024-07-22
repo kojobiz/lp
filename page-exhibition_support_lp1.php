@@ -56,12 +56,15 @@ get_header('lp');
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    max-width: 92%;
+    width: 92%;
 	height: 80%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -55%);
+}
+.lp-modal-table {
+	text-wrap: nowrap;
 }
 .lp-work-header {
 	padding-bottom: 50px;
@@ -257,7 +260,7 @@ visibility: visible;
 </section>
 
 <div id="modal" class="modal">
-    <div class="modal-content" style="width: 90%;">
+    <div class="modal-content">
         <span class="close-button">&times;</span>
 		<br>
         <div class="exhib-infos lp-exhib-infos">
@@ -269,7 +272,7 @@ visibility: visible;
 				</div>
 				<div class="exhib-infos">
 					<img id="modal-img" src="" width="600" height="auto" class="pic exhib-visual">
-					<table class="exhibi-tbl">
+					<table class="exhibi-tbl lp-modal-table">
 						<tbody>
 							<tr>
 								<td>クライアント名：</td>
