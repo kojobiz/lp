@@ -13,6 +13,8 @@ https://www.figma.com/board/PQyDcJFg7ZwEBzOR6DOz5W/%E5%B0%8F%E5%9F%8E_%E4%B8%80%
 元コードFTPでphpやhtml実験など含む
 (z_ik)
 https://github.com/kojobiz/z_ik
+0724 1505変更
+https://github.com/kojobiz/lp
 
 本番公開デプロイパーマリンク(ファイル構造)
 
@@ -28,5 +30,3 @@ header-lp.php
 サービス選ばれる理由制作実績会社案内ブログ
 実績紹介サービス詳細他社サービスとの比較よくあるご質問（６文字多い）
 
-0724 1505変更
-https://github.com/kojobiz/lp
