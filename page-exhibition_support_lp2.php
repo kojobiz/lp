@@ -36,6 +36,8 @@ get_header('lp');
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+	align-content: center;
+	overflow: auto;
 }
 .lp-modal-inner {
 	display: grid;
@@ -62,6 +64,9 @@ get_header('lp');
 }
 .lp-modal-table {
 	text-wrap: nowrap;
+}
+.lp-modal-ttl {
+	font-size: 3rem;
 }
 .lp-work-header {
 	padding-bottom: 50px;
@@ -113,7 +118,15 @@ visibility: visible;
 		grid-template-rows: auto auto;
 	}
 	.lp-modal-inner img {
+		max-width: 100%!important;
+		height: 320px!important;
+		object-fit: cover!important;	
+	}
+	/* .lp-modal-inner img {
 		max-width: 60%;	
+	} */
+	.lp-modal-ttl {
+		font-size: 1.2rem!important;
 	}
 }
 
@@ -264,7 +277,7 @@ visibility: visible;
             <figure class="inner lp-exhib-infos-inner">
 				<div class="work-header lp-work-header">
 					<div class="headline">
-						<h2 class="ttl" id="modal-exhib-client-title"></h2>
+						<h2 class="ttl lp-modal-ttl" id="modal-exhib-client-title"></h2>
 					</div>
 				</div>
 				<div class="exhib-infos">
