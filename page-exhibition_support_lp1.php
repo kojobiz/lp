@@ -175,6 +175,7 @@ visibility: visible;
 	</article>
 
 	<article class="section-block svc-sec01">
+		<!-- お任せ -->
 		<section class="content page-width">
 			<h2 class="headline-02 txt-center svc-ttl01 text80" data-color="red">展示会出展で<br class="spOnly">最も大切なことは<br>１社にすべて任せることです。</h2>
 			<p class="txt-lead txt-center text80">展示会の出展はさまざまなことが同時に一⻫に動くので、抜け漏れや妥協が起きやすくなります。<br>そのため、ご依頼する支援会社はできるだけ少なくすることが失敗を防ぐ最良の方法と言えます。<br>また、ご担当者さまも展示会専任でないことが多いため、ご負担を軽減することで従来の仕事に注力いただけます。</p>
@@ -182,6 +183,7 @@ visibility: visible;
 				<img src="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/flow.jpg" width="877" height="584" alt="">
 			</figure>
 		</section>
+		
 		<!-- 実績紹介 -->
 		<article class="section-block svc-sec03">
 			<?php		
@@ -213,93 +215,93 @@ visibility: visible;
 			$args['paged'] = $paged;
 			$the_query = new WP_Query($args);
 			?>
-			<!-- テスト２ -->
+			<!-- 実績紹介UI -->
 			<section class="content page-width" id="last-achvm-intro">
-    <h3 class="headline-03 svc-ttl03 text80">実績紹介</h3>
-    <?php if ( $the_query->have_posts() ) : ?>
-    <div class="svc-work-slider">
-        <ul class="l-column col-3 col-1-tab work-list work-exhib-list">
-            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-            <li class="work-item text80">
-                <div href="<?php the_permalink(); ?>" target="_blank" class="variableBox" 
-                     data-exhib-client-title="<?php echo get_field('exhib-client',$post->ID); ?>"
-                     data-exhib-client="<?php echo get_field('exhib-client',$post->ID); ?>"
-                     data-exhib-name="<?php echo get_field('exhib-name',$post->ID); ?>"
-                     data-exhib-addr="<?php echo get_field('exhib-addr',$post->ID); ?>"
-                     data-exhib-boots="<?php echo get_field('exhib-boots',$post->ID); ?>"
-                     data-exhib-surface="<?php echo get_field('exhib-surface',$post->ID); ?>"
-                     data-exhib-width="<?php echo get_field('exhib-width',$post->ID); ?>"
-                     data-exhib-height="<?php echo get_field('exhib-height',$post->ID); ?>">
-                    <figure class="inner">
-                        <?php if(has_post_thumbnail()): ?>
-                            <?php the_post_thumbnail( 'large', array('class' => 'pic') ); ?>
-                        <?php else : ?>
-                            <img src="<?php echo get_template_directory_uri() ?>/images/common/placehold744x744.png" width="372" height="372" class="pic">
-                        <?php endif; ?>
-                        <figcaption class="work-name<?php if(get_field('exhib-name',$post->ID)){?> work-exhib-name<?php }?>">
-                            <?php
-                            if(get_field('exhib-name',$post->ID)){
-                                $strInfo = get_field('exhib-name',$post->ID).'<br>';
-                                $strInfo = $strInfo . get_field('exhib-boots',$post->ID) . '小間';
-                                $strInfo = $strInfo . get_field('exhib-surface',$post->ID) . '面開放(';
-                                $strInfo = $strInfo . get_field('exhib-width',$post->ID) . 'mx';
-                                $strInfo = $strInfo . get_field('exhib-height',$post->ID) . 'm)';
-                                echo '<span class="cat_exhib">'.$strInfo.'</span>';
-                            } else {										    
-                                $termsParent = get_the_terms($post->ID,'work_type');
-                                foreach ( $termsParent as $term ){
-                                    if($term->parent == 0) {
-                                        echo '<span class="cat">'.$term->name.'</span>';
-                                    }
-                                }
-                                foreach ( $termsParent as $term ){
-                                    if($term->parent != 0) {
-                                        echo '<span class="name">'.$term->name.'</span>';
-                                    }
-                                }
-                            }
-                            ?>
-                        </figcaption>
-                    </figure>
-                </div>
-            </li>
-            <?php endwhile; ?>
-        </ul>
-    </div>
-    <?php endif; ?>
-</section>
-<!-- モーダル -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close-button">&times;</span>
-		<br>
-        <div class="exhib-infos lp-exhib-infos">
-            <figure class="inner lp-exhib-infos-inner">
-				<div class="work-header lp-work-header">
-					<div class="headline">
-						<h2 class="ttl lp-modal-ttl" id="modal-exhib-client-title"></h2>
+				<h3 class="headline-03 svc-ttl03 text80">実績紹介</h3>
+				<?php if ( $the_query->have_posts() ) : ?>
+				<div class="svc-work-slider">
+					<ul class="l-column col-3 col-1-tab work-list work-exhib-list">
+						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+						<li class="work-item text80">
+							<div href="<?php the_permalink(); ?>" target="_blank" class="variableBox" 
+								data-exhib-client-title="<?php echo get_field('exhib-client',$post->ID); ?>"
+								data-exhib-client="<?php echo get_field('exhib-client',$post->ID); ?>"
+								data-exhib-name="<?php echo get_field('exhib-name',$post->ID); ?>"
+								data-exhib-addr="<?php echo get_field('exhib-addr',$post->ID); ?>"
+								data-exhib-boots="<?php echo get_field('exhib-boots',$post->ID); ?>"
+								data-exhib-surface="<?php echo get_field('exhib-surface',$post->ID); ?>"
+								data-exhib-width="<?php echo get_field('exhib-width',$post->ID); ?>"
+								data-exhib-height="<?php echo get_field('exhib-height',$post->ID); ?>">
+								<figure class="inner">
+									<?php if(has_post_thumbnail()): ?>
+										<?php the_post_thumbnail( 'large', array('class' => 'pic') ); ?>
+									<?php else : ?>
+										<img src="<?php echo get_template_directory_uri() ?>/images/common/placehold744x744.png" width="372" height="372" class="pic">
+									<?php endif; ?>
+									<figcaption class="work-name<?php if(get_field('exhib-name',$post->ID)){?> work-exhib-name<?php }?>">
+										<?php
+										if(get_field('exhib-name',$post->ID)){
+											$strInfo = get_field('exhib-name',$post->ID).'<br>';
+											$strInfo = $strInfo . get_field('exhib-boots',$post->ID) . '小間';
+											$strInfo = $strInfo . get_field('exhib-surface',$post->ID) . '面開放(';
+											$strInfo = $strInfo . get_field('exhib-width',$post->ID) . 'mx';
+											$strInfo = $strInfo . get_field('exhib-height',$post->ID) . 'm)';
+											echo '<span class="cat_exhib">'.$strInfo.'</span>';
+										} else {										    
+											$termsParent = get_the_terms($post->ID,'work_type');
+											foreach ( $termsParent as $term ){
+												if($term->parent == 0) {
+													echo '<span class="cat">'.$term->name.'</span>';
+												}
+											}
+											foreach ( $termsParent as $term ){
+												if($term->parent != 0) {
+													echo '<span class="name">'.$term->name.'</span>';
+												}
+											}
+										}
+										?>
+									</figcaption>
+								</figure>
+							</div>
+						</li>
+						<?php endwhile; ?>
+					</ul>
+   				</div>
+    			<?php endif; ?>
+			</section>
+			<!-- モーダル -->
+			<div id="modal" class="modal">
+				<div class="modal-content">
+					<span class="close-button">&times;</span>
+					<br>
+					<div class="exhib-infos lp-exhib-infos">
+						<figure class="inner lp-exhib-infos-inner">
+							<div class="work-header lp-work-header">
+								<div class="headline">
+									<h2 class="ttl lp-modal-ttl" id="modal-exhib-client-title"></h2>
+								</div>
+							</div>
+							<div class="exhib-infos">
+								<img id="modal-img" src="" width="600" height="auto" class="pic exhib-visual lp-modal-inner-img">
+								
+								<div class="lp-modal-inner-text">
+									<p id="modal-exhib-client"></p>
+									<p id="modal-exhib-name"></p>
+									<p id="modal-exhib-addr"></p>
+									<p id="modal-exhib-boots"></p>
+									<p id="modal-exhib-surface"></p>
+									<p id="modal-exhib-size"></p>
+									<p id="modal-exhib-area"></p>
+								</div>
+							</div>
+						</figure> 
 					</div>
 				</div>
-				<div class="exhib-infos">
-					<img id="modal-img" src="" width="600" height="auto" class="pic exhib-visual lp-modal-inner-img">
-					
-					<div class="lp-modal-inner-text">
-						<p id="modal-exhib-client"></p>
-						<p id="modal-exhib-name"></p>
-						<p id="modal-exhib-addr"></p>
-						<p id="modal-exhib-boots"></p>
-						<p id="modal-exhib-surface"></p>
-						<p id="modal-exhib-size"></p>
-						<p id="modal-exhib-area"></p>
-					</div>
-				</div>
-            </figure> 
-        </div>
-    </div>
-</div>
-<!-- テスト２ここまで -->
-<?php //endif; ?>
-<?php wp_reset_postdata(); ?>
+			</div>
+			<!-- テスト２ここまで -->
+			<?php //endif; ?>
+			<?php wp_reset_postdata(); ?>
 
 
 			<!-- cta -->
