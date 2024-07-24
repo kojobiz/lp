@@ -26,7 +26,7 @@ get_header('lp');
 	cursor: pointer;
 }
 .modal {
-    display: none;
+    display: flex;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -36,6 +36,8 @@ get_header('lp');
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+	align-content: center;
+	overflow: auto;
 }
 .lp-modal-inner {
 	display: grid;
@@ -57,14 +59,14 @@ get_header('lp');
     padding: 20px;
     border: 1px solid #888;
     width: 92%;
-	height: 80%;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -55%);
+	height: auto;
+	max-width: 1400px;
 }
 .lp-modal-table {
 	text-wrap: nowrap;
+}
+.lp-modal-ttl {
+	font-size: 3rem;
 }
 .lp-work-header {
 	padding-bottom: 50px;
@@ -115,8 +117,16 @@ visibility: visible;
 		grid-template-columns: 1fr;
 		grid-template-rows: auto auto;
 	}
-	.lp-modal-inner img {
+	.lp-modal-inner-img {
+		max-width: 100%!important;
+		height: 320px!important;
+		object-fit: cover!important;	
+	}
+	/* .lp-modal-inner img {
 		max-width: 60%;	
+	} */
+	.lp-modal-ttl {
+		font-size: 1.2rem!important;
 	}
 }
 
@@ -258,7 +268,7 @@ visibility: visible;
     </div>
     <?php endif; ?>
 </section>
-
+<!-- モーダル -->
 <div id="modal" class="modal">
     <div class="modal-content">
         <span class="close-button">&times;</span>
@@ -267,43 +277,12 @@ visibility: visible;
             <figure class="inner lp-exhib-infos-inner">
 				<div class="work-header lp-work-header">
 					<div class="headline">
-						<h2 class="ttl" id="modal-exhib-client-title"></h2>
+						<h2 class="ttl lp-modal-ttl" id="modal-exhib-client-title"></h2>
 					</div>
 				</div>
 				<div class="exhib-infos">
-					<img id="modal-img" src="" width="600" height="auto" class="pic exhib-visual">
-					<table class="exhibi-tbl lp-modal-table">
-						<tbody>
-							<tr>
-								<td>クライアント名：</td>
-								<td id="modal-exhib-client"></td>
-							</tr>
-							<tr>
-								<td>展示会名：</td>
-								<td id="modal-exhib-name"></td>
-							</tr>
-							<tr>
-								<td>開催場所：</td>
-								<td id="modal-exhib-addr"></td>
-							</tr>
-							<tr>
-								<td>小間数：</td>
-								<td id="modal-exhib-boots"></td>
-							</tr>
-							<tr>
-								<td>開放面：</td>
-								<td id="modal-exhib-surface"></td>
-							</tr>
-							<tr>
-								<td>サイズ：</td>
-								<td id="modal-exhib-size"></td>
-							</tr>
-							<tr>
-								<td>面積：</td>
-								<td id="modal-exhib-area"></td>
-							</tr>
-						</tbody>
-					</table>
+					<img id="modal-img" src="" width="600" height="auto" class="pic exhib-visual lp-modal-inner-img">
+					
 					<div class="lp-modal-inner-text">
 						<p id="modal-exhib-client"></p>
 						<p id="modal-exhib-name"></p>
@@ -831,50 +810,54 @@ visibility: visible;
 			}
 
 			if (exhibClient) {
-				modalExhibClient.textContent = exhibClient;
+				modalExhibClient.textContent = 'クライアント名: ' + exhibClient;
+				modalExhibClient.style.display = 'block';
 			} else {
 				modalExhibClient.style.display = 'none';
 			}
 
 			if (exhibName) {
-				modalExhibName.textContent = exhibName;
+				modalExhibName.textContent = '展示会名: ' + exhibName;
+				modalExhibName.style.display = 'block';
 			} else {
 				modalExhibName.style.display = 'none';
 			}
 
 			if (exhibAddr) {
-				modalExhibAddr.textContent = exhibAddr;
+				modalExhibAddr.textContent = '開催場所: ' + exhibAddr;
+				modalExhibAddr.style.display = 'block';
 			} else {
 				modalExhibAddr.style.display = 'none';
 			}
 
 			if (exhibBoots) {
-				modalExhibBoots.textContent = exhibBoots;
+				modalExhibBoots.textContent = '小間数: ' + exhibBoots;
+				modalExhibBoots.style.display = 'block';
 			} else {
 				modalExhibBoots.style.display = 'none';
 			}
 
 			if (exhibSurface) {
-				modalExhibSurface.textContent = exhibSurface;
+				modalExhibSurface.textContent = '開放面: ' + exhibSurface;
+				modalExhibSurface.style.display = 'block';
 			} else {
 				modalExhibSurface.style.display = 'none';
 			}
 
 			if (exhibWidth && exhibHeight) {
-				modalExhibSize.textContent = exhibWidth + 'm X ' + exhibHeight + 'm';
+				modalExhibSize.textContent = 'サイズ: ' + exhibWidth + 'm X ' + exhibHeight + 'm';
+				modalExhibSize.style.display = 'block';
 			} else {
 				modalExhibSize.style.display = 'none';
 			}
 
 			if (exhibArea) {
-				modalExhibArea.textContent = exhibArea + '㎡';
+				modalExhibArea.textContent = '面積: ' + exhibArea + '㎡';
+				modalExhibArea.style.display = 'block';
 			} else {
 				modalExhibArea.style.display = 'none';
 			}
-
 			openModal();
 		});
 	});
-
-	
 </script>
