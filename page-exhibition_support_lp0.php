@@ -115,8 +115,10 @@ visibility: visible;
 		grid-template-columns: 1fr;
 		grid-template-rows: auto auto;
 	}
-	.lp-modal-inner img {
-		max-width: 60%;	
+	.lp-modal-inner-img {
+		max-width: 100%!important;
+		height: 320px!important;
+		object-fit: cover!important;	
 	}
 }
 
@@ -258,7 +260,7 @@ visibility: visible;
     </div>
     <?php endif; ?>
 </section>
-
+<!-- モーダル -->
 <div id="modal" class="modal">
     <div class="modal-content">
         <span class="close-button">&times;</span>
@@ -271,8 +273,9 @@ visibility: visible;
 					</div>
 				</div>
 				<div class="exhib-infos">
-					<img id="modal-img" src="" width="600" height="auto" class="pic exhib-visual">
-					<table class="exhibi-tbl lp-modal-table">
+					<img id="modal-img" src="" width="600" height="auto" class="pic exhib-visual lp-modal-inner-img">
+					<!-- テーブル -->
+					<!-- <table class="exhibi-tbl lp-modal-table">
 						<tbody>
 							<tr>
 								<td>クライアント名：</td>
@@ -303,7 +306,7 @@ visibility: visible;
 								<td id="modal-exhib-area"></td>
 							</tr>
 						</tbody>
-					</table>
+					</table> -->
 					<div class="lp-modal-inner-text">
 						<p id="modal-exhib-client"></p>
 						<p id="modal-exhib-name"></p>
