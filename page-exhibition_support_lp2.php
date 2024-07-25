@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Lp1 Page
+ * Template Name: Lp2 Page
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
