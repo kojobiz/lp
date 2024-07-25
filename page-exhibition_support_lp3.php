@@ -126,8 +126,8 @@ visibility: visible;
 		<div class="inner">
 		<!-- <a class="en-link" href="/service/en-exhibition_support/">ENGLISH</a> -->
 			<picture class="mv">
-				<source srcset="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_sp.jpg" media="(max-width: 833px)"/>
-				<img src="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/mv_pc.jpg" width="1600" height="650">
+				<source srcset="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/hero3_sp_shien.png" media="(max-width: 833px)"/>
+				<img src="<?php echo get_template_directory_uri() ?>/images/service/exhibition_support/hero3_pc_shien.png" width="1600" height="650">
 			</picture>
 			<ul class="page-list text82">
 				<?php if(get_field('consultation-form')): ?>
