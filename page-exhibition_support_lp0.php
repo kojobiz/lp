@@ -42,8 +42,15 @@ get_header('lp');
 	grid-template-columns: 1fr 1fr;
 	gap: 50px;
 }
-.lp-modal-inner-text p {
+/* .lp-modal-inner-text p {
 	font-size: clamp(16px, 2vw, 10px);
+} */
+.lp-modal-inner-text {
+	font-size: clamp(16px, 2vw, 10px);
+}
+.lp-modal-td {
+	width: 20%;
+	height: 26px;
 }
 .lp-exhib-infos {
 	width: 100%!important;
@@ -275,10 +282,10 @@ visibility: visible;
 				<div class="exhib-infos">
 					<img id="modal-img" src="" width="600" height="auto" class="pic exhib-visual lp-modal-inner-img">
 					<!-- テーブル -->
-					<!-- <table class="exhibi-tbl lp-modal-table">
+					<table class="exhibi-tbl lp-modal-table lp-modal-inner-text">
 						<tbody>
 							<tr>
-								<td>クライアント名：</td>
+								<td id="lp-modal-client" class="lp-modal-td">クライアント名：</td>
 								<td id="modal-exhib-client"></td>
 							</tr>
 							<tr>
@@ -306,8 +313,8 @@ visibility: visible;
 								<td id="modal-exhib-area"></td>
 							</tr>
 						</tbody>
-					</table> -->
-					<div class="lp-modal-inner-text">
+					</table>
+					<!-- <div class="lp-modal-inner-text">
 						<p id="modal-exhib-client"></p>
 						<p id="modal-exhib-name"></p>
 						<p id="modal-exhib-addr"></p>
@@ -315,7 +322,7 @@ visibility: visible;
 						<p id="modal-exhib-surface"></p>
 						<p id="modal-exhib-size"></p>
 						<p id="modal-exhib-area"></p>
-					</div>
+					</div> -->
 				</div>
             </figure> 
         </div>
@@ -825,6 +832,9 @@ visibility: visible;
 			var modalExhibSurface = document.getElementById('modal-exhib-surface');
 			var modalExhibSize = document.getElementById('modal-exhib-size');
 			var modalExhibArea = document.getElementById('modal-exhib-area');
+
+			// モーダル項目
+			var modalClient = document.getElementById('lp-modal-client');
 			
 			if (exhibClientTitle) {
 				modalExhibClientTitle.textContent = exhibClientTitle + '様';
@@ -837,6 +847,7 @@ visibility: visible;
 				modalExhibClient.textContent = exhibClient;
 			} else {
 				modalExhibClient.style.display = 'none';
+				modalClient.style.display = 'none';
 			}
 
 			if (exhibName) {
