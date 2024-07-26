@@ -24,11 +24,6 @@ get_header('lp');
 		</div>
 	</div>
 
-	<!-- <div class="breadcrumbs page-width" typeof="BreadcrumbList" vocab="https://schema.org/">
-		<?php if(function_exists('bcn_display')) {
-			bcn_display();
-		}?>
-	</div> -->
 
 	<article class="section-block privacy-block">
 		<section class="content page-width">
