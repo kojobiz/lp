@@ -678,10 +678,11 @@ get_header('lp');
 		$('.header-inner a[href^="#"]').on('click', function(event) {
 			event.preventDefault();
 			var targetId = $(this).attr("href");
-			var targetOffset = $(targetId).offset().top;
+			// var targetOffset = $(targetId).offset().top;
 			var headerHeight = $(".header-inner").outerHeight();
 			$('html, body').animate({
-				scrollTop: targetOffset - headerHeight
+				scrollTop: headerHeight
+				// scrollTop: targetOffset - headerHeight
 			}, 500);
 		});
 	});
