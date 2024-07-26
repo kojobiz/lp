@@ -26,7 +26,7 @@ get_header('lp');
 	cursor: pointer;
 }
 .modal {
-    display: flex;
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -36,16 +36,21 @@ get_header('lp');
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
-	align-content: center;
-	overflow: auto;
 }
 .lp-modal-inner {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 50px;
 }
-.lp-modal-inner-text p {
+/* .lp-modal-inner-text p {
 	font-size: clamp(16px, 2vw, 10px);
+} */
+.lp-modal-inner-text {
+	font-size: clamp(16px, 2vw, 10px);
+}
+.lp-modal-td {
+	width: 20%;
+	height: 26px;
 }
 .lp-exhib-infos {
 	width: 100%!important;
@@ -59,14 +64,14 @@ get_header('lp');
     padding: 20px;
     border: 1px solid #888;
     width: 92%;
-	height: auto;
-	max-width: 1400px;
+	height: 80%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -55%);
 }
 .lp-modal-table {
 	text-wrap: nowrap;
-}
-.lp-modal-ttl {
-	font-size: 3rem;
 }
 .lp-work-header {
 	padding-bottom: 50px;
@@ -89,29 +94,27 @@ get_header('lp');
     overflow: hidden;
     height: 100%;
 }
-.text80 {
-overflow: hidden;
-opacity: 0;
-visibility: hidden;
-transition: all 2s;
-transform: translateY(100px);
-}
-.text82 {
-overflow: hidden;
-opacity: 0;
-visibility: hidden;
-transition: all 2s;
-}
-.is-active {
-opacity: 1;
-visibility: visible;
-transform: translateY(0);
-}
-.is-active82 {
-opacity: 1;
-visibility: visible;
 
+/* 初期状態のスタイル */
+.text80, .text82 {
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2s, transform 2s;
 }
+
+/* アクティブ状態のスタイル */
+.text80.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.text82.is-active82 {
+    opacity: 1;
+    visibility: visible;
+}
+
 @media screen and (max-width: 833px) {
 	.lp-modal-inner {
 		grid-template-columns: 1fr;
@@ -122,14 +125,10 @@ visibility: visible;
 		height: 320px!important;
 		object-fit: cover!important;	
 	}
-	/* .lp-modal-inner img {
-		max-width: 60%;	
-	} */
-	.lp-modal-ttl {
-		font-size: 1.2rem!important;
+	.lp-modal-table {
+		padding-top: 18px;
 	}
 }
-
 </style>
 
 	<div class="service-headline">
@@ -279,30 +278,51 @@ visibility: visible;
 						<figure class="inner lp-exhib-infos-inner">
 							<div class="work-header lp-work-header">
 								<div class="headline">
-									<h2 class="ttl lp-modal-ttl" id="modal-exhib-client-title"></h2>
+									<h2 class="ttl" id="modal-exhib-client-title"></h2>
 								</div>
 							</div>
 							<div class="exhib-infos">
 								<img id="modal-img" src="" width="600" height="auto" class="pic exhib-visual lp-modal-inner-img">
-								
-								<div class="lp-modal-inner-text">
-									<p id="modal-exhib-client"></p>
-									<p id="modal-exhib-name"></p>
-									<p id="modal-exhib-addr"></p>
-									<p id="modal-exhib-boots"></p>
-									<p id="modal-exhib-surface"></p>
-									<p id="modal-exhib-size"></p>
-									<p id="modal-exhib-area"></p>
-								</div>
+								<!-- テーブル -->
+								<table class="exhibi-tbl lp-modal-table lp-modal-inner-text">
+									<tbody>
+										<tr>
+											<td id="lp-modal-client" class="lp-modal-td">クライアント名：</td>
+											<td id="modal-exhib-client"></td>
+										</tr>
+										<tr>
+											<td id="lp-modal-name" class="lp-modal-td">展示会名：</td>
+											<td id="modal-exhib-name"></td>
+										</tr>
+										<tr>
+											<td id="lp-modal-addr" class="lp-modal-td">開催場所：</td>
+											<td id="modal-exhib-addr"></td>
+										</tr>
+										<tr>
+											<td id="lp-modal-boots" class="lp-modal-td">小間数：</td>
+											<td id="modal-exhib-boots"></td>
+										</tr>
+										<tr>
+											<td id="lp-modal-surface" class="lp-modal-td">開放面：</td>
+											<td id="modal-exhib-surface"></td>
+										</tr>
+										<tr>
+											<td id="lp-modal-size" class="lp-modal-td">サイズ：</td>
+											<td id="modal-exhib-size"></td>
+										</tr>
+										<tr>
+											<td id="lp-modal-area" class="lp-modal-td">面積：</td>
+											<td id="modal-exhib-area"></td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 						</figure> 
 					</div>
 				</div>
 			</div>
-			<!-- テスト２ここまで -->
 			<?php //endif; ?>
 			<?php wp_reset_postdata(); ?>
-
 
 			<!-- cta -->
 			<article class="section-block common-block" data-color="white">
@@ -623,10 +643,11 @@ visibility: visible;
 			</section>
 		</article>
 	<?php endif; ?>
-	<!-- footer -->
-	<?php
-	get_footer('lp');
-	?>
+
+<!-- footer -->
+<?php
+get_footer('lp');
+?>
 
 <script>
 	// 遷移リロードしてからheaderの高さを取得しheaderHeight分オフセットをかける
@@ -654,6 +675,7 @@ visibility: visible;
 
 		$(window).resize(updateHeaderHeight);
 
+		// 表示速度の調整
 		$('.header-inner a[href^="#"]').on('click', function(event) {
 			event.preventDefault();
 			var targetId = $(this).attr("href");
@@ -665,35 +687,14 @@ visibility: visible;
 		});
 	});
 
-	// 表示速度の調整
-	$(function() {
-    	$(window).scroll(function() {
-			const scroll = $(window).scrollTop();
-			const windowHeight = $(window).height();
-			$(".text80").each(function() {
-				const boxTop = $(this).offset().top;
-				if (scroll + windowHeight > boxTop + 50) {
-					$(this).addClass("is-active");
-				} else {
-					// $(this).removeClass("is-active");
-				}
-			});
-    	});
-	});
-
-	setTimeout(function() {
-		$(".text81").each(function() {
+	$(window).on('load', function() {
+		$(".text80").each(function() {
 			$(this).addClass("is-active");
 		});
-	}, 500);
-	setTimeout(function() {
 		$(".text82").each(function() {
 			$(this).addClass("is-active82");
 		});
-	}, 500);
-
-
-
+	});
 
 	// サムネイルのスライダー
 	window.onload = function() {
@@ -727,31 +728,6 @@ visibility: visible;
 			});
 		}
 	}
-
-	// MW WP FORMのスクロール位置調整
-	$(function(){
-
-		let target01 = $(".mw_wp_form").eq(0);	// 資料請求フォーム
-		let target02 = $(".mw_wp_form").eq(1);	// お問い合わせフォーム
-
-		if (target01.hasClass('mw_wp_form_confirm') || target01.hasClass('mw_wp_form_complete')) {
-			var posy = $(target01).offset().top - 80;
-			posy = posy + parseInt(mwform_scroll.offset);
-			$('body').scrollTop(posy);
-			$(window).scrollTop(posy);
-		} else if (target02.hasClass('mw_wp_form_confirm') || target02.hasClass('mw_wp_form_complete')) {
-			var posy = $(target02).offset().top - 80;
-			posy = posy + parseInt(mwform_scroll.offset);
-			$('body').scrollTop(posy);
-			$(window).scrollTop(posy);
-		} 
-
-		//規約チェックボックスの文言変更
-		$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy-lp/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
-
-	});
-
-
 
 	// モーダルを開く関数
 	function openModal() {
@@ -803,7 +779,17 @@ visibility: visible;
 			var modalExhibSurface = document.getElementById('modal-exhib-surface');
 			var modalExhibSize = document.getElementById('modal-exhib-size');
 			var modalExhibArea = document.getElementById('modal-exhib-area');
-			
+
+			// 非表示可能性モーダル項目
+			var modalClient = document.getElementById('lp-modal-client');
+			var modalName = document.getElementById('lp-modal-name');
+			var modalAddr = document.getElementById('lp-modal-addr');
+			var modalBoots = document.getElementById('lp-modal-boots');
+			var modalSurface = document.getElementById('lp-modal-surface');
+			var modalSize = document.getElementById('lp-modal-size');
+			var modalArea = document.getElementById('lp-modal-area');
+
+			// 表示非表示
 			if (exhibClientTitle) {
 				modalExhibClientTitle.textContent = exhibClientTitle + '様';
 				modalExhibClientTitle.style.display = 'block';
@@ -812,54 +798,76 @@ visibility: visible;
 			}
 
 			if (exhibClient) {
-				modalExhibClient.textContent = 'クライアント名: ' + exhibClient;
-				modalExhibClient.style.display = 'block';
+				modalExhibClient.textContent = exhibClient;
 			} else {
 				modalExhibClient.style.display = 'none';
+				modalClient.style.display = 'none';
 			}
 
 			if (exhibName) {
-				modalExhibName.textContent = '展示会名: ' + exhibName;
-				modalExhibName.style.display = 'block';
+				modalExhibName.textContent = exhibName;
 			} else {
 				modalExhibName.style.display = 'none';
+				modalName.style.display = 'none';
 			}
 
 			if (exhibAddr) {
-				modalExhibAddr.textContent = '開催場所: ' + exhibAddr;
-				modalExhibAddr.style.display = 'block';
+				modalExhibAddr.textContent = exhibAddr;
 			} else {
 				modalExhibAddr.style.display = 'none';
+				modalAddr.style.display = 'none';
 			}
 
 			if (exhibBoots) {
-				modalExhibBoots.textContent = '小間数: ' + exhibBoots;
-				modalExhibBoots.style.display = 'block';
+				modalExhibBoots.textContent = exhibBoots;
 			} else {
 				modalExhibBoots.style.display = 'none';
+				modalBoots.style.display = 'none';
 			}
 
 			if (exhibSurface) {
-				modalExhibSurface.textContent = '開放面: ' + exhibSurface;
-				modalExhibSurface.style.display = 'block';
+				modalExhibSurface.textContent = exhibSurface;
 			} else {
 				modalExhibSurface.style.display = 'none';
+				modalSurface.style.display = 'none';
 			}
 
 			if (exhibWidth && exhibHeight) {
-				modalExhibSize.textContent = 'サイズ: ' + exhibWidth + 'm X ' + exhibHeight + 'm';
-				modalExhibSize.style.display = 'block';
+				modalExhibSize.textContent = exhibWidth + 'm X ' + exhibHeight + 'm';
 			} else {
 				modalExhibSize.style.display = 'none';
+				modalSize.style.display = 'none';
 			}
 
 			if (exhibArea) {
-				modalExhibArea.textContent = '面積: ' + exhibArea + '㎡';
-				modalExhibArea.style.display = 'block';
+				modalExhibArea.textContent = exhibArea + '㎡';
 			} else {
 				modalExhibArea.style.display = 'none';
+				modalArea.style.display = 'none';
 			}
+
 			openModal();
 		});
+	});
+
+	// MW WP FORMのスクロール位置調整
+	$(function(){
+		let target01 = $(".mw_wp_form").eq(0);	// 資料請求フォーム
+		let target02 = $(".mw_wp_form").eq(1);	// お問い合わせフォーム
+
+		if (target01.hasClass('mw_wp_form_confirm') || target01.hasClass('mw_wp_form_complete')) {
+			var posy = $(target01).offset().top - 80;
+			posy = posy + parseInt(mwform_scroll.offset);
+			$('body').scrollTop(posy);
+			$(window).scrollTop(posy);
+		} else if (target02.hasClass('mw_wp_form_confirm') || target02.hasClass('mw_wp_form_complete')) {
+			var posy = $(target02).offset().top - 80;
+			posy = posy + parseInt(mwform_scroll.offset);
+			$('body').scrollTop(posy);
+			$(window).scrollTop(posy);
+		} 
+
+		//規約チェックボックスの文言変更
+		$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy-lp/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
 	});
 </script>
