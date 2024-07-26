@@ -285,31 +285,31 @@ visibility: visible;
 					<table class="exhibi-tbl lp-modal-table lp-modal-inner-text">
 						<tbody>
 							<tr>
-								<td id="lp-modal-client" class="lp-modal-td">クライアント名</td>
+								<td id="lp-modal-client" class="lp-modal-td">クライアント名：</td>
 								<td id="modal-exhib-client"></td>
 							</tr>
 							<tr>
-								<td id="lp-modal-name" class="lp-modal-td">展示会名</td>
+								<td id="lp-modal-name" class="lp-modal-td">展示会名：</td>
 								<td id="modal-exhib-name"></td>
 							</tr>
 							<tr>
-								<td id="lp-modal-addr" class="lp-modal-td">開催場所</td>
+								<td id="lp-modal-addr" class="lp-modal-td">開催場所：</td>
 								<td id="modal-exhib-addr"></td>
 							</tr>
 							<tr>
-								<td id="lp-modal-boots" class="lp-modal-td">小間数</td>
+								<td id="lp-modal-boots" class="lp-modal-td">小間数：</td>
 								<td id="modal-exhib-boots"></td>
 							</tr>
 							<tr>
-								<td id="lp-modal-surface" class="lp-modal-td">開放面</td>
+								<td id="lp-modal-surface" class="lp-modal-td">開放面：</td>
 								<td id="modal-exhib-surface"></td>
 							</tr>
 							<tr>
-								<td id="lp-modal-size" class="lp-modal-td">サイズ</td>
+								<td id="lp-modal-size" class="lp-modal-td">サイズ：</td>
 								<td id="modal-exhib-size"></td>
 							</tr>
 							<tr>
-								<td id="lp-modal-area" class="lp-modal-td">面積</td>
+								<td id="lp-modal-area" class="lp-modal-td">面積：</td>
 								<td id="modal-exhib-area"></td>
 							</tr>
 						</tbody>
@@ -851,49 +851,49 @@ visibility: visible;
 			}
 
 			if (exhibClient) {
-				modalExhibClient.textContent = ':' + exhibClient;
+				modalExhibClient.textContent = exhibClient;
 			} else {
 				modalExhibClient.style.display = 'none';
 				modalClient.style.display = 'none';
 			}
 
 			if (exhibName) {
-				modalExhibName.textContent =  ':' + exhibName;
+				modalExhibName.textContent = exhibName;
 			} else {
 				modalExhibName.style.display = 'none';
 				modalName.style.display = 'none';
 			}
 
 			if (exhibAddr) {
-				modalExhibAddr.textContent =  ':' + exhibAddr;
+				modalExhibAddr.textContent = exhibAddr;
 			} else {
 				modalExhibAddr.style.display = 'none';
 				modalAddr.style.display = 'none';
 			}
 
 			if (exhibBoots) {
-				modalExhibBoots.textContent =  ':' + exhibBoots;
+				modalExhibBoots.textContent = exhibBoots;
 			} else {
 				modalExhibBoots.style.display = 'none';
 				modalBoots.style.display = 'none';
 			}
 
 			if (exhibSurface) {
-				modalExhibSurface.textContent =  ':' + exhibSurface;
+				modalExhibSurface.textContent = exhibSurface;
 			} else {
 				modalExhibSurface.style.display = 'none';
 				modalSurface.style.display = 'none';
 			}
 
 			if (exhibWidth && exhibHeight) {
-				modalExhibSize.textContent =  ':' + exhibWidth + 'm X ' + exhibHeight + 'm';
+				modalExhibSize.textContent = exhibWidth + 'm X ' + exhibHeight + 'm';
 			} else {
 				modalExhibSize.style.display = 'none';
 				modalSize.style.display = 'none';
 			}
 
 			if (exhibArea) {
-				modalExhibArea.textContent =  ':' + exhibArea + '㎡';
+				modalExhibArea.textContent = exhibArea + '㎡';
 			} else {
 				modalExhibArea.style.display = 'none';
 				modalArea.style.display = 'none';
