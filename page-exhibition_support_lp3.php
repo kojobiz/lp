@@ -275,7 +275,7 @@ visibility: visible;
 					<table class="exhibi-tbl lp-modal-table">
 						<tbody>
 							<tr>
-								<td>クライアント名：</td>
+								<td id="modal-client"></td>
 								<td id="modal-exhib-client"></td>
 							</tr>
 							<tr>
@@ -766,7 +766,7 @@ visibility: visible;
 		} 
 
 		//規約チェックボックスの文言変更
-		$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
+		$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy-lp/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
 
 	});
 
@@ -823,11 +823,15 @@ visibility: visible;
 			var modalExhibSize = document.getElementById('modal-exhib-size');
 			var modalExhibArea = document.getElementById('modal-exhib-area');
 			
+			// 項目表示
+			var modalClient = document.getElementById('modal-client');
+
 			if (exhibClientTitle) {
 				modalExhibClientTitle.textContent = exhibClientTitle + '様';
 				modalExhibClientTitle.style.display = 'block';
 			} else {
 				modalExhibClientTitle.style.display = 'none';
+				modalClient.style.display = 'none';
 			}
 
 			if (exhibClient) {
