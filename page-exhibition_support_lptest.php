@@ -55,6 +55,15 @@ get_header('lp');
 .lp-exhib-infos {
 	width: 100%!important;
 }
+.exhib-infos {
+	height:80%;
+	width:auto;
+	object-fit:cover!important;
+	overflow:auto;
+}
+.exhib-infos .exhib-visual {
+	object-fit:cover!important;
+}
 .lp-exhib-infos-inner {
 	width: 100%!important;
 }
@@ -124,6 +133,12 @@ get_header('lp');
 		max-width: 100%!important;
 		height: 320px!important;
 		object-fit: cover!important;	
+	}
+	.lp-modal-table {
+		padding-top:18px;
+	}
+	.work-header .ttl {
+		font-size:1.8rem;
 	}
 }
 
@@ -230,7 +245,7 @@ get_header('lp');
 						<h2 class="ttl" id="modal-exhib-client-title"></h2>
 					</div>
 				</div>
-				<div class="exhib-infos">
+				<div class="exhib-infos lp-exhib-infos-table-div">
 					<img id="modal-img" src="" width="600" height="auto" class="pic exhib-visual lp-modal-inner-img">
 					<!-- テーブル -->
 					<table class="exhibi-tbl lp-modal-table lp-modal-inner-text">
