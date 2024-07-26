@@ -170,6 +170,14 @@ get_header('lp');
 		.lp-modal-inner-text {
 			font-size: 1.2rem;
 		}
+
+		.copyright {
+			padding-bottom: 1em !important;
+		}
+
+		.page-top {
+			bottom: 2.2rem !important;
+		}
 	}
 </style>
 
