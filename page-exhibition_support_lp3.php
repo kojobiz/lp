@@ -62,6 +62,10 @@ get_header('lp');
 		vertical-align: baseline;
 	}
 
+	.lp-modal-td-second {
+		vertical-align: baseline;
+	}
+
 	.lp-exhib-infos {
 		width: 100% !important;
 	}
@@ -93,9 +97,9 @@ get_header('lp');
 		overflow: auto;
 	}
 
-	.lp-modal-table {
+	/* .lp-modal-table {
 		text-wrap: nowrap;
-	}
+	} */
 
 	.lp-work-header {
 		padding-bottom: 50px;
@@ -318,31 +322,31 @@ get_header('lp');
 								<tbody>
 									<tr>
 										<td id="lp-modal-client" class="lp-modal-td">クライアント名：</td>
-										<td id="modal-exhib-client"></td>
+										<td id="modal-exhib-client" class="lp-modal-td-second"></td>
 									</tr>
 									<tr>
 										<td id="lp-modal-name" class="lp-modal-td">展示会名：</td>
-										<td id="modal-exhib-name"></td>
+										<td id="modal-exhib-name" class="lp-modal-td-second"></td>
 									</tr>
 									<tr>
 										<td id="lp-modal-addr" class="lp-modal-td">開催場所：</td>
-										<td id="modal-exhib-addr"></td>
+										<td id="modal-exhib-addr" class="lp-modal-td-second"></td>
 									</tr>
 									<tr>
 										<td id="lp-modal-boots" class="lp-modal-td">小間数：</td>
-										<td id="modal-exhib-boots"></td>
+										<td id="modal-exhib-boots" class="lp-modal-td-second"></td>
 									</tr>
 									<tr>
 										<td id="lp-modal-surface" class="lp-modal-td">開放面：</td>
-										<td id="modal-exhib-surface"></td>
+										<td id="modal-exhib-surface" class="lp-modal-td-second"></td>
 									</tr>
 									<tr>
 										<td id="lp-modal-size" class="lp-modal-td">サイズ：</td>
-										<td id="modal-exhib-size"></td>
+										<td id="modal-exhib-size" class="lp-modal-td-second"></td>
 									</tr>
 									<tr>
 										<td id="lp-modal-area" class="lp-modal-td">面積：</td>
-										<td id="modal-exhib-area"></td>
+										<td id="modal-exhib-area" class="lp-modal-td-second"></td>
 									</tr>
 								</tbody>
 							</table>
