@@ -58,8 +58,6 @@ get_header('lp');
 .exhib-infos {
 	height:80%;
 	width:auto;
-	object-fit:cover!important;
-	overflow:auto;
 }
 .exhib-infos .exhib-visual {
 	object-fit:cover!important;
@@ -78,6 +76,7 @@ get_header('lp');
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -55%);
+	overflow:auto;
 }
 .lp-modal-table {
 	text-wrap: nowrap;
@@ -139,6 +138,9 @@ get_header('lp');
 	}
 	.work-header .ttl {
 		font-size:1.8rem;
+	}
+	.lp-modal-inner-text {
+		font-size: 1.2rem;
 	}
 }
 
