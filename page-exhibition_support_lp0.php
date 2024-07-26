@@ -94,29 +94,27 @@ get_header('lp');
     overflow: hidden;
     height: 100%;
 }
-.text80 {
-overflow: hidden;
-opacity: 0;
-visibility: hidden;
-transition: all 2s;
-transform: translateY(100px);
-}
-.text82 {
-overflow: hidden;
-opacity: 0;
-visibility: hidden;
-transition: all 2s;
-}
-.is-active {
-opacity: 1;
-visibility: visible;
-transform: translateY(0);
-}
-.is-active82 {
-opacity: 1;
-visibility: visible;
 
+/* 初期状態のスタイル */
+.text80, .text82 {
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2s, transform 2s;
 }
+
+/* アクティブ状態のスタイル */
+.text80.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.text82.is-active82 {
+    opacity: 1;
+    visibility: visible;
+}
+
 @media screen and (max-width: 833px) {
 	.lp-modal-inner {
 		grid-template-columns: 1fr;
@@ -126,6 +124,9 @@ visibility: visible;
 		max-width: 100%!important;
 		height: 320px!important;
 		object-fit: cover!important;	
+	}
+	.lp-modal-table {
+		padding-top: 18px;
 	}
 }
 
@@ -314,15 +315,6 @@ visibility: visible;
 							</tr>
 						</tbody>
 					</table>
-					<!-- <div class="lp-modal-inner-text">
-						<p id="modal-exhib-client"></p>
-						<p id="modal-exhib-name"></p>
-						<p id="modal-exhib-addr"></p>
-						<p id="modal-exhib-boots"></p>
-						<p id="modal-exhib-surface"></p>
-						<p id="modal-exhib-size"></p>
-						<p id="modal-exhib-area"></p>
-					</div> -->
 				</div>
             </figure> 
         </div>
@@ -683,6 +675,7 @@ visibility: visible;
 
 		$(window).resize(updateHeaderHeight);
 
+		// 表示速度の調整
 		$('.header-inner a[href^="#"]').on('click', function(event) {
 			event.preventDefault();
 			var targetId = $(this).attr("href");
@@ -694,34 +687,14 @@ visibility: visible;
 		});
 	});
 
-	// 表示速度の調整
-	$(function() {
-    	$(window).scroll(function() {
-			const scroll = $(window).scrollTop();
-			const windowHeight = $(window).height();
-			$(".text80").each(function() {
-				const boxTop = $(this).offset().top;
-				if (scroll + windowHeight > boxTop + 50) {
-					$(this).addClass("is-active");
-				} else {
-					// $(this).removeClass("is-active");
-				}
-			});
-    	});
-	});
-
-	setTimeout(function() {
-		$(".text81").each(function() {
+	$(window).on('load', function() {
+		$(".text80").each(function() {
 			$(this).addClass("is-active");
 		});
-	}, 500);
-	setTimeout(function() {
 		$(".text82").each(function() {
 			$(this).addClass("is-active82");
 		});
-	}, 500);
-
-
+	});
 
 
 	// サムネイルのスライダー
@@ -757,29 +730,7 @@ visibility: visible;
 		}
 	}
 
-	// MW WP FORMのスクロール位置調整
-	$(function(){
-
-		let target01 = $(".mw_wp_form").eq(0);	// 資料請求フォーム
-		let target02 = $(".mw_wp_form").eq(1);	// お問い合わせフォーム
-
-		if (target01.hasClass('mw_wp_form_confirm') || target01.hasClass('mw_wp_form_complete')) {
-			var posy = $(target01).offset().top - 80;
-			posy = posy + parseInt(mwform_scroll.offset);
-			$('body').scrollTop(posy);
-			$(window).scrollTop(posy);
-		} else if (target02.hasClass('mw_wp_form_confirm') || target02.hasClass('mw_wp_form_complete')) {
-			var posy = $(target02).offset().top - 80;
-			posy = posy + parseInt(mwform_scroll.offset);
-			$('body').scrollTop(posy);
-			$(window).scrollTop(posy);
-		} 
-
-		//規約チェックボックスの文言変更
-		$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy-lp/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
-
-	});
-
+	
 
 
 	// モーダルを開く関数
@@ -902,6 +853,28 @@ visibility: visible;
 			openModal();
 		});
 	});
+
+	// MW WP FORMのスクロール位置調整
+	$(function(){
+		let target01 = $(".mw_wp_form").eq(0);	// 資料請求フォーム
+		let target02 = $(".mw_wp_form").eq(1);	// お問い合わせフォーム
+
+		if (target01.hasClass('mw_wp_form_confirm') || target01.hasClass('mw_wp_form_complete')) {
+			var posy = $(target01).offset().top - 80;
+			posy = posy + parseInt(mwform_scroll.offset);
+			$('body').scrollTop(posy);
+			$(window).scrollTop(posy);
+		} else if (target02.hasClass('mw_wp_form_confirm') || target02.hasClass('mw_wp_form_complete')) {
+			var posy = $(target02).offset().top - 80;
+			posy = posy + parseInt(mwform_scroll.offset);
+			$('body').scrollTop(posy);
+			$(window).scrollTop(posy);
+		} 
+
+		//規約チェックボックスの文言変更
+		$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy-lp/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
+	});
+
 
 	
 </script>
