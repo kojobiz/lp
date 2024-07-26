@@ -42,7 +42,7 @@
 				</div>
 				<div class="area02">
 					<nav class="footer-navi">
-                        <p><a href="https://ikkosha.co.jp/privacy-policy/" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a></p>
+                        <p><a href="https://ikkosha.co.jp/privacy-policy-lp/" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a></p>
 					</nav>
 				</div>
 			</div>
