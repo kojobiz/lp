@@ -320,7 +320,6 @@ get_header('lp');
         </div>
     </div>
 </div>
-<!-- テスト２ここまで -->
 <?php //endif; ?>
 <?php wp_reset_postdata(); ?>
 
