@@ -58,6 +58,8 @@ get_header('lp');
 	.lp-modal-td {
 		width: 20%;
 		height: 26px;
+		text-wrap: nowrap;
+		vertical-align: baseline;
 	}
 
 	.lp-exhib-infos {
