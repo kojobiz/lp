@@ -48,9 +48,9 @@
 	.lp-navi-menu-ul li {
 		text-wrap: nowrap!important;
 	}
-	.lp-navi-menu-ul li:not(:last-child) {
+	/* .lp-navi-menu-ul li:not(:last-child) {
 		margin-right: 15px!important;
-	}
+	} */
 	</style>
 
 	<!-- Google Fonts -->
