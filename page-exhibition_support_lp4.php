@@ -284,7 +284,7 @@ get_header('lp');
 					<ul class="l-column col-3 col-1-tab work-list work-exhib-list">
 						<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
 							<li class="work-item text80">
-								<div href="<?php the_permalink(); ?>" target="_blank" class="variableBox" data-exhib-client-title="<?php echo get_field('exhib-client', $post->ID); ?>" data-exhib-client="<?php echo get_field('exhib-client', $post->ID); ?>" data-exhib-name="<?php echo get_field('exhib-name', $post->ID); ?>" data-exhib-addr="<?php echo get_field('exhib-addr', $post->ID); ?>" data-exhib-boots="<?php echo get_field('exhib-boots', $post->ID); ?>" data-exhib-surface="<?php echo get_field('exhib-surface', $post->ID); ?>" data-exhib-width="<?php echo get_field('exhib-width', $post->ID); ?>" data-exhib-height="<?php echo get_field('exhib-height', $post->ID); ?>" data-content01="<?php echo get_field('content01', $post->ID); ?>">
+								<div href="<?php the_permalink(); ?>" target="_blank" class="variableBox" data-exhib-client-title="<?php echo get_field('exhib-client', $post->ID); ?>" data-exhib-client="<?php echo get_field('exhib-client', $post->ID); ?>" data-exhib-name="<?php echo get_field('exhib-name', $post->ID); ?>" data-exhib-addr="<?php echo get_field('exhib-addr', $post->ID); ?>" data-exhib-boots="<?php echo get_field('exhib-boots', $post->ID); ?>" data-exhib-surface="<?php echo get_field('exhib-surface', $post->ID); ?>" data-exhib-width="<?php echo get_field('exhib-width', $post->ID); ?>" data-exhib-height="<?php echo get_field('exhib-height', $post->ID); ?>">
 									<figure class="inner">
 										<?php if (has_post_thumbnail()) : ?>
 											<?php the_post_thumbnail('large', array('class' => 'pic')); ?>
@@ -368,10 +368,7 @@ get_header('lp');
 										<td id="lp-modal-area" class="lp-modal-td">面積：</td>
 										<td id="modal-exhib-area" class="lp-modal-td-second"></td>
 									</tr>
-									<tr>
-										<td id="lp-modal-content01" class="lp-modal-td">詳細：</td>
-										<td id="modal-exhib-content01" class="lp-modal-td-second"></td>
-									</tr>
+
 								</tbody>
 							</table>
 						</div>
@@ -825,7 +822,7 @@ get_footer('lp');
 			var exhibSurface = item.getAttribute('data-exhib-surface');
 			var exhibWidth = parseFloat(item.getAttribute('data-exhib-width'));
 			var exhibHeight = parseFloat(item.getAttribute('data-exhib-height'));
-			var Content01 = item.getAttribute('data-content01');
+
 			// var exhibWidth = item.getAttribute('data-exhib-width');
 			// var exhibHeight = item.getAttribute('data-exhib-height');
 			var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight).toFixed(1) : null;
@@ -841,7 +838,7 @@ get_footer('lp');
 			var modalExhibSurface = document.getElementById('modal-exhib-surface');
 			var modalExhibSize = document.getElementById('modal-exhib-size');
 			var modalExhibArea = document.getElementById('modal-exhib-area');
-			var modalExhibContent01 = document.getElementById('modal-exhib-content01');
+
 
 			// 非表示可能性モーダル項目
 			var modalClient = document.getElementById('lp-modal-client');
@@ -851,7 +848,7 @@ get_footer('lp');
 			var modalSurface = document.getElementById('lp-modal-surface');
 			var modalSize = document.getElementById('lp-modal-size');
 			var modalArea = document.getElementById('lp-modal-area');
-			var modalContent01 = document.getElementById('lp-modal-content01');
+
 
 			// 表示非表示
 			if (exhibClientTitle) {
@@ -910,13 +907,6 @@ get_footer('lp');
 				modalArea.style.display = 'none';
 			}
 
-			if (Content01) {
-				modalExhibContent01.textContent = Content01;
-			} else {
-				modalExhibContent01.style.display = 'none';
-				modalContent01.style.display = 'none';
-			}
-
 			openModal();
 		});
 	});
@@ -940,35 +930,5 @@ get_footer('lp');
 
 		//規約チェックボックスの文言変更
 		$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy-lp/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
-	});
-
-	// 投稿をもっと見る
-	document.addEventListener('DOMContentLoaded', function() {
-		const loadMoreButton = document.getElementById('load-more');
-		let page = 1;
-
-		loadMoreButton.addEventListener('click', function() {
-			page++;
-			fetch(`/wp-json/wp/v2/works?per_page=8&page=${page}`)
-				.then(response => {
-					if (!response.ok) throw new Error('投稿の読み込みに失敗しました');
-					return response.json();
-				})
-				.then(data => {
-					if (data.length === 0) {
-						loadMoreButton.style.display = 'none';
-					} else {
-						const container = document.getElementById('post-container');
-						data.forEach(post => {
-							let postElement = document.createElement('div');
-							postElement.innerHTML = `<h2>${post.title.rendered}</h2><p>${post.excerpt.rendered}</p>`;
-							container.appendChild(postElement);
-						});
-					}
-				})
-				.catch(error => {
-					console.error(error);
-				});
-		});
 	});
 </script>
