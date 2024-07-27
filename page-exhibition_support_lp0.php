@@ -12,7 +12,7 @@
  *
  * @package ikkosha_theme
  */
-get_header('lp');
+get_header('lp1');
 ?>
 <style>
 	.lp-btn-radius-shadow {
