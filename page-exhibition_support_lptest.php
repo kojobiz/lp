@@ -429,41 +429,6 @@ get_header('lp');
 				document.body.classList.add('no-scroll');
 			}
 
-			// モーダルを閉じる関数
-			// function closeModal() {
-			// 	document.getElementById('modal').style.display = 'none';
-			// 	document.body.classList.remove('no-scroll');
-			// }
-
-			// モーダルを閉じるためのクリックイベント
-			// document.querySelector('.close-button').addEventListener('click', closeModal);
-
-			// モーダル外をクリックしたときに閉じる
-			// window.addEventListener('click', function(event) {
-			// 	if (event.target == document.getElementById('modal')) {
-			// 		closeModal();
-			// 	}
-			// });
-
-			// モーダルを閉じる関数
-			function closeModal() {
-				document.getElementById('modal').style.display = 'none';
-				document.body.classList.remove('no-scroll');
-
-				// モーダル内のリセットする要素の表示状態をリセット
-				document.getElementById('modal-exhib-boots').style.display = 'block';
-				document.getElementById('lp-modal-boots').style.display = 'block';
-			}
-
-			// モーダルを閉じるためのクリックイベント
-			document.querySelector('.close-button').addEventListener('click', closeModal);
-			window.addEventListener('click', function(event) {
-				if (event.target == document.getElementById('modal')) {
-					closeModal();
-				}
-			});
-
-
 
 			// モーダル出現,データ取得,null非表示,小数点第1位表示の処理
 			document.querySelectorAll('.variableBox').forEach(function(item) {
@@ -559,8 +524,48 @@ get_header('lp');
 						modalExhibArea.style.display = 'none';
 						modalArea.style.display = 'none';
 					}
-
 					openModal();
+
+					// モーダルを閉じる関数
+					function closeModal() {
+						document.getElementById('modal').style.display = 'none';
+						document.body.classList.remove('no-scroll');
+
+
+						var elementsToReset = [
+							'modal-exhib-client-title',
+							'lp-modal-client',
+							'modal-exhib-client',
+							'lp-modal-name',
+							'modal-exhib-name',
+							'lp-modal-addr',
+							'modal-exhib-addr',
+							'lp-modal-boots',
+							'modal-exhib-boots',
+							'lp-modal-surface',
+							'modal-exhib-surface',
+							'lp-modal-size',
+							'modal-exhib-size',
+							'lp-modal-area',
+							'modal-exhib-area'
+						];
+
+						elementsToReset.forEach(function(id) {
+							var element = document.getElementById(id);
+							if (element) {
+								element.style.removeProperty('display');
+							}
+						});
+					}
+
+					// モーダルを閉じるためのクリックイベント
+					document.querySelector('.close-button').addEventListener('click', closeModal);
+					window.addEventListener('click', function(event) {
+						if (event.target == document.getElementById('modal')) {
+							closeModal();
+						}
+					});
+
 				});
 			});
 
