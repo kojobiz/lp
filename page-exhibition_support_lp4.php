@@ -237,14 +237,12 @@ get_header('lp');
 	</section>
 	<!-- 実績紹介 -->
 	<article class="section-block svc-sec03">
-		<!-- pcでは12件、spでは8件表示 -->
 		<?php
 		$numItems = 12;
 		if (wp_is_mobile()) {
 			$numItems = 8;
 		}
-
-		// 投稿のクエリ設定 
+		// check for more page link 
 		$paged = (int) get_query_var('paged');
 		$args = array(
 			'posts_per_page' => $numItems + 1,
@@ -261,21 +259,15 @@ get_header('lp');
 				)
 			)
 		);
-
-		// 投稿の取得と、投稿数
 		$the_query = new WP_Query($args);
 		$totalItems = $the_query->found_posts;
-		// 投稿の表示とリセット
 		wp_reset_postdata();
-
 		// loop posts
 		$paged = (int) get_query_var('paged');
 		$args['posts_per_page'] = $numItems;
 		$args['paged'] = $paged;
 		$the_query = new WP_Query($args);
 		?>
-
-
 		<!-- テスト２ -->
 		<section class="content page-width" id="last-achvm-intro">
 			<h3 class="headline-03 svc-ttl03 text80">実績紹介</h3>
@@ -368,7 +360,6 @@ get_header('lp');
 										<td id="lp-modal-area" class="lp-modal-td">面積：</td>
 										<td id="modal-exhib-area" class="lp-modal-td-second"></td>
 									</tr>
-
 								</tbody>
 							</table>
 						</div>
@@ -379,7 +370,6 @@ get_header('lp');
 		<?php //endif; 
 		?>
 		<?php wp_reset_postdata(); ?>
-		<button id="load-more" data-page="1">もっと見る</button>
 
 
 		<!-- cta -->
@@ -664,6 +654,7 @@ get_header('lp');
 		</section>
 	</article>
 
+
 	<!-- ? -->
 	<?php //endif; 
 	?>
@@ -787,28 +778,12 @@ get_footer('lp');
 		}
 	}
 
+
 	// モーダルを開く関数
 	function openModal() {
 		document.getElementById('modal').style.display = 'block';
 		document.body.classList.add('no-scroll');
 	}
-
-	// モーダルを閉じる関数
-	function closeModal() {
-		document.getElementById('modal').style.display = 'none';
-		document.body.classList.remove('no-scroll');
-	}
-
-	// モーダルを閉じるためのクリックイベント
-	document.querySelector('.close-button').addEventListener('click', closeModal);
-
-	// モーダル外をクリックしたときに閉じる
-	window.addEventListener('click', function(event) {
-		if (event.target == document.getElementById('modal')) {
-			closeModal();
-		}
-	});
-
 	// モーダル出現,データ取得,null非表示,小数点第1位表示の処理
 	document.querySelectorAll('.variableBox').forEach(function(item) {
 		item.addEventListener('click', function(event) {
@@ -822,7 +797,6 @@ get_footer('lp');
 			var exhibSurface = item.getAttribute('data-exhib-surface');
 			var exhibWidth = parseFloat(item.getAttribute('data-exhib-width'));
 			var exhibHeight = parseFloat(item.getAttribute('data-exhib-height'));
-
 			// var exhibWidth = item.getAttribute('data-exhib-width');
 			// var exhibHeight = item.getAttribute('data-exhib-height');
 			var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight).toFixed(1) : null;
@@ -839,7 +813,6 @@ get_footer('lp');
 			var modalExhibSize = document.getElementById('modal-exhib-size');
 			var modalExhibArea = document.getElementById('modal-exhib-area');
 
-
 			// 非表示可能性モーダル項目
 			var modalClient = document.getElementById('lp-modal-client');
 			var modalName = document.getElementById('lp-modal-name');
@@ -848,7 +821,6 @@ get_footer('lp');
 			var modalSurface = document.getElementById('lp-modal-surface');
 			var modalSize = document.getElementById('lp-modal-size');
 			var modalArea = document.getElementById('lp-modal-area');
-
 
 			// 表示非表示
 			if (exhibClientTitle) {
@@ -906,8 +878,46 @@ get_footer('lp');
 				modalExhibArea.style.display = 'none';
 				modalArea.style.display = 'none';
 			}
-
 			openModal();
+
+			// モーダルを閉じる関数
+			function closeModal() {
+				document.getElementById('modal').style.display = 'none';
+				document.body.classList.remove('no-scroll');
+				// 閉じる時にdisplayをリセットする関数と処理
+				var elementsToReset = [
+					'modal-exhib-client-title',
+					'lp-modal-client',
+					'modal-exhib-client',
+					'lp-modal-name',
+					'modal-exhib-name',
+					'lp-modal-addr',
+					'modal-exhib-addr',
+					'lp-modal-boots',
+					'modal-exhib-boots',
+					'lp-modal-surface',
+					'modal-exhib-surface',
+					'lp-modal-size',
+					'modal-exhib-size',
+					'lp-modal-area',
+					'modal-exhib-area'
+				];
+				elementsToReset.forEach(function(id) {
+					var element = document.getElementById(id);
+					if (element) {
+						element.style.removeProperty('display');
+					}
+				});
+			}
+
+			// モーダルを閉じるためのクリックイベント
+			document.querySelector('.close-button').addEventListener('click', closeModal);
+			window.addEventListener('click', function(event) {
+				if (event.target == document.getElementById('modal')) {
+					closeModal();
+				}
+			});
+
 		});
 	});
 

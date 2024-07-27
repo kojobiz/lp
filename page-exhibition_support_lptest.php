@@ -386,7 +386,6 @@ get_header('lp');
 				});
 			});
 
-
 			// サムネイルのスライダー
 			window.onload = function() {
 				//ラッパー要素
@@ -421,15 +420,11 @@ get_header('lp');
 			}
 
 
-
-
 			// モーダルを開く関数
 			function openModal() {
 				document.getElementById('modal').style.display = 'block';
 				document.body.classList.add('no-scroll');
 			}
-
-
 			// モーダル出現,データ取得,null非表示,小数点第1位表示の処理
 			document.querySelectorAll('.variableBox').forEach(function(item) {
 				item.addEventListener('click', function(event) {
@@ -530,8 +525,7 @@ get_header('lp');
 					function closeModal() {
 						document.getElementById('modal').style.display = 'none';
 						document.body.classList.remove('no-scroll');
-
-
+						// 閉じる時にdisplayをリセットする関数と処理
 						var elementsToReset = [
 							'modal-exhib-client-title',
 							'lp-modal-client',
@@ -549,7 +543,6 @@ get_header('lp');
 							'lp-modal-area',
 							'modal-exhib-area'
 						];
-
 						elementsToReset.forEach(function(id) {
 							var element = document.getElementById(id);
 							if (element) {

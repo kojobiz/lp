@@ -717,10 +717,11 @@ get_footer('lp');
 		$('.header-inner a[href^="#"]').on('click', function(event) {
 			event.preventDefault();
 			var targetId = $(this).attr("href");
-			var targetOffset = $(targetId).offset().top;
+			// var targetOffset = $(targetId).offset().top;
 			var headerHeight = $(".header-inner").outerHeight();
 			$('html, body').animate({
-				scrollTop: targetOffset - headerHeight
+				scrollTop: headerHeight
+				// scrollTop: targetOffset - headerHeight
 			}, 500);
 		});
 	});
@@ -733,7 +734,6 @@ get_footer('lp');
 			$(this).addClass("is-active82");
 		});
 	});
-
 
 	// サムネイルのスライダー
 	window.onload = function() {
@@ -769,30 +769,11 @@ get_footer('lp');
 	}
 
 
-
-
 	// モーダルを開く関数
 	function openModal() {
 		document.getElementById('modal').style.display = 'block';
 		document.body.classList.add('no-scroll');
 	}
-
-	// モーダルを閉じる関数
-	function closeModal() {
-		document.getElementById('modal').style.display = 'none';
-		document.body.classList.remove('no-scroll');
-	}
-
-	// モーダルを閉じるためのクリックイベント
-	document.querySelector('.close-button').addEventListener('click', closeModal);
-
-	// モーダル外をクリックしたときに閉じる
-	window.addEventListener('click', function(event) {
-		if (event.target == document.getElementById('modal')) {
-			closeModal();
-		}
-	});
-
 	// モーダル出現,データ取得,null非表示,小数点第1位表示の処理
 	document.querySelectorAll('.variableBox').forEach(function(item) {
 		item.addEventListener('click', function(event) {
@@ -887,8 +868,46 @@ get_footer('lp');
 				modalExhibArea.style.display = 'none';
 				modalArea.style.display = 'none';
 			}
-
 			openModal();
+
+			// モーダルを閉じる関数
+			function closeModal() {
+				document.getElementById('modal').style.display = 'none';
+				document.body.classList.remove('no-scroll');
+				// 閉じる時にdisplayをリセットする関数と処理
+				var elementsToReset = [
+					'modal-exhib-client-title',
+					'lp-modal-client',
+					'modal-exhib-client',
+					'lp-modal-name',
+					'modal-exhib-name',
+					'lp-modal-addr',
+					'modal-exhib-addr',
+					'lp-modal-boots',
+					'modal-exhib-boots',
+					'lp-modal-surface',
+					'modal-exhib-surface',
+					'lp-modal-size',
+					'modal-exhib-size',
+					'lp-modal-area',
+					'modal-exhib-area'
+				];
+				elementsToReset.forEach(function(id) {
+					var element = document.getElementById(id);
+					if (element) {
+						element.style.removeProperty('display');
+					}
+				});
+			}
+
+			// モーダルを閉じるためのクリックイベント
+			document.querySelector('.close-button').addEventListener('click', closeModal);
+			window.addEventListener('click', function(event) {
+				if (event.target == document.getElementById('modal')) {
+					closeModal();
+				}
+			});
+
 		});
 	});
 
