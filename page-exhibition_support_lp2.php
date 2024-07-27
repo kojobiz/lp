@@ -12,7 +12,7 @@
  *
  * @package ikkosha_theme
  */
-get_header('lp');
+get_header('lp2');
 ?>
 <style>
 	.lp-btn-radius-shadow {
@@ -183,7 +183,7 @@ get_header('lp');
 		<ul class="page-list text82">
 			<?php if (get_field('consultation-form')) : ?>
 				<li>
-					<a href="<?php echo esc_url(home_url('/service')); ?>/exhibition_support/lp1#contact" style="border-radius: 99px; box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);">
+					<a href="<?php echo esc_url(home_url('/service')); ?>/exhibition_support/lp2#contact" style="border-radius: 99px; box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);">
 						<dl>
 							<dt>お見積り・出展について</dt>
 							<dd>「無料相談する」</dd>
