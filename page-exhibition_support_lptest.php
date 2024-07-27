@@ -146,6 +146,11 @@ get_header('lp');
 		visibility: visible;
 	}
 
+	#modal .reset-display {
+		display: block;
+		/* 必要に応じて適切な初期値を設定 */
+	}
+
 	@media screen and (max-width: 833px) {
 		.lp-work-header {
 			padding-bottom: 18px;
@@ -425,20 +430,40 @@ get_header('lp');
 			}
 
 			// モーダルを閉じる関数
+			// function closeModal() {
+			// 	document.getElementById('modal').style.display = 'none';
+			// 	document.body.classList.remove('no-scroll');
+			// }
+
+			// モーダルを閉じるためのクリックイベント
+			// document.querySelector('.close-button').addEventListener('click', closeModal);
+
+			// モーダル外をクリックしたときに閉じる
+			// window.addEventListener('click', function(event) {
+			// 	if (event.target == document.getElementById('modal')) {
+			// 		closeModal();
+			// 	}
+			// });
+
+			// モーダルを閉じる関数
 			function closeModal() {
 				document.getElementById('modal').style.display = 'none';
 				document.body.classList.remove('no-scroll');
+
+				// モーダル内のリセットする要素の表示状態をリセット
+				document.getElementById('modal-exhib-boots').style.display = 'block';
+				document.getElementById('lp-modal-boots').style.display = 'block';
 			}
 
 			// モーダルを閉じるためのクリックイベント
 			document.querySelector('.close-button').addEventListener('click', closeModal);
-
-			// モーダル外をクリックしたときに閉じる
 			window.addEventListener('click', function(event) {
 				if (event.target == document.getElementById('modal')) {
 					closeModal();
 				}
 			});
+
+
 
 			// モーダル出現,データ取得,null非表示,小数点第1位表示の処理
 			document.querySelectorAll('.variableBox').forEach(function(item) {
