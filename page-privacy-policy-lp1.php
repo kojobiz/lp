@@ -12,7 +12,7 @@
  * @package ikkosha_theme
  */
 
-get_header('lp');
+get_header('lp1');
 ?>
 
 	<div class="lower-headline lh-service">
@@ -64,4 +64,4 @@ get_header('lp');
 	</article>
 
 <?php
-get_footer('lp');
+get_footer('lp1');

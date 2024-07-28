@@ -142,7 +142,7 @@ if (is_home() && is_front_page()) {
 				<a href="<?php echo esc_url(home_url('/service')); ?>/exhibition_support/lp2#service-faq">よくあるご質問</a>
 			</li>
 			<li>
-				<a href="<?php echo esc_url(home_url('/privacy-policy')); ?>">プライバシーポリシー</a>
+				<a href="<?php echo esc_url(home_url('/privacy-policy-lp2')); ?>">プライバシーポリシー</a>
 			</li>
 			<li class="navi-contact">
 				<div class="navi-phone">
