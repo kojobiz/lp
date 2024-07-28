@@ -276,7 +276,16 @@ get_header('lp3');
 					<ul class="l-column col-3 col-1-tab work-list work-exhib-list">
 						<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
 							<li class="work-item text80">
-								<div href="<?php the_permalink(); ?>" target="_blank" class="variableBox" data-exhib-client-title="<?php echo get_field('exhib-client', $post->ID); ?>" data-exhib-client="<?php echo get_field('exhib-client', $post->ID); ?>" data-exhib-name="<?php echo get_field('exhib-name', $post->ID); ?>" data-exhib-addr="<?php echo get_field('exhib-addr', $post->ID); ?>" data-exhib-boots="<?php echo get_field('exhib-boots', $post->ID); ?>" data-exhib-surface="<?php echo get_field('exhib-surface', $post->ID); ?>" data-exhib-width="<?php echo get_field('exhib-width', $post->ID); ?>" data-exhib-height="<?php echo get_field('exhib-height', $post->ID); ?>">
+								<div href="<?php the_permalink(); ?>" target="_blank" class="variableBox" 
+								data-exhib-client-title="<?php echo get_field('exhib-client', $post->ID); ?>" 
+								data-exhib-client="<?php echo get_field('exhib-client', $post->ID); ?>" 
+								data-exhib-name="<?php echo get_field('exhib-name', $post->ID); ?>" 
+								data-exhib-addr="<?php echo get_field('exhib-addr', $post->ID); ?>" 
+								data-exhib-boots="<?php echo get_field('exhib-boots', $post->ID); ?>" 
+								data-exhib-surface="<?php echo get_field('exhib-surface', $post->ID); ?>" 
+								data-exhib-width="<?php echo get_field('exhib-width', $post->ID); ?>" 
+								data-exhib-height="<?php echo get_field('exhib-height', $post->ID); ?>"
+								data-exhib-content01-detail="<?php echo get_field('content01', $post->ID); ?>">
 									<figure class="inner">
 										<?php if (has_post_thumbnail()) : ?>
 											<?php the_post_thumbnail('large', array('class' => 'pic')); ?>
@@ -359,6 +368,10 @@ get_header('lp3');
 									<tr>
 										<td id="lp-modal-area" class="lp-modal-td">面積：</td>
 										<td id="modal-exhib-area" class="lp-modal-td-second"></td>
+									</tr>
+									<tr>
+										<td id="lp-modal-content01-detail" class="lp-modal-td">詳細：</td>
+										<td id="modal-exhib-content01-detail" class="lp-modal-td-second"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -698,247 +711,258 @@ get_footer('lp3');
 ?>
 
 <script>
-	// 遷移リロードしてからheaderの高さを取得しheaderHeight分オフセットをかける
-	$(document).ready(function() {
-		function updateHeaderHeight() {
-			var headerHeight = $(".header-inner").outerHeight();
-			$(".section").css("padding-top", headerHeight + "px");
-		}
+			// 遷移リロードしてからheaderの高さを取得しheaderHeight分オフセットをかける
+			$(document).ready(function() {
+				function updateHeaderHeight() {
+					var headerHeight = $(".header-inner").outerHeight();
+					$(".section").css("padding-top", headerHeight + "px");
+				}
 
-		function scrollToHash() {
-			var hash = window.location.hash;
-			if (hash) {
-				setTimeout(function() { // ページが完全にロードされた後に少し遅れて実行
-					var targetOffset = $(hash).offset().top;
+				function scrollToHash() {
+					var hash = window.location.hash;
+					if (hash) {
+						setTimeout(function() { // ページが完全にロードされた後に少し遅れて実行
+							var targetOffset = $(hash).offset().top;
+							var headerHeight = $(".header-inner").outerHeight();
+							$('html, body').animate({
+								scrollTop: targetOffset - headerHeight
+							}, 500);
+						}, 400);
+					}
+				}
+
+				updateHeaderHeight();
+				scrollToHash(); // ハッシュに基づいてスクロール
+
+				$(window).resize(updateHeaderHeight);
+
+				// 表示速度の調整
+				$('.header-inner a[href^="#"]').on('click', function(event) {
+					event.preventDefault();
+					var targetId = $(this).attr("href");
+					// var targetOffset = $(targetId).offset().top;
 					var headerHeight = $(".header-inner").outerHeight();
 					$('html, body').animate({
-						scrollTop: targetOffset - headerHeight
+						scrollTop: headerHeight
+						// scrollTop: targetOffset - headerHeight
 					}, 500);
-				}, 400);
-			}
-		}
-
-		updateHeaderHeight();
-		scrollToHash(); // ハッシュに基づいてスクロール
-
-		$(window).resize(updateHeaderHeight);
-
-		// 表示速度の調整
-		$('.header-inner a[href^="#"]').on('click', function(event) {
-			event.preventDefault();
-			var targetId = $(this).attr("href");
-			// var targetOffset = $(targetId).offset().top;
-			var headerHeight = $(".header-inner").outerHeight();
-			$('html, body').animate({
-				scrollTop: headerHeight
-				// scrollTop: targetOffset - headerHeight
-			}, 500);
-		});
-	});
-
-	$(window).on('load', function() {
-		$(".text80").each(function() {
-			$(this).addClass("is-active");
-		});
-		$(".text82").each(function() {
-			$(this).addClass("is-active82");
-		});
-	});
-
-	// サムネイルのスライダー
-	window.onload = function() {
-		//ラッパー要素
-		var sliderWrap = document.querySelectorAll('.slider-wrap');
-		//サムネイルのスライダー
-		var sliderThumb = document.querySelectorAll('.slider-thumb');
-		//メインのスライダー
-		var sliderMain = document.querySelectorAll('.slider-main');
-
-		for (let i = 0; i < sliderWrap.length; i++) {
-			//.slider-wrap、.slider-thumb、.slider-mainに01から始まる連番を振る
-			var num = ('00' + (i + 1)).slice(-2);
-			sliderWrap[i].className += (num);
-			sliderThumb[i].className += (num);
-			sliderMain[i].className += (num);
-			//サムネイル用のスライダー呼び出し&オプション指定
-			var swiperThumb = new Swiper('.slider-thumb' + (num), {
-				slidesPerView: 4,
-				freeMode: true,
-				watchSlidesVisibility: true,
-				watchSlidesProgress: true,
-				spaceBetween: 4,
-			});
-			//メインのスライダー呼び出し&オプション指定
-			var swiperMain = new Swiper('.slider-main' + (num), {
-				thumbs: {
-					swiper: swiperThumb,
-				},
-				slidesPerView: 1,
-			});
-		}
-	}
-
-
-	// モーダルを開く関数
-	function openModal() {
-		document.getElementById('modal').style.display = 'block';
-		document.body.classList.add('no-scroll');
-	}
-	// モーダル出現,データ取得,null非表示,小数点第1位表示の処理
-	document.querySelectorAll('.variableBox').forEach(function(item) {
-		item.addEventListener('click', function(event) {
-			event.preventDefault();
-			var imgSrc = item.querySelector('.pic').src;
-			var exhibClientTitle = item.getAttribute('data-exhib-client-title');
-			var exhibClient = item.getAttribute('data-exhib-client');
-			var exhibName = item.getAttribute('data-exhib-name');
-			var exhibAddr = item.getAttribute('data-exhib-addr');
-			var exhibBoots = item.getAttribute('data-exhib-boots');
-			var exhibSurface = item.getAttribute('data-exhib-surface');
-			var exhibWidth = parseFloat(item.getAttribute('data-exhib-width'));
-			var exhibHeight = parseFloat(item.getAttribute('data-exhib-height'));
-			// var exhibWidth = item.getAttribute('data-exhib-width');
-			// var exhibHeight = item.getAttribute('data-exhib-height');
-			var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight).toFixed(1) : null;
-			// var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight) : null;
-
-			document.getElementById('modal-img').src = imgSrc;
-
-			var modalExhibClientTitle = document.getElementById('modal-exhib-client-title');
-			var modalExhibClient = document.getElementById('modal-exhib-client');
-			var modalExhibName = document.getElementById('modal-exhib-name');
-			var modalExhibAddr = document.getElementById('modal-exhib-addr');
-			var modalExhibBoots = document.getElementById('modal-exhib-boots');
-			var modalExhibSurface = document.getElementById('modal-exhib-surface');
-			var modalExhibSize = document.getElementById('modal-exhib-size');
-			var modalExhibArea = document.getElementById('modal-exhib-area');
-
-			// 非表示可能性モーダル項目
-			var modalClient = document.getElementById('lp-modal-client');
-			var modalName = document.getElementById('lp-modal-name');
-			var modalAddr = document.getElementById('lp-modal-addr');
-			var modalBoots = document.getElementById('lp-modal-boots');
-			var modalSurface = document.getElementById('lp-modal-surface');
-			var modalSize = document.getElementById('lp-modal-size');
-			var modalArea = document.getElementById('lp-modal-area');
-
-			// 表示非表示
-			if (exhibClientTitle) {
-				modalExhibClientTitle.textContent = exhibClientTitle + '様';
-				modalExhibClientTitle.style.display = 'block';
-			} else {
-				modalExhibClientTitle.style.display = 'none';
-			}
-
-			if (exhibClient) {
-				modalExhibClient.textContent = exhibClient;
-			} else {
-				modalExhibClient.style.display = 'none';
-				modalClient.style.display = 'none';
-			}
-
-			if (exhibName) {
-				modalExhibName.textContent = exhibName;
-			} else {
-				modalExhibName.style.display = 'none';
-				modalName.style.display = 'none';
-			}
-
-			if (exhibAddr) {
-				modalExhibAddr.textContent = exhibAddr;
-			} else {
-				modalExhibAddr.style.display = 'none';
-				modalAddr.style.display = 'none';
-			}
-
-			if (exhibBoots) {
-				modalExhibBoots.textContent = exhibBoots;
-			} else {
-				modalExhibBoots.style.display = 'none';
-				modalBoots.style.display = 'none';
-			}
-
-			if (exhibSurface) {
-				modalExhibSurface.textContent = exhibSurface;
-			} else {
-				modalExhibSurface.style.display = 'none';
-				modalSurface.style.display = 'none';
-			}
-
-			if (exhibWidth && exhibHeight) {
-				modalExhibSize.textContent = exhibWidth + 'm X ' + exhibHeight + 'm';
-			} else {
-				modalExhibSize.style.display = 'none';
-				modalSize.style.display = 'none';
-			}
-
-			if (exhibArea) {
-				modalExhibArea.textContent = exhibArea + '㎡';
-			} else {
-				modalExhibArea.style.display = 'none';
-				modalArea.style.display = 'none';
-			}
-			openModal();
-
-			// モーダルを閉じる関数
-			function closeModal() {
-				document.getElementById('modal').style.display = 'none';
-				document.body.classList.remove('no-scroll');
-				// 閉じる時にdisplayをリセットする関数と処理
-				var elementsToReset = [
-					'modal-exhib-client-title',
-					'lp-modal-client',
-					'modal-exhib-client',
-					'lp-modal-name',
-					'modal-exhib-name',
-					'lp-modal-addr',
-					'modal-exhib-addr',
-					'lp-modal-boots',
-					'modal-exhib-boots',
-					'lp-modal-surface',
-					'modal-exhib-surface',
-					'lp-modal-size',
-					'modal-exhib-size',
-					'lp-modal-area',
-					'modal-exhib-area'
-				];
-				elementsToReset.forEach(function(id) {
-					var element = document.getElementById(id);
-					if (element) {
-						element.style.removeProperty('display');
-					}
 				});
-			}
-
-			// モーダルを閉じるためのクリックイベント
-			document.querySelector('.close-button').addEventListener('click', closeModal);
-			window.addEventListener('click', function(event) {
-				if (event.target == document.getElementById('modal')) {
-					closeModal();
-				}
 			});
 
-		});
-	});
+			$(window).on('load', function() {
+				$(".text80").each(function() {
+					$(this).addClass("is-active");
+				});
+				$(".text82").each(function() {
+					$(this).addClass("is-active82");
+				});
+			});
 
-	// MW WP FORMのスクロール位置調整
-	$(function() {
-		let target01 = $(".mw_wp_form").eq(0); // 資料請求フォーム
-		let target02 = $(".mw_wp_form").eq(1); // お問い合わせフォーム
+			// サムネイルのスライダー
+			window.onload = function() {
+				//ラッパー要素
+				var sliderWrap = document.querySelectorAll('.slider-wrap');
+				//サムネイルのスライダー
+				var sliderThumb = document.querySelectorAll('.slider-thumb');
+				//メインのスライダー
+				var sliderMain = document.querySelectorAll('.slider-main');
 
-		if (target01.hasClass('mw_wp_form_confirm') || target01.hasClass('mw_wp_form_complete')) {
-			var posy = $(target01).offset().top - 80;
-			posy = posy + parseInt(mwform_scroll.offset);
-			$('body').scrollTop(posy);
-			$(window).scrollTop(posy);
-		} else if (target02.hasClass('mw_wp_form_confirm') || target02.hasClass('mw_wp_form_complete')) {
-			var posy = $(target02).offset().top - 80;
-			posy = posy + parseInt(mwform_scroll.offset);
-			$('body').scrollTop(posy);
-			$(window).scrollTop(posy);
-		}
+				for (let i = 0; i < sliderWrap.length; i++) {
+					//.slider-wrap、.slider-thumb、.slider-mainに01から始まる連番を振る
+					var num = ('00' + (i + 1)).slice(-2);
+					sliderWrap[i].className += (num);
+					sliderThumb[i].className += (num);
+					sliderMain[i].className += (num);
+					//サムネイル用のスライダー呼び出し&オプション指定
+					var swiperThumb = new Swiper('.slider-thumb' + (num), {
+						slidesPerView: 4,
+						freeMode: true,
+						watchSlidesVisibility: true,
+						watchSlidesProgress: true,
+						spaceBetween: 4,
+					});
+					//メインのスライダー呼び出し&オプション指定
+					var swiperMain = new Swiper('.slider-main' + (num), {
+						thumbs: {
+							swiper: swiperThumb,
+						},
+						slidesPerView: 1,
+					});
+				}
+			}
 
-		//規約チェックボックスの文言変更
-		$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy-lp/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
-	});
-</script>
+
+			// モーダルを開く関数
+			function openModal() {
+				document.getElementById('modal').style.display = 'block';
+				document.body.classList.add('no-scroll');
+			}
+			// モーダル出現,データ取得,null非表示,小数点第1位表示の処理
+			document.querySelectorAll('.variableBox').forEach(function(item) {
+				item.addEventListener('click', function(event) {
+					event.preventDefault();
+					var imgSrc = item.querySelector('.pic').src;
+					var exhibClientTitle = item.getAttribute('data-exhib-client-title');
+					var exhibClient = item.getAttribute('data-exhib-client');
+					var exhibName = item.getAttribute('data-exhib-name');
+					var exhibAddr = item.getAttribute('data-exhib-addr');
+					var exhibBoots = item.getAttribute('data-exhib-boots');
+					var exhibSurface = item.getAttribute('data-exhib-surface');
+					var exhibWidth = parseFloat(item.getAttribute('data-exhib-width'));
+					var exhibHeight = parseFloat(item.getAttribute('data-exhib-height'));
+					var exhibContent01Detail = item.getAttribute('data-exhib-content01-detail');
+					// var exhibWidth = item.getAttribute('data-exhib-width');
+					// var exhibHeight = item.getAttribute('data-exhib-height');
+					var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight).toFixed(1) : null;
+					// var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight) : null;
+
+					document.getElementById('modal-img').src = imgSrc;
+
+					var modalExhibClientTitle = document.getElementById('modal-exhib-client-title');
+					var modalExhibClient = document.getElementById('modal-exhib-client');
+					var modalExhibName = document.getElementById('modal-exhib-name');
+					var modalExhibAddr = document.getElementById('modal-exhib-addr');
+					var modalExhibBoots = document.getElementById('modal-exhib-boots');
+					var modalExhibSurface = document.getElementById('modal-exhib-surface');
+					var modalExhibSize = document.getElementById('modal-exhib-size');
+					var modalExhibArea = document.getElementById('modal-exhib-area');
+					var modalExhibContent01Detail = document.getElementById('modal-exhib-content01-detail');
+
+					// 非表示可能性モーダル項目
+					var modalClient = document.getElementById('lp-modal-client');
+					var modalName = document.getElementById('lp-modal-name');
+					var modalAddr = document.getElementById('lp-modal-addr');
+					var modalBoots = document.getElementById('lp-modal-boots');
+					var modalSurface = document.getElementById('lp-modal-surface');
+					var modalSize = document.getElementById('lp-modal-size');
+					var modalArea = document.getElementById('lp-modal-area');
+					var modalContent01Detail = document.getElementById('lp-modal-content01-detail');
+
+					// 表示非表示
+					if (exhibClientTitle) {
+						modalExhibClientTitle.textContent = exhibClientTitle + '様';
+						modalExhibClientTitle.style.display = 'block';
+					} else {
+						modalExhibClientTitle.style.display = 'none';
+					}
+
+					if (exhibClient) {
+						modalExhibClient.textContent = exhibClient;
+					} else {
+						modalExhibClient.style.display = 'none';
+						modalClient.style.display = 'none';
+					}
+
+					if (exhibName) {
+						modalExhibName.textContent = exhibName;
+					} else {
+						modalExhibName.style.display = 'none';
+						modalName.style.display = 'none';
+					}
+
+					if (exhibAddr) {
+						modalExhibAddr.textContent = exhibAddr;
+					} else {
+						modalExhibAddr.style.display = 'none';
+						modalAddr.style.display = 'none';
+					}
+
+					if (exhibBoots) {
+						modalExhibBoots.textContent = exhibBoots;
+					} else {
+						modalExhibBoots.style.display = 'none';
+						modalBoots.style.display = 'none';
+					}
+
+					if (exhibSurface) {
+						modalExhibSurface.textContent = exhibSurface;
+					} else {
+						modalExhibSurface.style.display = 'none';
+						modalSurface.style.display = 'none';
+					}
+
+					if (exhibWidth && exhibHeight) {
+						modalExhibSize.textContent = exhibWidth + 'm X ' + exhibHeight + 'm';
+					} else {
+						modalExhibSize.style.display = 'none';
+						modalSize.style.display = 'none';
+					}
+
+					if (exhibArea) {
+						modalExhibArea.textContent = exhibArea + '㎡';
+					} else {
+						modalExhibArea.style.display = 'none';
+						modalArea.style.display = 'none';
+					}
+					if (exhibContent01Detail) {
+						modalExhibContent01Detail.textContent = 'none' + exhibContent01Detail;
+					} else {
+						modalExhibContent01Detail.style.display = 'none';
+						modalContent01Detail.style.display = 'none';
+					}
+					openModal();
+
+					// モーダルを閉じる関数
+					function closeModal() {
+						document.getElementById('modal').style.display = 'none';
+						document.body.classList.remove('no-scroll');
+						// 閉じる時にdisplayをリセットする関数と処理
+						var elementsToReset = [
+							'modal-exhib-client-title',
+							'lp-modal-client',
+							'modal-exhib-client',
+							'lp-modal-name',
+							'modal-exhib-name',
+							'lp-modal-addr',
+							'modal-exhib-addr',
+							'lp-modal-boots',
+							'modal-exhib-boots',
+							'lp-modal-surface',
+							'modal-exhib-surface',
+							'lp-modal-size',
+							'modal-exhib-size',
+							'lp-modal-area',
+							'modal-exhib-area',
+							'lp-modal-content01-detail',
+							'modal-exhib-content01-detail'
+						];
+						elementsToReset.forEach(function(id) {
+							var element = document.getElementById(id);
+							if (element) {
+								element.style.removeProperty('display');
+							}
+						});
+					}
+
+					// モーダルを閉じるためのクリックイベント
+					document.querySelector('.close-button').addEventListener('click', closeModal);
+					window.addEventListener('click', function(event) {
+						if (event.target == document.getElementById('modal')) {
+							closeModal();
+						}
+					});
+
+				});
+			});
+
+			// MW WP FORMのスクロール位置調整
+			$(function() {
+				let target01 = $(".mw_wp_form").eq(0); // 資料請求フォーム
+				let target02 = $(".mw_wp_form").eq(1); // お問い合わせフォーム
+
+				if (target01.hasClass('mw_wp_form_confirm') || target01.hasClass('mw_wp_form_complete')) {
+					var posy = $(target01).offset().top - 80;
+					posy = posy + parseInt(mwform_scroll.offset);
+					$('body').scrollTop(posy);
+					$(window).scrollTop(posy);
+				} else if (target02.hasClass('mw_wp_form_confirm') || target02.hasClass('mw_wp_form_complete')) {
+					var posy = $(target02).offset().top - 80;
+					posy = posy + parseInt(mwform_scroll.offset);
+					$('body').scrollTop(posy);
+					$(window).scrollTop(posy);
+				}
+
+				//規約チェックボックスの文言変更
+				$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy-lp/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
+			});
+		</script>
