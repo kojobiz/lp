@@ -326,13 +326,14 @@ get_header('lp1');
 										<td id="lp-modal-area" class="lp-modal-td">面積：</td>
 										<td id="modal-exhib-area" class="lp-modal-td-second"></td>
 									</tr>
-									
-									<tr>
-										<td id="lp-modal-content01-detail" class="lp-modal-td">詳細：</td>
-										<td id="modal-exhib-content01-detail" class="lp-modal-td-second"></td>
-									</tr>
 								</tbody>
 							</table>
+							<div>
+								<p>
+									<span id="lp-modal-content01-detail" class="lp-modal-td">詳細：</span>
+									<br><span id="modal-exhib-content01-detail" class="lp-modal-td-second"></span>
+								</p>
+							</div>
 						</div>
 					</figure>
 				</div>
