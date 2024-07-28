@@ -684,7 +684,7 @@ get_header('lp2');
 <?php endif; ?>
 <!-- footer -->
 <?php
-get_footer('lp');
+get_footer('lp2');
 ?>
 
 <script>
