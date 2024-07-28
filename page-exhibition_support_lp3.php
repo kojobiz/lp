@@ -268,7 +268,7 @@ get_header('lp3');
 		$args['paged'] = $paged;
 		$the_query = new WP_Query($args);
 		?>
-		<!-- テスト２ -->
+		<!-- 実績紹介UI -->
 		<section class="content page-width" id="last-achvm-intro">
 			<h3 class="headline-03 svc-ttl03 text80">実績紹介</h3>
 			<?php if ($the_query->have_posts()) : ?>
@@ -276,15 +276,7 @@ get_header('lp3');
 					<ul class="l-column col-3 col-1-tab work-list work-exhib-list">
 						<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
 							<li class="work-item text80">
-								< href="<?php the_permalink(); ?>" target="_blank" class="variableBox" 
-								data-exhib-client-title="<?php echo get_field('exhib-client', $post->ID); ?>" 
-								data-exhib-client="<?php echo get_field('exhib-client', $post->ID); ?>" 
-								data-exhib-name="<?php echo get_field('exhib-name', $post->ID); ?>" 
-								data-exhib-addr="<?php echo get_field('exhib-addr', $post->ID); ?>" 
-								data-exhib-boots="<?php echo get_field('exhib-boots', $post->ID); ?>" 
-								data-exhib-surface="<?php echo get_field('exhib-surface', $post->ID); ?>" 
-								data-exhib-width="<?php echo get_field('exhib-width', $post->ID); ?>" 
-								data-exhib-height="<?php echo get_field('exhib-height', $post->ID); ?>">
+								<div href="<?php the_permalink(); ?>" target="_blank" class="variableBox" data-exhib-client-title="<?php echo get_field('exhib-client', $post->ID); ?>" data-exhib-client="<?php echo get_field('exhib-client', $post->ID); ?>" data-exhib-name="<?php echo get_field('exhib-name', $post->ID); ?>" data-exhib-addr="<?php echo get_field('exhib-addr', $post->ID); ?>" data-exhib-boots="<?php echo get_field('exhib-boots', $post->ID); ?>" data-exhib-surface="<?php echo get_field('exhib-surface', $post->ID); ?>" data-exhib-width="<?php echo get_field('exhib-width', $post->ID); ?>" data-exhib-height="<?php echo get_field('exhib-height', $post->ID); ?>">
 									<figure class="inner">
 										<?php if (has_post_thumbnail()) : ?>
 											<?php the_post_thumbnail('large', array('class' => 'pic')); ?>
@@ -945,6 +937,6 @@ get_footer('lp3');
 				}
 
 				//規約チェックボックスの文言変更
-				$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy-lp/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
+				$('.accept-box .mwform-checkbox-field-text').html('<a href="<?php echo esc_url(home_url('privacy-policy-lp3/')); ?>" target="_blank" rel="noopener noreferrer" class="underline">プライバシーポリシー</a>に同意する');
 			});
 		</script>
