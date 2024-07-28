@@ -233,7 +233,16 @@ get_header('lp1');
 					<ul class="l-column col-3 col-1-tab work-list work-exhib-list">
 						<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
 							<li class="work-item text80">
-								<div href="<?php the_permalink(); ?>" target="_blank" class="variableBox" data-exhib-client-title="<?php echo get_field('exhib-client', $post->ID); ?>" data-exhib-client="<?php echo get_field('exhib-client', $post->ID); ?>" data-exhib-name="<?php echo get_field('exhib-name', $post->ID); ?>" data-exhib-addr="<?php echo get_field('exhib-addr', $post->ID); ?>" data-exhib-boots="<?php echo get_field('exhib-boots', $post->ID); ?>" data-exhib-surface="<?php echo get_field('exhib-surface', $post->ID); ?>" data-exhib-width="<?php echo get_field('exhib-width', $post->ID); ?>" data-exhib-height="<?php echo get_field('exhib-height', $post->ID); ?>">
+								<div href="<?php the_permalink(); ?>" target="_blank" class="variableBox" 
+								data-exhib-client-title="<?php echo get_field('exhib-client', $post->ID); ?>" 
+								data-exhib-client="<?php echo get_field('exhib-client', $post->ID); ?>" 
+								data-exhib-name="<?php echo get_field('exhib-name', $post->ID); ?>" 
+								data-exhib-addr="<?php echo get_field('exhib-addr', $post->ID); ?>" 
+								data-exhib-boots="<?php echo get_field('exhib-boots', $post->ID); ?>" 
+								data-exhib-surface="<?php echo get_field('exhib-surface', $post->ID); ?>" 
+								data-exhib-width="<?php echo get_field('exhib-width', $post->ID); ?>" 
+								data-exhib-height="<?php echo get_field('exhib-height', $post->ID); ?>"
+								data-exhib-content01-detail="<?php echo get_field('content01', $post->ID); ?>">
 									<figure class="inner">
 										<?php if (has_post_thumbnail()) : ?>
 											<?php the_post_thumbnail('large', array('class' => 'pic')); ?>
@@ -316,6 +325,11 @@ get_header('lp1');
 									<tr>
 										<td id="lp-modal-area" class="lp-modal-td">面積：</td>
 										<td id="modal-exhib-area" class="lp-modal-td-second"></td>
+									</tr>
+									
+									<tr>
+										<td id="lp-modal-content01-detail" class="lp-modal-td">詳細：</td>
+										<td id="modal-exhib-content01-detail" class="lp-modal-td-second"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -438,6 +452,7 @@ get_header('lp1');
 					var exhibSurface = item.getAttribute('data-exhib-surface');
 					var exhibWidth = parseFloat(item.getAttribute('data-exhib-width'));
 					var exhibHeight = parseFloat(item.getAttribute('data-exhib-height'));
+					var exhibContent01Detail = item.getAttribute('data-exhib-content01-detail');
 					// var exhibWidth = item.getAttribute('data-exhib-width');
 					// var exhibHeight = item.getAttribute('data-exhib-height');
 					var exhibArea = (exhibWidth && exhibHeight) ? (exhibWidth * exhibHeight).toFixed(1) : null;
@@ -453,6 +468,7 @@ get_header('lp1');
 					var modalExhibSurface = document.getElementById('modal-exhib-surface');
 					var modalExhibSize = document.getElementById('modal-exhib-size');
 					var modalExhibArea = document.getElementById('modal-exhib-area');
+					var modalExhibContent01Detail = document.getElementById('modal-exhib-content01-detail');
 
 					// 非表示可能性モーダル項目
 					var modalClient = document.getElementById('lp-modal-client');
@@ -462,6 +478,7 @@ get_header('lp1');
 					var modalSurface = document.getElementById('lp-modal-surface');
 					var modalSize = document.getElementById('lp-modal-size');
 					var modalArea = document.getElementById('lp-modal-area');
+					var modalContent01Detail = document.getElementById('lp-modal-content01-detail');
 
 					// 表示非表示
 					if (exhibClientTitle) {
@@ -519,6 +536,12 @@ get_header('lp1');
 						modalExhibArea.style.display = 'none';
 						modalArea.style.display = 'none';
 					}
+					if (exhibContent01Detail) {
+						modalExhibContent01Detail.textContent = 'none' + exhibContent01Detail;
+					} else {
+						modalExhibContent01Detail.style.display = 'none';
+						modalContent01Detail.style.display = 'none';
+					}
 					openModal();
 
 					// モーダルを閉じる関数
@@ -541,7 +564,9 @@ get_header('lp1');
 							'lp-modal-size',
 							'modal-exhib-size',
 							'lp-modal-area',
-							'modal-exhib-area'
+							'modal-exhib-area',
+							'lp-modal-content01-detail',
+							'modal-exhib-content01-detail'
 						];
 						elementsToReset.forEach(function(id) {
 							var element = document.getElementById(id);
