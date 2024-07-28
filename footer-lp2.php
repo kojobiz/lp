@@ -11,6 +11,15 @@
  */
 
 ?>
+<style>
+	.copyright {
+		padding-bottom: 1em !important;
+	}
+
+	.page-top {
+		bottom: 2.2rem !important;
+	}
+</style>
 
 </main>
 <a href="#" id="pageTop" class="page-top"></a>

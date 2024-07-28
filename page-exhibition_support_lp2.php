@@ -38,8 +38,7 @@ get_header('lp2');
 		width: 100% !important;
 		height: 100vh !important;
 		overflow: auto;
-		background-color: rgb(0, 0, 0);
-		background-color: rgba(0, 0, 0, 0.4);
+		background-color: rgba(0, 0, 0, 67%);
 	}
 
 	.lp-modal-inner {
@@ -48,9 +47,6 @@ get_header('lp2');
 		gap: 50px;
 	}
 
-	/* .lp-modal-inner-text p {
-	font-size: clamp(16px, 2vw, 10px);
-} */
 	.lp-modal-inner-text {
 		font-size: clamp(16px, 2vw, 10px);
 	}
@@ -96,10 +92,6 @@ get_header('lp2');
 		transform: translate(-50%, -55%);
 		overflow: auto;
 	}
-
-	/* .lp-modal-table {
-		text-wrap: nowrap;
-	} */
 
 	.lp-work-header {
 		padding-bottom: 50px;
@@ -147,6 +139,10 @@ get_header('lp2');
 	}
 
 	@media screen and (max-width: 833px) {
+		.lp-work-header {
+			padding-bottom: 18px;
+		}
+
 		.lp-modal-inner {
 			grid-template-columns: 1fr;
 			grid-template-rows: auto auto;
@@ -368,7 +364,7 @@ get_header('lp2');
 				<div class="inner">
 					<h2 class="headline-02 txt-center text80">ご相談・ご質問等ございましたら、お気軽にお問い合わせください</h2>
 					<div class="btn-column">
-						<a href="#contact" class="btn btn01 text80">
+						<a href="https://ikkosha.co.jp/service/exhibition_support/lp2#contact" class="btn btn01 text80">
 							<img src="<?php echo get_template_directory_uri() ?>/images/common/icon_mail02.png" width="25" height="20" alt="MAIL" class="icon">
 							メールでのお問い合わせ
 						</a>
@@ -533,7 +529,7 @@ get_header('lp2');
 			<div class="inner">
 				<h2 class="headline-02 txt-center">ご相談・ご質問等ございましたら、お気軽にお問い合わせください</h2>
 				<div class="btn-column">
-					<a href="#contact" class="btn btn01">
+					<a href="https://ikkosha.co.jp/service/exhibition_support/lp2#contact" class="btn btn01">
 						<img src="<?php echo get_template_directory_uri() ?>/images/common/icon_mail02.png" width="25" height="20" alt="MAIL" class="icon">
 						メールでのお問い合わせ
 					</a>
